@@ -7,20 +7,20 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
-namespace QuanLyDiemSinhVien
+namespace QuanLyDiemSinhVien.MonHocGUI
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMonHoc : DevExpress.XtraEditors.XtraForm
     {
-        public frmMain()
+        public frmMonHoc()
         {
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private void frmMonHoc_Load(object sender, EventArgs e)
         {
-
+            gcMonHoc.DataSource  = BUL.MonHocBUL.LoadMonHoc();
         }
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +50,12 @@
             this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(1348, 178);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "MGV: ...";
+            this.barStaticItem1.Id = 1;
+            this.barStaticItem1.Name = "barStaticItem1";
             // 
             // ribbonPage1
             // 
@@ -71,12 +77,6 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1348, 37);
             // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "MGV: ...";
-            this.barStaticItem1.Id = 1;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -89,6 +89,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,20 +7,15 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
-namespace QuanLyDiemSinhVien
+namespace QuanLyDiemSinhVien.LopGUI
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmLopGUI : DevExpress.XtraEditors.XtraForm
     {
-        public frmMain()
+        public frmLopGUI()
         {
             InitializeComponent();
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
