@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using Common;
 
 namespace QuanLyDiemSinhVien
 {
@@ -20,7 +21,9 @@ namespace QuanLyDiemSinhVien
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            MAGV.Caption = "Mã GV: " + Data.username;
+            HOTEN.Caption = "Họ tên: " + Data.mHoten;
+            NHOM.Caption = "Nhóm: " + Data.mGroup;
         }
     }
 }
