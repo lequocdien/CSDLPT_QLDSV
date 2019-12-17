@@ -9,15 +9,16 @@ namespace Common
 {
     public class Data
     {
-        public static SqlConnection con = new SqlConnection();
-        public static String connstr;
-        public static SqlDataReader myReader;
-        public static String servername = "";
-        public static String username = "";
-        public static String mlogin = "";
-        public static String password = "";
+        public static SqlConnection m_objCon = new SqlConnection();
+        public static String m_strConnectionString = string.Empty;
+        public static String m_strDatabaseName = "CSDLPT_QLDSV";
+        public static String m_strServerName = "";
+        public static String m_strUserID = "";
+        public static String m_strPassword = "";
 
-        public static String database = "QLDSV";
+        public static SqlDataReader myReader;
+        public static String mlogin = "";
+
         public static String remotelogin = "HTKN";
         public static String remotepassword = "12345";
         public static String mloginDN = "";

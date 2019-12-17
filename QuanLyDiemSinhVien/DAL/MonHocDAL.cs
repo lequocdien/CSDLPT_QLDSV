@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,11 @@ namespace DAL
     {
         public static DataTable LoadMonHoc()
         {
-            return DataProvider.TruyVanData("SELECT * FROM MONHOC");
+            if (DataProvider.ConnectDatabase(ConfigurationManager.AppSettings["ServerName"], ConfigurationManager.AppSettings["UserID"], ConfigurationManager.AppSettings["Password"]))
+            {
+                return DataProvider.ExecSQLQueryDataTable("SELECT * FROM MONHOC");
+            }
+            return null;
         }
     }
 }
