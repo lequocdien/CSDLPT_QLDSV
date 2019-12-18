@@ -34,12 +34,12 @@
             this.MAGV = new DevExpress.XtraBars.BarStaticItem();
             this.HOTEN = new DevExpress.XtraBars.BarStaticItem();
             this.NHOM = new DevExpress.XtraBars.BarStaticItem();
+            this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManagerFormMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).BeginInit();
@@ -83,6 +83,14 @@
             this.NHOM.Id = 3;
             this.NHOM.Name = "NHOM";
             // 
+            // btnMonHoc
+            // 
+            this.btnMonHoc.Caption = "Môn học";
+            this.btnMonHoc.Id = 4;
+            this.btnMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonHoc.ImageOptions.SvgImage")));
+            this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -94,17 +102,6 @@
             // 
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.MAGV);
-            this.ribbonStatusBar.ItemLinks.Add(this.HOTEN);
-            this.ribbonStatusBar.ItemLinks.Add(this.NHOM);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 808);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1732, 41);
             // 
             // ribbonPage2
             // 
@@ -119,13 +116,16 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Môn học";
             // 
-            // btnMonHoc
+            // ribbonStatusBar
             // 
-            this.btnMonHoc.Caption = "Môn học";
-            this.btnMonHoc.Id = 4;
-            this.btnMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btnMonHoc.Name = "btnMonHoc";
-            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
+            this.ribbonStatusBar.ItemLinks.Add(this.MAGV);
+            this.ribbonStatusBar.ItemLinks.Add(this.HOTEN);
+            this.ribbonStatusBar.ItemLinks.Add(this.NHOM);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 808);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1732, 41);
             // 
             // MdiManagerFormMain
             // 
@@ -144,7 +144,7 @@
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "frmMain";
+            this.Text = "Quản lý điểm sinh viên";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).EndInit();

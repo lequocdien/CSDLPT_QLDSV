@@ -18,9 +18,42 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             InitializeComponent();
         }
 
+        #region UI Event
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
-            gcMonHoc.DataSource  = BUL.MonHocBUL.LoadMonHoc();
+            dgvMonHoc.DataSource  = BUL.MonHocBUL.LoadMonHoc();
+            InitializeDataGridView();
         }
+
+        private void btnThemMonHoc_Click(object sender, EventArgs e)
+        {
+            string strMaMonHoc = txtMaMonHoc.Text;
+            string strTenMonHoc = txtTenMonHoc.Text;
+
+            if (string.IsNullOrWhiteSpace(strMaMonHoc))
+            {
+                MessageBox.Show("Mã môn học không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(strTenMonHoc))
+            {
+                MessageBox.Show("Tên môn học không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //TODO: Kiem tra trung ma
+            if(BUL.MonHocBUL.InsertMonHoc(strMaMonHoc, strTenMonHoc))
+            {
+                MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        #endregion 
+
+        #region Utilities
+        private void InitializeDataGridView()
+        {
+            dgvMonHoc.Columns[0].HeaderText = "Mã môn học";
+            dgvMonHoc.Columns[1].HeaderText = "Tên môn học";
+        }
+        #endregion
     }
 }

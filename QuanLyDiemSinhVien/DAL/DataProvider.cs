@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -27,14 +28,13 @@ namespace DAL
             }
             try
             {
-                Data.m_strServerName = x_strServerName;
-                Data.m_strUserID = x_strUserID;
-                Data.m_strPassword = x_strPassword;
+                Data.m_strServerNameDN = x_strServerName;
+                Data.m_strUserIDDN = x_strUserID;
+                Data.m_strPasswordDN = x_strPassword;
 
-                Data.m_strConnectionString = "Data Source=" + Data.m_strServerName + ";Initial Catalog=" +
-                      Data.m_strDatabaseName + ";User ID=" +
-                      Data.m_strUserID + ";password=" + Data.m_strPassword;
-                Data.m_objCon.ConnectionString = Data.m_strConnectionString;
+                string strConnectionString = "Data Source=" + Data.m_strServerNameDN + ";Initial Catalog=" +
+                       Data.DATABASE_NAME + ";User ID=" + Data.m_strUserIDDN + ";password=" + Data.m_strPasswordDN;
+                Data.m_objCon.ConnectionString = strConnectionString;
                 Data.m_objCon.Open();
                 return true;
             }

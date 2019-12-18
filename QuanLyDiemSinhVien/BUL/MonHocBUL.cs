@@ -27,5 +27,10 @@ namespace BUL
             }
             return null;
         }
+
+        public static bool InsertMonHoc(string x_strMaMonHoc, string x_strTenMonHoc)
+        {
+            return DAL.MonHocDAL.InsertMonHoc(x_strMaMonHoc, x_strTenMonHoc);
+        }
     }
 }
