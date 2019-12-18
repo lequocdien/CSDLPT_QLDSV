@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUL;
+using QuanLyDiemSinhVien.LopGUI;
+using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 
 namespace QuanLyDiemSinhVien.DangNhapGUI
 {
@@ -40,21 +42,24 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string user = txtTaiKhoan.Text.Trim();
-            string pass = txtMatKhau.Text.Trim();
+            string user = txtTaiKhoan.Text;
+            string pass = txtMatKhau.Text;
             if(DangNhapBUL.KiemTraTaiKhoan(user,pass)==0)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
+            Common.Data.mKhoa = cmbKhoa.SelectedIndex;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 1)
             {
                 MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
-            frmMain f = new frmMain();
+        //    frmLop f = new frmLop();
+            frmLop_SinhVien f = new frmLop_SinhVien();
             f.Show();
+            Common.Data.con.Close();
         }
     }
 }

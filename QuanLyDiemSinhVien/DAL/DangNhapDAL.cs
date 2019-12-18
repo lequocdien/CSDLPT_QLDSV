@@ -38,9 +38,14 @@ namespace DAL
             {
                 Data.mHoten = Data.myReader.GetString(1);
                 Data.mGroup = Data.myReader.GetString(2);
-                //  Data.con.Close();
+                Data.con.Close();
                 return 2;//Đăng nhập thành công
             }
+        }
+
+        public static bool KetNoiKhoaMoi()
+        {
+            return DataProvider.KetNoi();
         }
     }
 }

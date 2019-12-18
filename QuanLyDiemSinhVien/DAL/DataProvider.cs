@@ -38,7 +38,7 @@ namespace DAL
 
             catch (Exception e)
             {
-               // MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + e.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + e.Message, "", MessageBoxButtons.OK);
                 return false;
             }
         }
@@ -66,8 +66,8 @@ namespace DAL
             try
             {
                 // con = KetNoiDB();
-                if (Data.con.State == ConnectionState.Closed) Data.con.Open();
                 DataTable dt = new DataTable();
+                if (Data.con.State == ConnectionState.Closed) Data.con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(chuoiTruyVan, Data.con);
                 da.Fill(dt);
                 Data.con.Close();
@@ -98,8 +98,9 @@ namespace DAL
                     return false;
                 }
             }
-            catch
+            catch( Exception e)
             {
+                MessageBox.Show(""+e.Message, "", MessageBoxButtons.OK);
                 Data.con.Close();
                 return false;
             }

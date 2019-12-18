@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DangNhapDTO
+    public class LopDTO
     {
-        public string TENKHOA { get; set; }
-        public string TENSERVER { get; set; }
+        public string MALOP { get; set; }
+        public string TENLOP { get; set; }
+        public string MAKH { get; set; }
     }
 }

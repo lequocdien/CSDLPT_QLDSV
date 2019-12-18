@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Common
 {
@@ -25,5 +26,6 @@ namespace Common
         public static String mGroup = "";
         public static String mHoten = "";
         public static int mKhoa = 0;
+
     }
 }
