@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnThemMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMaMonHoc = new System.Windows.Forms.Label();
+            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
+            this.lblTenMonHoc = new System.Windows.Forms.Label();
+            this.txtTenMonHoc = new System.Windows.Forms.TextBox();
             this.dgvMonHoc = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTenMonHoc = new System.Windows.Forms.TextBox();
-            this.lblTenMonHoc = new System.Windows.Forms.Label();
-            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
-            this.lblMaMonHoc = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
@@ -47,16 +51,20 @@
             // 
             // btnThemMonHoc
             // 
+            this.btnThemMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThemMonHoc.ImageOptions.SvgImage")));
             this.btnThemMonHoc.Location = new System.Drawing.Point(12, 12);
             this.btnThemMonHoc.Name = "btnThemMonHoc";
-            this.btnThemMonHoc.Size = new System.Drawing.Size(112, 47);
+            this.btnThemMonHoc.Size = new System.Drawing.Size(142, 47);
             this.btnThemMonHoc.TabIndex = 0;
-            this.btnThemMonHoc.Text = "Thêm";
+            this.btnThemMonHoc.Text = "Thêm vào";
             this.btnThemMonHoc.Click += new System.EventHandler(this.btnThemMonHoc_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
+            this.panel1.Controls.Add(this.simpleButton3);
+            this.panel1.Controls.Add(this.simpleButton2);
+            this.panel1.Controls.Add(this.simpleButton1);
             this.panel1.Controls.Add(this.btnThemMonHoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -77,57 +85,24 @@
             this.panel2.Size = new System.Drawing.Size(551, 393);
             this.panel2.TabIndex = 3;
             // 
-            // dgvMonHoc
+            // lblMaMonHoc
             // 
-            this.dgvMonHoc.AllowUserToAddRows = false;
-            this.dgvMonHoc.AllowUserToDeleteRows = false;
-            this.dgvMonHoc.AllowUserToResizeRows = false;
-            this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMonHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.dgvMonHoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMonHoc.Location = new System.Drawing.Point(0, 0);
-            this.dgvMonHoc.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.dgvMonHoc.Name = "dgvMonHoc";
-            this.dgvMonHoc.ReadOnly = true;
-            this.dgvMonHoc.RowHeadersVisible = false;
-            this.dgvMonHoc.RowHeadersWidth = 62;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dgvMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvMonHoc.RowTemplate.Height = 28;
-            this.dgvMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonHoc.Size = new System.Drawing.Size(589, 393);
-            this.dgvMonHoc.TabIndex = 4;
+            this.lblMaMonHoc.AutoSize = true;
+            this.lblMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaMonHoc.ForeColor = System.Drawing.Color.White;
+            this.lblMaMonHoc.Location = new System.Drawing.Point(24, 132);
+            this.lblMaMonHoc.Name = "lblMaMonHoc";
+            this.lblMaMonHoc.Size = new System.Drawing.Size(135, 28);
+            this.lblMaMonHoc.TabIndex = 1;
+            this.lblMaMonHoc.Text = "Mã môn học:";
             // 
-            // panel3
+            // txtMaMonHoc
             // 
-            this.panel3.Controls.Add(this.dgvMonHoc);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 72);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.panel3.Size = new System.Drawing.Size(594, 393);
-            this.panel3.TabIndex = 5;
-            // 
-            // txtTenMonHoc
-            // 
-            this.txtTenMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenMonHoc.Location = new System.Drawing.Point(171, 183);
-            this.txtTenMonHoc.Name = "txtTenMonHoc";
-            this.txtTenMonHoc.Size = new System.Drawing.Size(368, 34);
-            this.txtTenMonHoc.TabIndex = 0;
+            this.txtMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaMonHoc.Location = new System.Drawing.Point(171, 129);
+            this.txtMaMonHoc.Name = "txtMaMonHoc";
+            this.txtMaMonHoc.Size = new System.Drawing.Size(368, 34);
+            this.txtMaMonHoc.TabIndex = 0;
             // 
             // lblTenMonHoc
             // 
@@ -140,24 +115,88 @@
             this.lblTenMonHoc.TabIndex = 1;
             this.lblTenMonHoc.Text = "Tên môn học:";
             // 
-            // txtMaMonHoc
+            // txtTenMonHoc
             // 
-            this.txtMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaMonHoc.Location = new System.Drawing.Point(171, 129);
-            this.txtMaMonHoc.Name = "txtMaMonHoc";
-            this.txtMaMonHoc.Size = new System.Drawing.Size(368, 34);
-            this.txtMaMonHoc.TabIndex = 0;
+            this.txtTenMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenMonHoc.Location = new System.Drawing.Point(171, 183);
+            this.txtTenMonHoc.Name = "txtTenMonHoc";
+            this.txtTenMonHoc.Size = new System.Drawing.Size(368, 34);
+            this.txtTenMonHoc.TabIndex = 0;
             // 
-            // lblMaMonHoc
+            // dgvMonHoc
             // 
-            this.lblMaMonHoc.AutoSize = true;
-            this.lblMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaMonHoc.ForeColor = System.Drawing.Color.White;
-            this.lblMaMonHoc.Location = new System.Drawing.Point(24, 132);
-            this.lblMaMonHoc.Name = "lblMaMonHoc";
-            this.lblMaMonHoc.Size = new System.Drawing.Size(135, 28);
-            this.lblMaMonHoc.TabIndex = 1;
-            this.lblMaMonHoc.Text = "Mã môn học:";
+            this.dgvMonHoc.AllowUserToAddRows = false;
+            this.dgvMonHoc.AllowUserToDeleteRows = false;
+            this.dgvMonHoc.AllowUserToResizeRows = false;
+            this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.dgvMonHoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMonHoc.Location = new System.Drawing.Point(0, 0);
+            this.dgvMonHoc.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.dgvMonHoc.Name = "dgvMonHoc";
+            this.dgvMonHoc.ReadOnly = true;
+            this.dgvMonHoc.RowHeadersVisible = false;
+            this.dgvMonHoc.RowHeadersWidth = 62;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dgvMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMonHoc.RowTemplate.Height = 28;
+            this.dgvMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonHoc.Size = new System.Drawing.Size(589, 393);
+            this.dgvMonHoc.TabIndex = 4;
+            this.dgvMonHoc.Click += new System.EventHandler(this.dgvMonHoc_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvMonHoc);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 72);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.panel3.Size = new System.Drawing.Size(594, 393);
+            this.panel3.TabIndex = 5;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(160, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(142, 47);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "Cập nhật";
+            this.simpleButton1.Click += new System.EventHandler(this.btnThemMonHoc_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(308, 12);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(142, 47);
+            this.simpleButton2.TabIndex = 0;
+            this.simpleButton2.Text = "Xóa bỏ";
+            this.simpleButton2.Click += new System.EventHandler(this.btnThemMonHoc_Click);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.simpleButton3.Location = new System.Drawing.Point(456, 12);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(142, 47);
+            this.simpleButton3.TabIndex = 0;
+            this.simpleButton3.Text = "Phục hồi";
+            this.simpleButton3.Click += new System.EventHandler(this.btnThemMonHoc_Click);
             // 
             // frmMonHoc
             // 
@@ -191,5 +230,8 @@
         private System.Windows.Forms.TextBox txtMaMonHoc;
         private System.Windows.Forms.Label lblTenMonHoc;
         private System.Windows.Forms.TextBox txtTenMonHoc;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

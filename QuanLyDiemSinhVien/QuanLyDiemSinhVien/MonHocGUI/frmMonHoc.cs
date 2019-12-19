@@ -46,6 +46,16 @@ namespace QuanLyDiemSinhVien.MonHocGUI
                 MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void dgvMonHoc_Click(object sender, EventArgs e)
+        {
+            if(dgvMonHoc.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            DataGridViewRow dgvRow = dgvMonHoc.SelectedRows[0];
+            txtMaMonHoc.Text = dgvRow.Cells["MaMH"].Value.ToString();
+        }
         #endregion 
 
         #region Utilities
@@ -55,5 +65,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             dgvMonHoc.Columns[1].HeaderText = "Tên môn học";
         }
         #endregion
+
+        
     }
 }

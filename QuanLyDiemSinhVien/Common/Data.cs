@@ -10,26 +10,14 @@ namespace Common
     public class Data
     {
         #region Constants
-        public static string DATABASE_NAME = "CSDLPT_QLDSV";
+        public const string  DATABASE_NAME = "CSDLPT_QLDSV";
 
-        public static string SERVER_NAME = "DIEN-PC";
-        public static string USER_ID = "sa";
-        public static string PASSWORD = "0000";
+        public const string SERVER_NAME = "DIEN-PC";
+        public const string USER_ID = "sa";
+        public const string PASSWORD = "0000";
 
-        public static string SERVER_NAME_1 = "DIEN-PC\\SERVER1";
-        public static string USER_ID_1 = "sa";
-        public static string PASSWORD_1 = "0000";
-
-        public static string SERVER_NAME_2 = "DIEN-PC\\SERVER2";
-        public static string USER_ID_2 = "sa";
-        public static string PASSWORD_2 = "0000";
-
-        public static string SERVER_NAME_3 = "DIEN-PC\\SERVER3";
-        public static string USER_ID_3 = "sa";
-        public static string PASSWORD_3 = "0000";
-
-        public static string REMOTE_LOGIN = "HTKN";
-        public static string REMOTE_PASSWORD = "1234";
+        public const string REMOTE_LOGIN = "HTKN";
+        public const string REMOTE_PASSWORD = "1234";
         #endregion
 
         #region Fields
