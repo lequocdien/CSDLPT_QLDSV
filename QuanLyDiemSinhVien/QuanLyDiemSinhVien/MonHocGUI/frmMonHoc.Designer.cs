@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnThemMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPhucHoiMonHoc = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoaBoMonHoc = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCapNhatMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblMaMonHoc = new System.Windows.Forms.Label();
             this.txtMaMonHoc = new System.Windows.Forms.TextBox();
@@ -40,9 +43,6 @@
             this.txtTenMonHoc = new System.Windows.Forms.TextBox();
             this.dgvMonHoc = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
@@ -62,15 +62,45 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
-            this.panel1.Controls.Add(this.simpleButton3);
-            this.panel1.Controls.Add(this.simpleButton2);
-            this.panel1.Controls.Add(this.simpleButton1);
+            this.panel1.Controls.Add(this.btnPhucHoiMonHoc);
+            this.panel1.Controls.Add(this.btnXoaBoMonHoc);
+            this.panel1.Controls.Add(this.btnCapNhatMonHoc);
             this.panel1.Controls.Add(this.btnThemMonHoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1145, 72);
             this.panel1.TabIndex = 2;
+            // 
+            // btnPhucHoiMonHoc
+            // 
+            this.btnPhucHoiMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btnPhucHoiMonHoc.Location = new System.Drawing.Point(456, 12);
+            this.btnPhucHoiMonHoc.Name = "btnPhucHoiMonHoc";
+            this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnPhucHoiMonHoc.TabIndex = 0;
+            this.btnPhucHoiMonHoc.Text = "Phục hồi";
+            this.btnPhucHoiMonHoc.Click += new System.EventHandler(this.btnPhucHoiMonHoc_Click);
+            // 
+            // btnXoaBoMonHoc
+            // 
+            this.btnXoaBoMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnXoaBoMonHoc.Location = new System.Drawing.Point(308, 12);
+            this.btnXoaBoMonHoc.Name = "btnXoaBoMonHoc";
+            this.btnXoaBoMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnXoaBoMonHoc.TabIndex = 0;
+            this.btnXoaBoMonHoc.Text = "Xóa bỏ";
+            this.btnXoaBoMonHoc.Click += new System.EventHandler(this.btnXoaBoMonHoc_Click);
+            // 
+            // btnCapNhatMonHoc
+            // 
+            this.btnCapNhatMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnCapNhatMonHoc.Location = new System.Drawing.Point(160, 12);
+            this.btnCapNhatMonHoc.Name = "btnCapNhatMonHoc";
+            this.btnCapNhatMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnCapNhatMonHoc.TabIndex = 0;
+            this.btnCapNhatMonHoc.Text = "Cập nhật";
+            this.btnCapNhatMonHoc.Click += new System.EventHandler(this.btnCapNhatMonHoc_Click);
             // 
             // panel2
             // 
@@ -125,7 +155,6 @@
             // 
             // dgvMonHoc
             // 
-            this.dgvMonHoc.AllowUserToAddRows = false;
             this.dgvMonHoc.AllowUserToDeleteRows = false;
             this.dgvMonHoc.AllowUserToResizeRows = false;
             this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -143,6 +172,7 @@
             this.dgvMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMonHoc.Location = new System.Drawing.Point(0, 0);
             this.dgvMonHoc.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.dgvMonHoc.MultiSelect = false;
             this.dgvMonHoc.Name = "dgvMonHoc";
             this.dgvMonHoc.ReadOnly = true;
             this.dgvMonHoc.RowHeadersVisible = false;
@@ -167,36 +197,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.panel3.Size = new System.Drawing.Size(594, 393);
             this.panel3.TabIndex = 5;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(160, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(142, 47);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Cập nhật";
-            this.simpleButton1.Click += new System.EventHandler(this.btnThemMonHoc_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(308, 12);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(142, 47);
-            this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "Xóa bỏ";
-            this.simpleButton2.Click += new System.EventHandler(this.btnThemMonHoc_Click);
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(456, 12);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(142, 47);
-            this.simpleButton3.TabIndex = 0;
-            this.simpleButton3.Text = "Phục hồi";
-            this.simpleButton3.Click += new System.EventHandler(this.btnThemMonHoc_Click);
             // 
             // frmMonHoc
             // 
@@ -230,8 +230,8 @@
         private System.Windows.Forms.TextBox txtMaMonHoc;
         private System.Windows.Forms.Label lblTenMonHoc;
         private System.Windows.Forms.TextBox txtTenMonHoc;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnPhucHoiMonHoc;
+        private DevExpress.XtraEditors.SimpleButton btnXoaBoMonHoc;
+        private DevExpress.XtraEditors.SimpleButton btnCapNhatMonHoc;
     }
 }

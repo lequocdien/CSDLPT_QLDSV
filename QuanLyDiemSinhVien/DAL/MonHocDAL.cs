@@ -12,8 +12,7 @@ namespace DAL
     {
         public static DataTable LoadMonHoc()
         {
-            //TODO: Hien tai dang ket noi den server goc => sua lai ket noi den ServerNameDN khi dang nhap
-            if (DataProvider.ConnectDatabase(/*Common.Data.SERVER_NAME, Common.Data.USER_ID, Common.Data.PASSWORD*/))
+            if (DataProvider.ConnectDatabase())
             {
                 return DataProvider.ExecSQLQueryDataTable("SELECT * FROM MONHOC");
             }
@@ -22,10 +21,27 @@ namespace DAL
 
         public static bool InsertMonHoc(string x_strMaMonHoc, string x_strTenMonHoc)
         {
-            //TODO: Hien tai dang ket noi den server goc => sua lai ket noi den ServerNameDN khi dang nhap
-            if (DataProvider.ConnectDatabase(/*Common.Data.SERVER_NAME, Common.Data.USER_ID, Common.Data.PASSWORD*/))
+            if (DataProvider.ConnectDatabase())
             {
-                return DataProvider.ExecSQLQuery(string.Format("INSERT INTO MONHOC(MAMH, TENMH) VALUES('{0}', '{1}')", x_strMaMonHoc, x_strTenMonHoc));
+                return DataProvider.ExecSQLQuery(string.Format("INSERT INTO MONHOC(MAMH, TENMH) VALUES('{0}', N'{1}')", x_strMaMonHoc, x_strTenMonHoc));
+            }
+            return false;
+        }
+
+        public static bool UpdateMonHoc(string x_strMaMonHoc, string x_strTenMonHoc)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLQuery(string.Format("UPDATE MONHOC SET TENMH = N'{0}' WHERE MAMH = '{1}'", x_strTenMonHoc, x_strMaMonHoc));
+            }
+            return false;
+        }
+
+        public static bool DeleteMonHoc(string x_strMaMonHoc)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLQuery(string.Format("DELETE FROM MONHOC WHERE MAMH = '{0}'", x_strMaMonHoc));
             }
             return false;
         }
