@@ -26,12 +26,12 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             cmbKhoa.DataSource = BUL.DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
-            cmbKhoa.SelectedIndex = Common.Data.mKhoa;//vị trí item hiện tại
+            cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
 
             //   groupControl_ThongTinSinhVien.Enabled = false;
             
             txtMaLop.Enabled = txtMaSV.Enabled = false;
-            if (Common.Data.mGroup == "PGV")
+            if (Common.Data.m_strGroup == "PGV")
             {
                 cmbKhoa.Enabled = true;
             }
@@ -71,17 +71,17 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         {
             if (cmbKhoa.SelectedValue.ToString() != "System.Data.DataRowView")
             {
-                Common.Data.servername = cmbKhoa.SelectedValue.ToString();
+                Common.Data.m_strServerName = cmbKhoa.SelectedValue.ToString();
             }
-            if (cmbKhoa.SelectedIndex != Common.Data.mKhoa)
+            if (cmbKhoa.SelectedIndex != Common.Data.m_nKhoa)
             {
-                Common.Data.mlogin = Common.Data.remotelogin;
-                Common.Data.password = Common.Data.remotepassword;
+                Common.Data.m_strLogin = Common.Data.Remote_Login;
+                Common.Data.m_strPassword = Common.Data.Remote_Password;
             }
             else
             {
-                Common.Data.mlogin = Common.Data.mloginDN;
-                Common.Data.password = Common.Data.passwordDN;
+                Common.Data.m_strLogin = Common.Data.m_strLoginDN;
+                Common.Data.m_strPassword = Common.Data.m_strPasswordDN;
             }
             if (BUL.DangNhapBUL.KiemTraKetNoi() == false)
             {
@@ -165,7 +165,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             }
             txtMaSV.Enabled = false;
             groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-            if (Common.Data.mGroup == "PGV")
+            if (Common.Data.m_strGroup == "PGV")
             {
                 cmbKhoa.Enabled = true;
             }
@@ -256,7 +256,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                     MessageBox.Show("Xóa thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                     dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
                     groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-                    if (Common.Data.mGroup == "PGV")
+                    if (Common.Data.m_strGroup == "PGV")
                     {
                         cmbKhoa.Enabled = true;
                     }
@@ -311,7 +311,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                     MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                     dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
                     groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-                    if (Common.Data.mGroup == "PGV")
+                    if (Common.Data.m_strGroup == "PGV")
                     {
                         cmbKhoa.Enabled = true;
                     }
@@ -337,7 +337,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                     MessageBox.Show("Sửa thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                     dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
                     groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-                    if (Common.Data.mGroup == "PGV")
+                    if (Common.Data.m_strGroup == "PGV")
                     {
                         cmbKhoa.Enabled = true;
                     }

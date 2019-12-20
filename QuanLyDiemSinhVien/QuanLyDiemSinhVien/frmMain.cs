@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using Common;
 using QuanLyDiemSinhVien.MonHocGUI;
+using QuanLyDiemSinhVien.DangNhapGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -30,6 +31,13 @@ namespace QuanLyDiemSinhVien
             frmMonHoc frmMonHoc = new frmMonHoc();
             frmMonHoc.MdiParent = this;
             frmMonHoc.Show();
+        }
+
+        private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmDangNhap f = new frmDangNhap();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }
