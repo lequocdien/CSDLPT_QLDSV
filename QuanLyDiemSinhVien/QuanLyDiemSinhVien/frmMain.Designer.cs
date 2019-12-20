@@ -60,13 +60,13 @@
             this.btnDangNhap,
             this.btnThoat});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
-            this.ribbon.Size = new System.Drawing.Size(917, 143);
+            this.ribbon.Size = new System.Drawing.Size(1376, 206);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // MAGV
@@ -132,8 +132,10 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.AllowTextClipping = false;
             this.ribbonPageGroup2.ItemLinks.Add(this.btnMonHoc);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Môn học";
             // 
             // ribbonStatusBar
@@ -141,11 +143,11 @@
             this.ribbonStatusBar.ItemLinks.Add(this.MAGV);
             this.ribbonStatusBar.ItemLinks.Add(this.HOTEN);
             this.ribbonStatusBar.ItemLinks.Add(this.NHOM);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 507);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 745);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(917, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1376, 41);
             // 
             // MdiManagerFormMain
             // 
@@ -153,13 +155,13 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 538);
+            this.ClientSize = new System.Drawing.Size(1376, 786);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
