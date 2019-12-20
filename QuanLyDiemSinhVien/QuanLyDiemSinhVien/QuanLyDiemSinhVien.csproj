@@ -44,6 +44,8 @@
     <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,17 +61,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangNhapGUI\frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhapGUI\frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="LopGUI\frmLopGUI.cs">
+    <Compile Include="LopGUI\frmLop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LopGUI\frmLopGUI.Designer.cs">
-      <DependentUpon>frmLopGUI.cs</DependentUpon>
+    <Compile Include="LopGUI\frmLop.Designer.cs">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmLop_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmLop_SinhVien.Designer.cs">
+      <DependentUpon>frmLop_SinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MonHocGUI\frmMonHoc.cs">
       <SubType>Form</SubType>
@@ -79,8 +93,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DangNhapGUI\frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopGUI\frmLop.resx">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lop_SinhVienGUI\frmLop_SinhVien.resx">
+      <DependentUpon>frmLop_SinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonHocGUI\frmMonHoc.resx">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
@@ -123,9 +146,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DangNhapGUI\" />
     <Folder Include="DongHocPhiGUI\" />
-    <Folder Include="Lop_SinhVienGUI\" />
     <Folder Include="NhapDiemGUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

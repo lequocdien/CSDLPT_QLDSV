@@ -1,4 +1,5 @@
-﻿using QuanLyDiemSinhVien.MonHocGUI;
+﻿using QuanLyDiemSinhVien.DangNhapGUI;
+using QuanLyDiemSinhVien.MonHocGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
