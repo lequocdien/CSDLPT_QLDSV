@@ -16,26 +16,20 @@ namespace DAL
         /// <summary>
         /// Kết nối đên cơ sở dữ liệu
         /// </summary>
-        /// <param name="x_strServerName"></param>
-        /// <param name="x_strUserID"></param>
-        /// <param name="x_strPassword"></param>
         /// <returns></returns>
-        public static bool ConnectDatabase(string x_strServerName, string x_strUserID, string x_strPassword)
+        //sv chạy tới đâu gán tới đó luôn..rồi gọi hàm connect thôi..do khai báo biến tổng rồi khỏi truyền..OK ko? 
+        public static bool ConnectDatabase()
         {
-            if (Data.m_objCon != null && Data.m_objCon.State == ConnectionState.Open)
+            if (Data.Con != null && Data.Con.State == ConnectionState.Open)
             {
-                Data.m_objCon.Close();
+                Data.Con.Close();
             }
             try
             {
-                Data.m_strServerNameDN = x_strServerName;
-                Data.m_strUserIDDN = x_strUserID;
-                Data.m_strPasswordDN = x_strPassword;
-
-                string strConnectionString = "Data Source=" + Data.m_strServerNameDN + ";Initial Catalog=" +
-                       Data.DATABASE_NAME + ";User ID=" + Data.m_strUserIDDN + ";password=" + Data.m_strPasswordDN;
-                Data.m_objCon.ConnectionString = strConnectionString;
-                Data.m_objCon.Open();
+                string strConnectionString = "Data Source=" + Data.m_strServerName + ";Initial Catalog=" +
+                       Data.Database + ";User ID=" + Data.m_strLogin + ";password=" + Data.m_strPassword;
+                Data.Con.ConnectionString = strConnectionString;
+                Data.Con.Open();
                 return true;
             }
             catch (Exception ex)
@@ -52,10 +46,10 @@ namespace DAL
         /// <returns></returns>
         public static DataTable ExecSQLQueryDataTable(string x_strQueryString)
         {
-            if(Data.m_objCon.State == ConnectionState.Open)
+            if(Data.Con.State == ConnectionState.Open)
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter objDap = new SqlDataAdapter(x_strQueryString, Data.m_objCon);
+                SqlDataAdapter objDap = new SqlDataAdapter(x_strQueryString, Data.Con);
                 objDap.Fill(dt);
                 return dt;
             }
@@ -69,12 +63,12 @@ namespace DAL
         /// <returns></returns>
         public static bool ExecSQLQuery(string x_strQueryString)
         {
-            if (Data.m_objCon.State == ConnectionState.Open)
+            if (Data.Con.State == ConnectionState.Open)
             {
                 SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandText = x_strQueryString;
                 objCommand.CommandType = CommandType.Text;
-                objCommand.Connection = Data.m_objCon;
+                objCommand.Connection = Data.Con;
                 int nRes = objCommand.ExecuteNonQuery();
                 if(nRes == 0)
                 {
@@ -93,11 +87,11 @@ namespace DAL
         public static SqlDataReader ExecSQLDataReader(string x_strQueryString)
         {
             SqlDataReader objDataReader;
-            SqlCommand objSQLCommand = new SqlCommand(x_strQueryString, Data.m_objCon);
+            SqlCommand objSQLCommand = new SqlCommand(x_strQueryString, Data.Con);
             objSQLCommand.CommandType = CommandType.Text;
-            if (Data.m_objCon.State == ConnectionState.Closed)
+            if (Data.Con.State == ConnectionState.Closed)
             {
-                Data.m_objCon.Open();
+                Data.Con.Open();
             }
             try
             {
@@ -106,7 +100,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
-                Data.m_objCon.Close();
+                Data.Con.Close();
                 MessageBox.Show(ex.Message);
                 return null;
             }
