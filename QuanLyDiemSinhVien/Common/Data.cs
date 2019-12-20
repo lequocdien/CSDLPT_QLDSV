@@ -4,28 +4,27 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Common
 {
     public class Data
     {
-        public static SqlConnection con = new SqlConnection();
-        public static String connstr;
-        public static SqlDataReader myReader;
-        public static String servername = "";
-        public static String username = "";
-        public static String mlogin = "";
-        public static String password = "";
+        // lúc load phân mảnh truyền chuỗi luôn khỏi khai báo biến. Do chỉ cần dùng 1 lần để lấy các svname ra thôi..sửa thì vào DangNhapDAL là được.ok ko?
+        public static SqlConnection Con = new SqlConnection();
+        public static String m_strServerName = ""; //server DN
+        public static String m_strLogin = ""; //login DN
+        public static String m_strPassword = ""; //pass DN
 
-        public static String database = "QLDSV";
-        public static String remotelogin = "HTKN";
-        public static String remotepassword = "12345";
-        public static String mloginDN = "";
-        public static String passwordDN = "";
-        public static String mGroup = "";
-        public static String mHoten = "";
-        public static int mKhoa = 0;
+        public static String Database = "QLDSV";
+        public static String Remote_Login = "HTKN";
+        public static String Remote_Password = "12345";
+        public static String m_strLoginDN = ""; // biến giữ login DN
+        public static String m_strPasswordDN = ""; //biến giữ pass DN
 
+        public static String User_ID = ""; //mã giảng viên
+        public static String m_strGroup = ""; // nhóm
+        public static String m_strHoten = ""; // họ tên
+
+        public static int m_nKhoa = 0; // vị trí item trong combobox
     }
 }

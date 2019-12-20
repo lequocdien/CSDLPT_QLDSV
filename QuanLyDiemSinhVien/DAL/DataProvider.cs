@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,97 +13,96 @@ namespace DAL
 {
     public class DataProvider
     {
-        //  private static SqlConnection con = null;
-
-        public static SqlConnection KetNoiDB()
+        /// <summary>
+        /// Kết nối đên cơ sở dữ liệu
+        /// </summary>
+        /// <returns></returns>
+        //sv chạy tới đâu gán tới đó luôn..rồi gọi hàm connect thôi..do khai báo biến tổng rồi khỏi truyền..OK ko? 
+        public static bool ConnectDatabase()
         {
-            string connectionString = Common.Constant.CONNECTION_STRING;
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            return con;
-        }
-
-        public static bool KetNoi()
-        {
-            if (Data.con != null && Data.con.State == ConnectionState.Open)
-                Data.con.Close();
+            if (Data.Con != null && Data.Con.State == ConnectionState.Open)
+            {
+                Data.Con.Close();
+            }
             try
             {
-                Data.connstr = "Data Source=" + Data.servername + ";Initial Catalog=" +
-                      Data.database + ";User ID=" +
-                      Data.mlogin + ";password=" + Data.password;
-                Data.con.ConnectionString = Data.connstr;
-                Data.con.Open();
+                string strConnectionString = "Data Source=" + Data.m_strServerName + ";Initial Catalog=" +
+                       Data.Database + ";User ID=" + Data.m_strLogin + ";password=" + Data.m_strPassword;
+                Data.Con.ConnectionString = strConnectionString;
+                Data.Con.Open();
                 return true;
             }
-
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + e.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + ex.Message, "", MessageBoxButtons.OK);
                 return false;
             }
         }
 
-        public static SqlDataReader ExecSqlDataReader(String strLenh)
+        /// <summary>
+        /// Đọc dữ liệu từ database và trả về DataTables (Thực hiện SELECT)
+        /// </summary>
+        /// <param name="x_strQueryString"></param>
+        /// <returns></returns>
+        public static DataTable ExecSQLQueryDataTable(string x_strQueryString)
         {
-            SqlDataReader myreader;
-            SqlCommand sqlcmd = new SqlCommand(strLenh, Data.con);
-            sqlcmd.CommandType = CommandType.Text;
-            if (Data.con.State == ConnectionState.Closed) Data.con.Open();
-            try
+            if(Data.Con.State == ConnectionState.Open)
             {
-                myreader = sqlcmd.ExecuteReader(); return myreader;
-
-            }
-            catch (SqlException ex)
-            {
-                Data.con.Close();
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
-        public static DataTable TruyVanData(string chuoiTruyVan)
-        {
-            try
-            {
-                // con = KetNoiDB();
                 DataTable dt = new DataTable();
-                if (Data.con.State == ConnectionState.Closed) Data.con.Open();
-                SqlDataAdapter da = new SqlDataAdapter(chuoiTruyVan, Data.con);
-                da.Fill(dt);
-                Data.con.Close();
+                SqlDataAdapter objDap = new SqlDataAdapter(x_strQueryString, Data.Con);
+                objDap.Fill(dt);
                 return dt;
             }
-            catch
-            {
-                Data.con.Close();
-                return null;
-            }
+            return null;
         }
 
-        public static bool TruyVanNoneQuery(string chuoiTruyVan)
+        /// <summary>
+        /// Thực hiện UPDATE, INSERT, DELETE
+        /// </summary>
+        /// <param name="x_strQueryString"></param>
+        /// <returns></returns>
+        public static bool ExecSQLQuery(string x_strQueryString)
         {
-            try
+            if (Data.Con.State == ConnectionState.Open)
             {
-                //   con = KetNoiDB();
-                if (Data.con.State == ConnectionState.Closed) Data.con.Open();
-                SqlCommand cmd = new SqlCommand(chuoiTruyVan, Data.con);
-                int res = cmd.ExecuteNonQuery();
-                Data.con.Close();
-                if (res > 0)
-                {
-                    return true;
-                }
-                else
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandText = x_strQueryString;
+                objCommand.CommandType = CommandType.Text;
+                objCommand.Connection = Data.Con;
+                int nRes = objCommand.ExecuteNonQuery();
+                if(nRes == 0)
                 {
                     return false;
                 }
+                return true;
             }
-            catch( Exception e)
+            return false;
+        }
+
+        /// <summary>
+        /// Thực hiện Store Proceduced
+        /// </summary>
+        /// <param name="x_strQueryString"></param>
+        /// <returns></returns>
+        public static SqlDataReader ExecSQLDataReader(string x_strQueryString)
+        {
+            SqlDataReader objDataReader;
+            SqlCommand objSQLCommand = new SqlCommand(x_strQueryString, Data.Con);
+            objSQLCommand.CommandType = CommandType.Text;
+            if (Data.Con.State == ConnectionState.Closed)
             {
-                MessageBox.Show(""+e.Message, "", MessageBoxButtons.OK);
-                Data.con.Close();
-                return false;
+                Data.Con.Open();
+            }
+            try
+            {
+                objDataReader = objSQLCommand.ExecuteReader(); 
+                return objDataReader;
+            }
+            catch (SqlException ex)
+            {
+                Data.Con.Close();
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using Common;
+using QuanLyDiemSinhVien.MonHocGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -21,9 +22,14 @@ namespace QuanLyDiemSinhVien
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            MAGV.Caption = "Mã GV: " + Data.username;
-            HOTEN.Caption = "Họ tên: " + Data.mHoten;
-            NHOM.Caption = "Nhóm: " + Data.mGroup;
+
+        }
+
+        private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmMonHoc frmMonHoc = new frmMonHoc();
+            frmMonHoc.MdiParent = this;
+            frmMonHoc.Show();
         }
     }
 }

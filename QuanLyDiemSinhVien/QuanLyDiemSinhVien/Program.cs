@@ -1,5 +1,4 @@
-﻿using QuanLyDiemSinhVien.DangNhapGUI;
-using QuanLyDiemSinhVien.MonHocGUI;
+﻿using QuanLyDiemSinhVien.MonHocGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace QuanLyDiemSinhVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            Application.Run(new frmMain());
         }
     }
 }
