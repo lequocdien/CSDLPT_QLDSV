@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using Common;
 using QuanLyDiemSinhVien.MonHocGUI;
 using QuanLyDiemSinhVien.DangNhapGUI;
+using DevExpress.LookAndFeel;
 
 namespace QuanLyDiemSinhVien
 {
@@ -23,7 +24,8 @@ namespace QuanLyDiemSinhVien
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            UserLookAndFeel.Default.SkinName = "Office 2016 Colorful";
+            //UserLookAndFeel.Default.SkinMaskColor = Color.Blue;
         }
 
         private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
