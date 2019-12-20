@@ -9,27 +9,20 @@ namespace Common
 {
     public class Data
     {
-        #region Constants
-        public const string  DATABASE_NAME = "CSDLPT_QLDSV";
+        // lúc load phân mảnh truyền chuỗi luôn khỏi khai báo biến. Do chỉ cần dùng 1 lần để lấy các svname ra thôi..sửa thì vào DangNhapDAL là được.ok ko?
+        public static SqlConnection con = new SqlConnection();
+        public static String servername = ""; //server DN
+        public static String username = ""; //mã giảng viên
+        public static String mlogin = ""; //login DN
+        public static String password = ""; //pass DN
 
-        public const string SERVER_NAME = "DIEN-PC";
-        public const string USER_ID = "sa";
-        public const string PASSWORD = "0000";
-
-        public const string REMOTE_LOGIN = "HTKN";
-        public const string REMOTE_PASSWORD = "1234";
-        #endregion
-
-        #region Fields
-        public static SqlConnection m_objCon = new SqlConnection();
-        public static String m_strServerNameDN;
-        public static String m_strUserIDDN;
-        public static String m_strPasswordDN;
-
-        public static SqlDataReader m_objDataReader;
-        public static String m_strGroup;
-        public static String m_strHoten;
-        public static int m_nKhoa;
-        #endregion
+        public static String database = "QLDSV";
+        public static String remotelogin = "HTKN";
+        public static String remotepassword = "12345";
+        public static String mloginDN = ""; // biến giữ login DN
+        public static String passwordDN = ""; //biến giữ pass DN
+        public static String mGroup = "";
+        public static String mHoten = "";
+        public static int mKhoa = 0; // vị trí item trong combobox
     }
 }
