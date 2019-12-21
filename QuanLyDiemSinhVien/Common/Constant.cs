@@ -8,10 +8,7 @@ namespace Common
 {
     public class Constant
     {
-        public static string SERVER_NAME = "DESKTOP-EI49O32\\TRANQUANGCHAU_1";
-        public static string DATABASE_NAME = "QLDSV";
-        public static string USER_NAME = "sa";
-        public static string PASSWORD = "12345";
-        public static string CONNECTION_STRING = @"Server="+ SERVER_NAME + ";Database="+ DATABASE_NAME + ";User Id="+ USER_NAME + ";Password="+ PASSWORD + ";";
+        public const string SERVER_NAME = "DESKTOP-EI49O32\\TRANQUANGCHAU";
+        public const string DATABASE_NAME = "QLDSV";
     }
 }

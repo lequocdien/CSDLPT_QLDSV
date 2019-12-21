@@ -11,11 +11,11 @@ namespace Common
     {
         // lúc load phân mảnh truyền chuỗi luôn khỏi khai báo biến. Do chỉ cần dùng 1 lần để lấy các svname ra thôi..sửa thì vào DangNhapDAL là được.ok ko?
         public static SqlConnection Con = new SqlConnection();
-        public static String m_strServerName = "DIEN-PC"; //server DN
-        public static String m_strLogin = "sa"; //login DN
-        public static String m_strPassword = "0000"; //pass DN
+        public static String m_strServerName = ""; //server DN
+        public static String m_strLogin = ""; //login DN
+        public static String m_strPassword = ""; //pass DN
 
-        public static String Database = "CSDLPT_QLDSV";
+        public static String Database = "QLDSV";
         public static String Remote_Login = "HTKN";
         public static String Remote_Password = "12345";
         public static String m_strLoginDN = ""; // biến giữ login DN

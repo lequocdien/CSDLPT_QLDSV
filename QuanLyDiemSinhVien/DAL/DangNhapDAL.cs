@@ -14,7 +14,7 @@ namespace DAL
         public static DataTable LoadPhanManh()
         {
             Data.Con.Close();
-            string chuoiketnoi = "Data Source=DESKTOP-EI49O32\\TRANQUANGCHAU;Initial Catalog=QLDSV;Integrated Security=True";
+            string chuoiketnoi = "Data Source="+Constant.SERVER_NAME+";Initial Catalog="+Constant.DATABASE_NAME+";Integrated Security=True";
             Data.Con.ConnectionString = chuoiketnoi;
             Data.Con.Open();
             return DataProvider.ExecSQLQueryDataTable("SELECT * FROM V_DS_PHANMANH");
@@ -24,13 +24,19 @@ namespace DAL
         {
             Data.m_strLogin = user;
             Data.m_strPassword = password;
-            if (DataProvider.ConnectDatabase() == false) return 0;
+            if (DataProvider.ConnectDatabase() == false)
+            {
+                return 0;
+            }
             Data.m_strLoginDN = Data.m_strLogin;
             Data.m_strPasswordDN = Data.m_strPassword;
             string str = "EXEC SP_DANGNHAP'" + Data.m_strLogin + "'";
             SqlDataReader myReader;
             myReader = DataProvider.ExecSQLDataReader(str);
-            if (myReader == null) return 0;
+            if (myReader == null)
+            {
+                return 0;
+            }
             myReader.Read();
             Data.User_ID = myReader.GetString(0);
             if (Convert.IsDBNull(Data.User_ID))
