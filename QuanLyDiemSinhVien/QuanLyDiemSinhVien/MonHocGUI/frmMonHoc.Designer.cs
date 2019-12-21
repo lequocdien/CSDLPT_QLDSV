@@ -51,10 +51,12 @@
             // 
             // btnThemMonHoc
             // 
+            this.btnThemMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemMonHoc.Appearance.Options.UseFont = true;
             this.btnThemMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThemMonHoc.ImageOptions.SvgImage")));
             this.btnThemMonHoc.Location = new System.Drawing.Point(12, 12);
             this.btnThemMonHoc.Name = "btnThemMonHoc";
-            this.btnThemMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnThemMonHoc.Size = new System.Drawing.Size(188, 61);
             this.btnThemMonHoc.TabIndex = 0;
             this.btnThemMonHoc.Text = "Thêm vào";
             this.btnThemMonHoc.Click += new System.EventHandler(this.btnThemMonHoc_Click);
@@ -69,35 +71,41 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1145, 72);
+            this.panel1.Size = new System.Drawing.Size(1376, 86);
             this.panel1.TabIndex = 2;
             // 
             // btnPhucHoiMonHoc
             // 
-            this.btnPhucHoiMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.btnPhucHoiMonHoc.Location = new System.Drawing.Point(456, 12);
+            this.btnPhucHoiMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhucHoiMonHoc.Appearance.Options.UseFont = true;
+            this.btnPhucHoiMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoiMonHoc.ImageOptions.SvgImage")));
+            this.btnPhucHoiMonHoc.Location = new System.Drawing.Point(594, 12);
             this.btnPhucHoiMonHoc.Name = "btnPhucHoiMonHoc";
-            this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(188, 61);
             this.btnPhucHoiMonHoc.TabIndex = 0;
             this.btnPhucHoiMonHoc.Text = "Phục hồi";
             this.btnPhucHoiMonHoc.Click += new System.EventHandler(this.btnPhucHoiMonHoc_Click);
             // 
             // btnXoaBoMonHoc
             // 
-            this.btnXoaBoMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.btnXoaBoMonHoc.Location = new System.Drawing.Point(308, 12);
+            this.btnXoaBoMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaBoMonHoc.Appearance.Options.UseFont = true;
+            this.btnXoaBoMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoaBoMonHoc.ImageOptions.SvgImage")));
+            this.btnXoaBoMonHoc.Location = new System.Drawing.Point(400, 12);
             this.btnXoaBoMonHoc.Name = "btnXoaBoMonHoc";
-            this.btnXoaBoMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnXoaBoMonHoc.Size = new System.Drawing.Size(188, 61);
             this.btnXoaBoMonHoc.TabIndex = 0;
             this.btnXoaBoMonHoc.Text = "Xóa bỏ";
             this.btnXoaBoMonHoc.Click += new System.EventHandler(this.btnXoaBoMonHoc_Click);
             // 
             // btnCapNhatMonHoc
             // 
-            this.btnCapNhatMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnCapNhatMonHoc.Location = new System.Drawing.Point(160, 12);
+            this.btnCapNhatMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatMonHoc.Appearance.Options.UseFont = true;
+            this.btnCapNhatMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhatMonHoc.ImageOptions.SvgImage")));
+            this.btnCapNhatMonHoc.Location = new System.Drawing.Point(206, 12);
             this.btnCapNhatMonHoc.Name = "btnCapNhatMonHoc";
-            this.btnCapNhatMonHoc.Size = new System.Drawing.Size(142, 47);
+            this.btnCapNhatMonHoc.Size = new System.Drawing.Size(188, 61);
             this.btnCapNhatMonHoc.TabIndex = 0;
             this.btnCapNhatMonHoc.Text = "Cập nhật";
             this.btnCapNhatMonHoc.Click += new System.EventHandler(this.btnCapNhatMonHoc_Click);
@@ -110,9 +118,9 @@
             this.panel2.Controls.Add(this.lblTenMonHoc);
             this.panel2.Controls.Add(this.txtTenMonHoc);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(594, 72);
+            this.panel2.Location = new System.Drawing.Point(825, 86);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(551, 393);
+            this.panel2.Size = new System.Drawing.Size(551, 662);
             this.panel2.TabIndex = 3;
             // 
             // lblMaMonHoc
@@ -131,7 +139,7 @@
             this.txtMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaMonHoc.Location = new System.Drawing.Point(171, 129);
             this.txtMaMonHoc.Name = "txtMaMonHoc";
-            this.txtMaMonHoc.Size = new System.Drawing.Size(368, 34);
+            this.txtMaMonHoc.Size = new System.Drawing.Size(351, 34);
             this.txtMaMonHoc.TabIndex = 0;
             // 
             // lblTenMonHoc
@@ -150,7 +158,7 @@
             this.txtTenMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenMonHoc.Location = new System.Drawing.Point(171, 183);
             this.txtTenMonHoc.Name = "txtTenMonHoc";
-            this.txtTenMonHoc.Size = new System.Drawing.Size(368, 34);
+            this.txtTenMonHoc.Size = new System.Drawing.Size(351, 34);
             this.txtTenMonHoc.TabIndex = 0;
             // 
             // dgvMonHoc
@@ -184,7 +192,7 @@
             this.dgvMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMonHoc.RowTemplate.Height = 28;
             this.dgvMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonHoc.Size = new System.Drawing.Size(589, 393);
+            this.dgvMonHoc.Size = new System.Drawing.Size(820, 662);
             this.dgvMonHoc.TabIndex = 4;
             this.dgvMonHoc.Click += new System.EventHandler(this.dgvMonHoc_Click);
             // 
@@ -192,17 +200,17 @@
             // 
             this.panel3.Controls.Add(this.dgvMonHoc);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 72);
+            this.panel3.Location = new System.Drawing.Point(0, 86);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.panel3.Size = new System.Drawing.Size(594, 393);
+            this.panel3.Size = new System.Drawing.Size(825, 662);
             this.panel3.TabIndex = 5;
             // 
             // frmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 465);
+            this.ClientSize = new System.Drawing.Size(1376, 748);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
