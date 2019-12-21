@@ -49,8 +49,8 @@ namespace QuanLyDiemSinhVien.LopGUI
             }
             if (cmbKhoa.SelectedIndex != Common.Data.m_nKhoa)
             {
-                Common.Data.m_strLogin = Common.Data.Remote_Login;
-                Common.Data.m_strPassword = Common.Data.Remote_Password;
+                Common.Data.m_strLogin = Common.Constant.Remote_Login;
+                Common.Data.m_strPassword = Common.Constant.Remote_Password;
             }
             else
             {

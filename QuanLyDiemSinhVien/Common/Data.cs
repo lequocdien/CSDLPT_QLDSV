@@ -15,9 +15,6 @@ namespace Common
         public static String m_strLogin = ""; //login DN
         public static String m_strPassword = ""; //pass DN
 
-        public static String Database = "QLDSV";
-        public static String Remote_Login = "HTKN";
-        public static String Remote_Password = "12345";
         public static String m_strLoginDN = ""; // biến giữ login DN
         public static String m_strPasswordDN = ""; //biến giữ pass DN
 
