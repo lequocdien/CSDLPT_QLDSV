@@ -17,10 +17,12 @@ namespace QuanLyDiemSinhVien
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        #region Constructor
         public frmMain()
         {
             InitializeComponent();
         }
+        #endregion
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -40,6 +42,11 @@ namespace QuanLyDiemSinhVien
             frmDangNhap f = new frmDangNhap();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
