@@ -12,17 +12,16 @@ using Common;
 using QuanLyDiemSinhVien.MonHocGUI;
 using QuanLyDiemSinhVien.DangNhapGUI;
 using DevExpress.LookAndFeel;
+using QuanLyDiemSinhVien.LopGUI;
 
 namespace QuanLyDiemSinhVien
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        #region Constructor
         public frmMain()
         {
             InitializeComponent();
         }
-        #endregion
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -44,9 +43,11 @@ namespace QuanLyDiemSinhVien
             f.Show();
         }
 
-        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            frmLop f = new frmLop();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }

@@ -47,7 +47,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManagerFormMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnNhapDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLop = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).BeginInit();
             this.SuspendLayout();
@@ -65,16 +65,16 @@
             this.btnDangNhap,
             this.btnThoat,
             this.skinRibbonGalleryBarItem1,
-            this.btnNhapDiem});
+            this.btnLop});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbon.Size = new System.Drawing.Size(1376, 206);
+            this.ribbon.Size = new System.Drawing.Size(917, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // MAGV
@@ -175,11 +175,11 @@
             this.ribbonStatusBar.ItemLinks.Add(this.MAGV);
             this.ribbonStatusBar.ItemLinks.Add(this.HOTEN);
             this.ribbonStatusBar.ItemLinks.Add(this.NHOM);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 745);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 507);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1376, 41);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(917, 31);
             // 
             // MdiManagerFormMain
             // 
@@ -188,28 +188,28 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.AllowTextClipping = false;
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnNhapDiem);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnLop);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
-            this.ribbonPageGroup4.Text = "Nhập điểm";
+            this.ribbonPageGroup4.Text = "Lớp";
             // 
-            // btnNhapDiem
+            // btnLop
             // 
-            this.btnNhapDiem.Caption = "Nhập điểm";
-            this.btnNhapDiem.Id = 12;
-            this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btnNhapDiem.Name = "btnNhapDiem";
-            this.btnNhapDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDiem_ItemClick);
+            this.btnLop.Caption = "Lớp";
+            this.btnLop.Id = 12;
+            this.btnLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnLop.Name = "btnLop";
+            this.btnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLop_ItemClick);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1376, 786);
+            this.ClientSize = new System.Drawing.Size(917, 538);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -241,7 +241,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
-        private DevExpress.XtraBars.BarButtonItem btnNhapDiem;
+        private DevExpress.XtraBars.BarButtonItem btnLop;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }
