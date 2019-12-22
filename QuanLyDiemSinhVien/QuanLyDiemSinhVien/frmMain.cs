@@ -13,6 +13,7 @@ using QuanLyDiemSinhVien.MonHocGUI;
 using QuanLyDiemSinhVien.DangNhapGUI;
 using DevExpress.LookAndFeel;
 using QuanLyDiemSinhVien.LopGUI;
+using QuanLyDiemSinhVien.NhapDiemGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -46,6 +47,13 @@ namespace QuanLyDiemSinhVien
         private void btnLop_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmLop f = new frmLop();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmNhapDiem f = new frmNhapDiem();
             f.MdiParent = this;
             f.Show();
         }
