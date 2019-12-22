@@ -18,7 +18,7 @@ namespace Common
         public static String m_strLoginDN = ""; // biến giữ login DN
         public static String m_strPasswordDN = ""; //biến giữ pass DN
 
-        public static String User_ID = ""; //mã giảng viên
+        public static String m_strMaGV = ""; //mã giảng viên
         public static String m_strGroup = ""; // nhóm
         public static String m_strHoten = ""; // họ tên
 

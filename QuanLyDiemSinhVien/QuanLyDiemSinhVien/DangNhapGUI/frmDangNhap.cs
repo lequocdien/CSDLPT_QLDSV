@@ -71,7 +71,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
                 MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
-            PrintInfoLoginEvent(Data.User_ID, Data.m_strHoten, Data.m_strGroup);
+            PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
             Common.Data.Con.Close();
