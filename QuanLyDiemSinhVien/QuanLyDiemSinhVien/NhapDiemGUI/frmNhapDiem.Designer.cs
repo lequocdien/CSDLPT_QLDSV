@@ -29,26 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapDiem));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPhucHoiMonHoc = new DevExpress.XtraEditors.SimpleButton();
-            this.btnXoaBoMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnCapNhatMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnThemMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbLan2 = new System.Windows.Forms.RadioButton();
+            this.rdbLan1 = new System.Windows.Forms.RadioButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxMonHoc = new System.Windows.Forms.ComboBox();
+            this.cbxKhoa = new System.Windows.Forms.ComboBox();
             this.cbxLop = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblLop = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvNhapDiem = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxKhoa = new System.Windows.Forms.ComboBox();
-            this.rdbLan1 = new System.Windows.Forms.RadioButton();
-            this.rdbLan2 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,7 +58,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
             this.panel1.Controls.Add(this.btnPhucHoiMonHoc);
-            this.panel1.Controls.Add(this.btnXoaBoMonHoc);
             this.panel1.Controls.Add(this.btnCapNhatMonHoc);
             this.panel1.Controls.Add(this.btnThemMonHoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -73,22 +71,11 @@
             this.btnPhucHoiMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhucHoiMonHoc.Appearance.Options.UseFont = true;
             this.btnPhucHoiMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoiMonHoc.ImageOptions.SvgImage")));
-            this.btnPhucHoiMonHoc.Location = new System.Drawing.Point(594, 12);
+            this.btnPhucHoiMonHoc.Location = new System.Drawing.Point(400, 12);
             this.btnPhucHoiMonHoc.Name = "btnPhucHoiMonHoc";
             this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(188, 61);
             this.btnPhucHoiMonHoc.TabIndex = 0;
             this.btnPhucHoiMonHoc.Text = "Phục hồi";
-            // 
-            // btnXoaBoMonHoc
-            // 
-            this.btnXoaBoMonHoc.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaBoMonHoc.Appearance.Options.UseFont = true;
-            this.btnXoaBoMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoaBoMonHoc.ImageOptions.SvgImage")));
-            this.btnXoaBoMonHoc.Location = new System.Drawing.Point(400, 12);
-            this.btnXoaBoMonHoc.Name = "btnXoaBoMonHoc";
-            this.btnXoaBoMonHoc.Size = new System.Drawing.Size(188, 61);
-            this.btnXoaBoMonHoc.TabIndex = 0;
-            this.btnXoaBoMonHoc.Text = "Xóa bỏ";
             // 
             // btnCapNhatMonHoc
             // 
@@ -118,7 +105,7 @@
             this.groupBox1.Controls.Add(this.rdbLan2);
             this.groupBox1.Controls.Add(this.rdbLan1);
             this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbxMonHoc);
             this.groupBox1.Controls.Add(this.cbxKhoa);
             this.groupBox1.Controls.Add(this.cbxLop);
             this.groupBox1.Controls.Add(this.label2);
@@ -135,6 +122,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập điểm cho: ";
             // 
+            // rdbLan2
+            // 
+            this.rdbLan2.AutoSize = true;
+            this.rdbLan2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbLan2.Location = new System.Drawing.Point(278, 317);
+            this.rdbLan2.Name = "rdbLan2";
+            this.rdbLan2.Size = new System.Drawing.Size(136, 36);
+            this.rdbLan2.TabIndex = 6;
+            this.rdbLan2.TabStop = true;
+            this.rdbLan2.Text = "Lần thi 2";
+            this.rdbLan2.UseVisualStyleBackColor = true;
+            // 
+            // rdbLan1
+            // 
+            this.rdbLan1.AutoSize = true;
+            this.rdbLan1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbLan1.Location = new System.Drawing.Point(134, 317);
+            this.rdbLan1.Name = "rdbLan1";
+            this.rdbLan1.Size = new System.Drawing.Size(136, 36);
+            this.rdbLan1.TabIndex = 6;
+            this.rdbLan1.TabStop = true;
+            this.rdbLan1.Text = "Lần thi 1";
+            this.rdbLan1.UseVisualStyleBackColor = true;
+            this.rdbLan1.CheckedChanged += new System.EventHandler(this.rdbLan1_CheckedChanged);
+            // 
             // simpleButton1
             // 
             this.simpleButton1.Location = new System.Drawing.Point(312, 387);
@@ -143,14 +155,26 @@
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Bắt đầu";
             // 
-            // comboBox2
+            // cbxMonHoc
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(134, 256);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(320, 36);
-            this.comboBox2.TabIndex = 4;
+            this.cbxMonHoc.DropDownHeight = 50;
+            this.cbxMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMonHoc.FormattingEnabled = true;
+            this.cbxMonHoc.IntegralHeight = false;
+            this.cbxMonHoc.Location = new System.Drawing.Point(134, 256);
+            this.cbxMonHoc.Name = "cbxMonHoc";
+            this.cbxMonHoc.Size = new System.Drawing.Size(320, 36);
+            this.cbxMonHoc.TabIndex = 4;
+            // 
+            // cbxKhoa
+            // 
+            this.cbxKhoa.Enabled = false;
+            this.cbxKhoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxKhoa.FormattingEnabled = true;
+            this.cbxKhoa.Location = new System.Drawing.Point(134, 138);
+            this.cbxKhoa.Name = "cbxKhoa";
+            this.cbxKhoa.Size = new System.Drawing.Size(320, 36);
+            this.cbxKhoa.TabIndex = 4;
             // 
             // cbxLop
             // 
@@ -183,6 +207,17 @@
             this.label1.Text = "Lần thứ:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(24, 141);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Khoa:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblLop
             // 
             this.lblLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,14 +247,14 @@
             this.dgvNhapDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhapDiem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dgvNhapDiem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNhapDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhapDiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNhapDiem.Location = new System.Drawing.Point(517, 86);
@@ -229,61 +264,15 @@
             this.dgvNhapDiem.ReadOnly = true;
             this.dgvNhapDiem.RowHeadersVisible = false;
             this.dgvNhapDiem.RowHeadersWidth = 62;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dgvNhapDiem.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dgvNhapDiem.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvNhapDiem.RowTemplate.Height = 28;
             this.dgvNhapDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhapDiem.Size = new System.Drawing.Size(859, 662);
             this.dgvNhapDiem.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(24, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 28);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Khoa:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cbxKhoa
-            // 
-            this.cbxKhoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxKhoa.FormattingEnabled = true;
-            this.cbxKhoa.Location = new System.Drawing.Point(134, 138);
-            this.cbxKhoa.Name = "cbxKhoa";
-            this.cbxKhoa.Size = new System.Drawing.Size(320, 36);
-            this.cbxKhoa.TabIndex = 4;
-            // 
-            // rdbLan1
-            // 
-            this.rdbLan1.AutoSize = true;
-            this.rdbLan1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdbLan1.Location = new System.Drawing.Point(134, 317);
-            this.rdbLan1.Name = "rdbLan1";
-            this.rdbLan1.Size = new System.Drawing.Size(136, 36);
-            this.rdbLan1.TabIndex = 6;
-            this.rdbLan1.TabStop = true;
-            this.rdbLan1.Text = "Lần thi 1";
-            this.rdbLan1.UseVisualStyleBackColor = true;
-            this.rdbLan1.CheckedChanged += new System.EventHandler(this.rdbLan1_CheckedChanged);
-            // 
-            // rdbLan2
-            // 
-            this.rdbLan2.AutoSize = true;
-            this.rdbLan2.Enabled = false;
-            this.rdbLan2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdbLan2.Location = new System.Drawing.Point(278, 317);
-            this.rdbLan2.Name = "rdbLan2";
-            this.rdbLan2.Size = new System.Drawing.Size(136, 36);
-            this.rdbLan2.TabIndex = 6;
-            this.rdbLan2.TabStop = true;
-            this.rdbLan2.Text = "Lần thi 2";
-            this.rdbLan2.UseVisualStyleBackColor = true;
             // 
             // frmNhapDiem
             // 
@@ -309,7 +298,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnPhucHoiMonHoc;
-        private DevExpress.XtraEditors.SimpleButton btnXoaBoMonHoc;
         private DevExpress.XtraEditors.SimpleButton btnCapNhatMonHoc;
         private DevExpress.XtraEditors.SimpleButton btnThemMonHoc;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -318,7 +306,7 @@
         private System.Windows.Forms.DataGridView dgvNhapDiem;
         private System.Windows.Forms.ComboBox cbxLop;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxMonHoc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdbLan2;
