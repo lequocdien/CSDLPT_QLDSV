@@ -22,12 +22,17 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void frmLopGUI_Load(object sender, EventArgs e)
         {
+            if(BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             cmbKhoa.DataSource = BUL.DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
-            txtMaKhoa.Enabled = false;
+            groupControl_ThongTinLop.Enabled = false;
+           // txtMaKhoa.Enabled = false;
 
             if(Common.Data.m_strGroup == "PGV")
             {
@@ -70,8 +75,14 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             maghi = 0;
+            groupControl_ThongTinLop.Enabled = true;
             cmbKhoa.Enabled = false;
+            txtMaKhoa.Enabled = false;
             groupControl_DanhSachLop.Enabled = false;
             txtMaLop.ResetText();
             txtTenLop.ResetText();
@@ -102,12 +113,20 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             MessageBox.Show("Tải lại dữ liệu thành công", "THÔNG BÁO", MessageBoxButtons.OK);
         }
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             if (MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
@@ -115,6 +134,7 @@ namespace QuanLyDiemSinhVien.LopGUI
             txtMaLop.Text = dgvLop.Rows[dong].Cells[1].Value.ToString().Trim();
             txtTenLop.Text = dgvLop.Rows[dong].Cells[2].Value.ToString().Trim();
             txtMaLop.Enabled = txtTenLop.Enabled = true;
+            groupControl_ThongTinLop.Enabled = false;
             groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
@@ -130,6 +150,10 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             if (txtMaLop.Text.Trim() == "")
             {
                 MessageBox.Show("Mã lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -170,6 +194,7 @@ namespace QuanLyDiemSinhVien.LopGUI
                 }
             }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
+            groupControl_ThongTinLop.Enabled = false;
             groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
@@ -185,6 +210,10 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             if (BUL.LopBUL.LoadLop().Count == 0)
             {
                 MessageBox.Show("Khoa " + cmbKhoa.DisplayMember + " không có lớp", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -216,6 +245,10 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             if (BUL.LopBUL.LoadLop().Count == 0)
             {
                 MessageBox.Show("Khoa "+ cmbKhoa.DisplayMember +" không có lớp", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -223,7 +256,9 @@ namespace QuanLyDiemSinhVien.LopGUI
             }
             maghi = 1;
             txtMaLop.Enabled = false;
+            txtMaKhoa.Enabled = false;
             cmbKhoa.Enabled = false;
+            groupControl_ThongTinLop.Enabled = true;
             groupControl_DanhSachLop.Enabled = false;
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
