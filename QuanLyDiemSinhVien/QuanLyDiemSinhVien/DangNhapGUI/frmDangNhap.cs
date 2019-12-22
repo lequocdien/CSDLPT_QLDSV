@@ -31,8 +31,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             cmbKhoa.DataSource = DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
-            cmbKhoa.SelectedIndex = 2;//số thứ tự item (-1 --> count -1)
-            cmbKhoa.SelectedIndex = 1;
+            cmbKhoa.SelectedIndex = 1;//số thứ tự item (-1 --> count -1)
             cmbKhoa.SelectedIndex = 0;
         }
 
@@ -47,11 +46,23 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            if(txtTaiKhoan.Text == "")
+            {
+                MessageBox.Show("Tên tài khoản không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtMatKhau.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
             string user = txtTaiKhoan.Text;
             string pass = txtMatKhau.Text;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 0)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK);
+                txtTaiKhoan.ResetText();
+                txtMatKhau.ResetText();
                 return;
             }
             Common.Data.m_nKhoa = cmbKhoa.SelectedIndex;
@@ -63,9 +74,6 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             PrintInfoLoginEvent(Data.User_ID, Data.m_strHoten, Data.m_strGroup);
 
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
-         //   frmLop f = new frmLop();
-         //   frmLop_SinhVien f = new frmLop_SinhVien();
-        //    f.Show();
             Common.Data.Con.Close();
         }
     }
