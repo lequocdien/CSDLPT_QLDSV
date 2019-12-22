@@ -203,7 +203,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 363);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 349);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(820, 23);
             // 
@@ -213,7 +213,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 339);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 325);
             // 
             // barDockControlRight
             // 
@@ -221,24 +221,26 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(820, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 339);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 325);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbKhoa);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 88);
+            this.panel1.Size = new System.Drawing.Size(820, 64);
             this.panel1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 21);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(191, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.Size = new System.Drawing.Size(45, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Khoa";
             // 
@@ -255,27 +257,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(39, 177);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Mã khoa";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(39, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(48, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tên lớp";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(39, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã lớp";
             // 
@@ -283,9 +288,9 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 112);
+            this.panel2.Location = new System.Drawing.Point(0, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 251);
+            this.panel2.Size = new System.Drawing.Size(820, 261);
             this.panel2.TabIndex = 11;
             // 
             // panel3
@@ -295,7 +300,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(820, 251);
+            this.panel3.Size = new System.Drawing.Size(820, 261);
             this.panel3.TabIndex = 12;
             // 
             // groupControl_ThongTinLop
@@ -307,9 +312,9 @@
             this.groupControl_ThongTinLop.Controls.Add(this.label4);
             this.groupControl_ThongTinLop.Controls.Add(this.label3);
             this.groupControl_ThongTinLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl_ThongTinLop.Location = new System.Drawing.Point(380, 0);
+            this.groupControl_ThongTinLop.Location = new System.Drawing.Point(433, 0);
             this.groupControl_ThongTinLop.Name = "groupControl_ThongTinLop";
-            this.groupControl_ThongTinLop.Size = new System.Drawing.Size(440, 251);
+            this.groupControl_ThongTinLop.Size = new System.Drawing.Size(387, 261);
             this.groupControl_ThongTinLop.TabIndex = 12;
             this.groupControl_ThongTinLop.Text = "Thông tin lớp";
             // 
@@ -318,7 +323,9 @@
             this.txtMaKhoa.Location = new System.Drawing.Point(107, 174);
             this.txtMaKhoa.MenuManager = this.barManager1;
             this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(272, 20);
+            this.txtMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaKhoa.Properties.Appearance.Options.UseFont = true;
+            this.txtMaKhoa.Size = new System.Drawing.Size(272, 22);
             this.txtMaKhoa.TabIndex = 7;
             // 
             // txtTenLop
@@ -326,7 +333,9 @@
             this.txtTenLop.Location = new System.Drawing.Point(107, 112);
             this.txtTenLop.MenuManager = this.barManager1;
             this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(272, 20);
+            this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenLop.Properties.Appearance.Options.UseFont = true;
+            this.txtTenLop.Size = new System.Drawing.Size(272, 22);
             this.txtTenLop.TabIndex = 6;
             // 
             // txtMaLop
@@ -334,7 +343,9 @@
             this.txtMaLop.Location = new System.Drawing.Point(107, 53);
             this.txtMaLop.MenuManager = this.barManager1;
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(272, 20);
+            this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.Properties.Appearance.Options.UseFont = true;
+            this.txtMaLop.Size = new System.Drawing.Size(272, 22);
             this.txtMaLop.TabIndex = 2;
             // 
             // groupControl_DanhSachLop
@@ -343,7 +354,7 @@
             this.groupControl_DanhSachLop.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl_DanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.groupControl_DanhSachLop.Name = "groupControl_DanhSachLop";
-            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(380, 251);
+            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(433, 261);
             this.groupControl_DanhSachLop.TabIndex = 11;
             this.groupControl_DanhSachLop.Text = "Danh sách lớp";
             // 
@@ -361,7 +372,7 @@
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.ReadOnly = true;
             this.dgvLop.RowHeadersVisible = false;
-            this.dgvLop.Size = new System.Drawing.Size(376, 229);
+            this.dgvLop.Size = new System.Drawing.Size(429, 239);
             this.dgvLop.TabIndex = 0;
             this.dgvLop.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_RowEnter);
             this.dgvLop.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvLop_RowPrePaint);
@@ -402,14 +413,14 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 386);
+            this.ClientSize = new System.Drawing.Size(820, 372);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmLop";
             this.Text = "Lớp";
             this.Load += new System.EventHandler(this.frmLopGUI_Load);
