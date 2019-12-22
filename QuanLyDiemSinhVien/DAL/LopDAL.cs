@@ -23,20 +23,32 @@ namespace DAL
 
         public static bool AddLop(LopDTO lop)
         {
-            string str = "insert into LOP(MALOP,TENLOP,MAKH) values ('"+lop.MALOP+ "',N'" + lop.TENLOP + "','" + lop.MAKH + "')";
-            return DataProvider.ExecSQLQuery(str);
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "insert into LOP(MALOP,TENLOP,MAKH) values ('" + lop.MALOP + "',N'" + lop.TENLOP + "','" + lop.MAKH + "')";
+                return DataProvider.ExecSQLQuery(str);
+            }
+            return false;
         }
 
         public static bool DeleteLop(string malop)
         {
-            string str = "delete from LOP where MALOP = '" + malop + "'";
-            return DataProvider.ExecSQLQuery(str);
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "delete from LOP where MALOP = '" + malop + "'";
+                return DataProvider.ExecSQLQuery(str);
+            }
+            return false;
         }
 
         public static bool UpdateLop(LopDTO lop)
         {
-            string str = "update LOP set TENLOP = N'" + lop.TENLOP + "', MAKH = '" + lop.MAKH + "' where MALOP = '" + lop.MALOP + "'";
-            return DataProvider.ExecSQLQuery(str);
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "update LOP set TENLOP = N'" + lop.TENLOP + "', MAKH = '" + lop.MAKH + "' where MALOP = '" + lop.MALOP + "'";
+                return DataProvider.ExecSQLQuery(str);
+            }
+            return false;
         }
     }
 }

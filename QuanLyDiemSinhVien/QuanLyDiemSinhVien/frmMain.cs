@@ -18,6 +18,7 @@ namespace QuanLyDiemSinhVien
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        #region Constructor
         public frmMain()
         {
             InitializeComponent();
@@ -28,7 +29,9 @@ namespace QuanLyDiemSinhVien
             UserLookAndFeel.Default.SkinName = "Office 2016 Colorful";
             //UserLookAndFeel.Default.SkinMaskColor = Color.Blue;
         }
+        #endregion
 
+        #region UI Event
         private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmMonHoc frmMonHoc = new frmMonHoc();
@@ -41,6 +44,7 @@ namespace QuanLyDiemSinhVien
             frmDangNhap f = new frmDangNhap();
             f.MdiParent = this;
             f.Show();
+            f.PrintInfoLoginEvent += new frmDangNhap.PrintInfoLoginHandler(ShowStatusBar);
         }
 
         private void btnLop_ItemClick(object sender, ItemClickEventArgs e)
@@ -48,6 +52,14 @@ namespace QuanLyDiemSinhVien
             frmLop f = new frmLop();
             f.MdiParent = this;
             f.Show();
+        }
+        #endregion
+
+        public void ShowStatusBar(string x_strMaGV, string x_strHoTen, string x_strNhom)
+        {
+            MAGV.Caption = string.Format("MAGV: {0}", x_strMaGV);
+            HOTEN.Caption = string.Format("| HOTEN: {0}", x_strHoTen);
+            NHOM.Caption = string.Format("| NHOM: {0}", x_strNhom);
         }
     }
 }

@@ -38,8 +38,8 @@ namespace DAL
                 return 0;
             }
             myReader.Read();
-            Data.User_ID = myReader.GetString(0);
-            if (Convert.IsDBNull(Data.User_ID))
+            Data.m_strMaGV = myReader.GetString(0);
+            if (Convert.IsDBNull(Data.m_strMaGV))
             {
                 return 1;//Tài khoản ko có quyền truy cập
             }
