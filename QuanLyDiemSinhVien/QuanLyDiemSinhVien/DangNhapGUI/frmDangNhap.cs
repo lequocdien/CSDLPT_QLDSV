@@ -11,11 +11,16 @@ using DevExpress.XtraEditors;
 using BUL;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 using QuanLyDiemSinhVien.LopGUI;
+using Common;
 
 namespace QuanLyDiemSinhVien.DangNhapGUI
 {
     public partial class frmDangNhap : DevExpress.XtraEditors.XtraForm
     {
+        public delegate void PrintInfoLoginHandler(string x_strMaGV, string x_strHoTen, string x_strGroup);
+
+        public event PrintInfoLoginHandler PrintInfoLoginEvent;
+
         public frmDangNhap()
         {
             InitializeComponent();
@@ -55,6 +60,8 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
                 MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
+            PrintInfoLoginEvent(Data.User_ID, Data.m_strHoten, Data.m_strGroup);
+
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
          //   frmLop f = new frmLop();
          //   frmLop_SinhVien f = new frmLop_SinhVien();
