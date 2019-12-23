@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,26 @@ namespace DAL
                 return DataProvider.ExecSQLQuery(str);
             }
             return false;
+        }
+
+        public static SqlDataReader KiemTraMaLop(string malop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "EXEC SP_KiemTraMaLop '" + malop + "'";
+                return DataProvider.ExecSQLDataReader(str);
+            }
+            return null;
+        }
+
+        public static SqlDataReader KiemTraTenLop(string tenlop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "EXEC SP_KiemTraTenLop N'" + tenlop + "'";
+                return DataProvider.ExecSQLDataReader(str);
+            }
+            return null;
         }
     }
 }

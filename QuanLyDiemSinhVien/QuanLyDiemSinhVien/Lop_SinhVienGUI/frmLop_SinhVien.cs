@@ -22,13 +22,17 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void frmLop_SinhVien_Load(object sender, EventArgs e)
         {
+            if(BUL.LopBUL.LoadLop()==null)
+            {
+                return;
+            }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             cmbKhoa.DataSource = BUL.DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
 
-            //   groupControl_ThongTinSinhVien.Enabled = false;
+           // groupControl_ThongTinSinhVien.Enabled = false;
             
             txtMaLop.Enabled = txtMaSV.Enabled = false;
             if (Common.Data.m_strGroup == "PGV")
@@ -145,6 +149,10 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             maghi = 0;
             cmbKhoa.Enabled = false;
             txtMaSV.Enabled = true;
@@ -159,7 +167,11 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
+            if (MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
             }
@@ -210,7 +222,11 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
+            if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp "+malop+" không có sinh viên để chỉnh sửa", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
@@ -224,7 +240,11 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
+            if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp " + malop + " không có sinh viên", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
@@ -243,6 +263,10 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
             if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp " + malop + " không có sinh viên để xóa", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -278,6 +302,55 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                return;
+            }
+            if(txtMaSV.Text.Trim() == "")
+            {
+                MessageBox.Show("Mã sinh viên không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtHo.Text.Trim() == "")
+            {
+                MessageBox.Show("Họ không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtTen.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtMaLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Mã lớp không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtNgaySinh.Text.Trim() == "")
+            {
+                MessageBox.Show("Ngày sinh không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if(rdbtnNam.Checked == false && rdbtnNu.Checked == false)
+            {
+                MessageBox.Show("Giới tính không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtNoiSinh.Text.Trim() == "")
+            {
+                MessageBox.Show("Nơi sinh không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtDiaChi.Text.Trim() == "")
+            {
+                MessageBox.Show("Địa chỉ không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if(rdbtnDaNghiHoc.Checked == false && rdbtnChuaNghiHoc.Checked == false)
+            {
+                MessageBox.Show("Nghỉ học không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
             SinhVienDTO sv = new SinhVienDTO();
             sv.MASV = txtMaSV.Text.Trim();
             sv.HO = txtHo.Text.Trim();
@@ -309,18 +382,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                 if(BUL.SinhVienBUL.AddSinhVien(sv) == true)
                 {
                     MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                    dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
-                    groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-                    if (Common.Data.m_strGroup == "PGV")
-                    {
-                        cmbKhoa.Enabled = true;
-                    }
-                    else
-                    {
-                        cmbKhoa.Enabled = false;
-                    }
-                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = true;
-                    btnGhi.Enabled = btnPhucHoi.Enabled = false;
                 }
                 else
                 {
@@ -335,18 +396,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                 if (BUL.SinhVienBUL.UpdatesinhVien(sv) == true)
                 {
                     MessageBox.Show("Sửa thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                    dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
-                    groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
-                    if (Common.Data.m_strGroup == "PGV")
-                    {
-                        cmbKhoa.Enabled = true;
-                    }
-                    else
-                    {
-                        cmbKhoa.Enabled = false;
-                    }
-                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = true;
-                    btnGhi.Enabled = btnPhucHoi.Enabled = false;
                 }
                 else
                 {
@@ -354,6 +403,19 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                     return;
                 }
             }
+            dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
+            txtMaSV.Enabled = false;
+            groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
+            if (Common.Data.m_strGroup == "PGV")
+            {
+                cmbKhoa.Enabled = true;
+            }
+            else
+            {
+                cmbKhoa.Enabled = false;
+            }
+            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = true;
+            btnGhi.Enabled = btnPhucHoi.Enabled = false;
         }
     }
 }

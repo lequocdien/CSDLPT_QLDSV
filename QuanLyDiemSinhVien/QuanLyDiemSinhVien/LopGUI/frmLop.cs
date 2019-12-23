@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DTO;
+using System.Data.SqlClient;
 
 namespace QuanLyDiemSinhVien.LopGUI
 {
@@ -31,8 +32,9 @@ namespace QuanLyDiemSinhVien.LopGUI
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
-            groupControl_ThongTinLop.Enabled = false;
-           // txtMaKhoa.Enabled = false;
+         //   groupControl_ThongTinLop.Enabled = false;
+            txtMaKhoa.Enabled = false;
+            txtMaLop.Enabled = false;
 
             if(Common.Data.m_strGroup == "PGV")
             {
@@ -80,8 +82,9 @@ namespace QuanLyDiemSinhVien.LopGUI
                 return;
             }
             maghi = 0;
-            groupControl_ThongTinLop.Enabled = true;
+         //   groupControl_ThongTinLop.Enabled = true;
             cmbKhoa.Enabled = false;
+            txtMaLop.Enabled = true;
             txtMaKhoa.Enabled = false;
             groupControl_DanhSachLop.Enabled = false;
             txtMaLop.ResetText();
@@ -133,8 +136,9 @@ namespace QuanLyDiemSinhVien.LopGUI
             }
             txtMaLop.Text = dgvLop.Rows[dong].Cells[1].Value.ToString().Trim();
             txtTenLop.Text = dgvLop.Rows[dong].Cells[2].Value.ToString().Trim();
-            txtMaLop.Enabled = txtTenLop.Enabled = true;
-            groupControl_ThongTinLop.Enabled = false;
+            txtMaKhoa.Enabled = false;
+            txtMaLop.Enabled = false;
+            //    groupControl_ThongTinLop.Enabled = false;
             groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
@@ -159,9 +163,30 @@ namespace QuanLyDiemSinhVien.LopGUI
                 MessageBox.Show("Mã lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
+            if (txtMaLop.Text.Trim().Length > 8)
+            {
+                MessageBox.Show("Mã lớp không quá 8 ký tự", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (BUL.LopBUL.KiemTraMaLop(txtMaLop.Text.Trim()) != null && maghi == 0)
+            {
+                SqlDataReader myreader;
+                myreader = BUL.LopBUL.KiemTraMaLop(txtMaLop.Text.Trim());
+                myreader.Read();
+                MessageBox.Show("Mã lớp "+ txtMaLop.Text.Trim() + " đã tồn tại ở khoa '" + myreader.GetString(0) + "'", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
             if (txtTenLop.Text.Trim() == "")
             {
                 MessageBox.Show("Tên lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+            if (BUL.LopBUL.KiemTraTenLop(txtTenLop.Text.Trim()) != null)
+            {
+                SqlDataReader myreader;
+                myreader = BUL.LopBUL.KiemTraTenLop(txtTenLop.Text.Trim());
+                myreader.Read();
+                MessageBox.Show("Tên lớp '"+ txtTenLop.Text.Trim() + "' đã tồn tại ở khoa '"+ myreader.GetString(0)+"'", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
             LopDTO lop = new LopDTO();
@@ -194,7 +219,9 @@ namespace QuanLyDiemSinhVien.LopGUI
                 }
             }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
-            groupControl_ThongTinLop.Enabled = false;
+            // groupControl_ThongTinLop.Enabled = false;
+            txtMaKhoa.Enabled = false;
+            txtMaLop.Enabled = false;
             groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
@@ -220,6 +247,11 @@ namespace QuanLyDiemSinhVien.LopGUI
                 return;
             }
             string malop = txtMaLop.Text.Trim();
+            if(BUL.SinhVienBUL.LoadSinhVien(malop).Count > 0)
+            {
+                MessageBox.Show("Lớp "+malop+" có sinh viên không được xóa", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
             if (MessageBox.Show("Bạn có muốn xóa lớp" + malop + " không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No) return;
             if (BUL.LopBUL.DeleteLop(malop)==true)
             {
@@ -258,7 +290,7 @@ namespace QuanLyDiemSinhVien.LopGUI
             txtMaLop.Enabled = false;
             txtMaKhoa.Enabled = false;
             cmbKhoa.Enabled = false;
-            groupControl_ThongTinLop.Enabled = true;
+       //     groupControl_ThongTinLop.Enabled = true;
             groupControl_DanhSachLop.Enabled = false;
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;

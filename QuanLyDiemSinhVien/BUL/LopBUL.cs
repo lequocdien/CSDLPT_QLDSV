@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,16 @@ namespace BUL
         public static bool updateLop(LopDTO lop)
         {
             return DAL.LopDAL.UpdateLop(lop);
+        }
+
+        public static SqlDataReader KiemTraMaLop(string malop)
+        {
+            return DAL.LopDAL.KiemTraMaLop(malop);
+        }
+
+        public static SqlDataReader KiemTraTenLop(string tenlop)
+        {
+            return DAL.LopDAL.KiemTraTenLop(tenlop);
         }
     }
 }
