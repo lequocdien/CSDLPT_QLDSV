@@ -27,7 +27,6 @@ namespace QuanLyDiemSinhVien.LopGUI
             if(BUL.LopBUL.LoadLop() == null)
             {
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
-                btnThoat.Enabled = true;
                 return;
             }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
@@ -35,11 +34,6 @@ namespace QuanLyDiemSinhVien.LopGUI
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
-
-            DataTable dt = new DataTable();
-            dt = BUL.LopBUL.LoadKhoa();
-            tenkhoa = dt.Rows[0]["TENKH"].ToString();
-            txtMaKhoa.Text = dt.Rows[0]["MAKH"].ToString();
 
             txtMaKhoa.Enabled = txtMaLop.Enabled = false;
 
@@ -78,6 +72,10 @@ namespace QuanLyDiemSinhVien.LopGUI
             }
             else
             {
+                DataTable dt = new DataTable();
+                dt = BUL.LopBUL.LoadKhoa();
+                tenkhoa = dt.Rows[0]["TENKH"].ToString();
+                txtMaKhoa.Text = dt.Rows[0]["MAKH"].ToString();
                 dgvLop.DataSource = BUL.LopBUL.LoadLop();
             }
         }

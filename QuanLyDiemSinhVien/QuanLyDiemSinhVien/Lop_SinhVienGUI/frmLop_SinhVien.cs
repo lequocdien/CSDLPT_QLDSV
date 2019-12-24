@@ -22,6 +22,11 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void frmLop_SinhVien_Load(object sender, EventArgs e)
         {
+            if(BUL.LopBUL.LoadLop() == null)
+            {
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                return;
+            }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             cmbKhoa.DataSource = BUL.DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
