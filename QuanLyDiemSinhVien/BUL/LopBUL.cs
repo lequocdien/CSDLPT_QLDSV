@@ -14,6 +14,10 @@ namespace BUL
         public static List<LopDTO> LoadLop()
         {
             DataTable dt = DAL.LopDAL.LoadLop();
+            if(dt == null)
+            {
+                return null;
+            }
             List<LopDTO> list = new List<LopDTO>();
             if (dt.Rows.Count > 0)
             {

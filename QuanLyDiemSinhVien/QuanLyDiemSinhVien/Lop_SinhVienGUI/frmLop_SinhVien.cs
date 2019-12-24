@@ -22,18 +22,12 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void frmLop_SinhVien_Load(object sender, EventArgs e)
         {
-            if(BUL.LopBUL.LoadLop()==null)
-            {
-                return;
-            }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             cmbKhoa.DataSource = BUL.DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
 
-           // groupControl_ThongTinSinhVien.Enabled = false;
-            
             txtMaLop.Enabled = txtMaSV.Enabled = false;
             if (Common.Data.m_strGroup == "PGV")
             {
@@ -66,7 +60,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                 txtMaLop.Text = malop;
                 txtMaSV.Text = txtHo.Text = txtTen.Text = txtNgaySinh.Text = txtNoiSinh.Text = txtDiaChi.Text = txtGhiChu.Text = "";
                 rdbtnNam.Checked = rdbtnNu.Checked = rdbtnDaNghiHoc.Checked = rdbtnChuaNghiHoc.Checked = false;
-            //    MessageBox.Show("Lớp "+malop+ " không có sinh viên", "THÔNG BÁO", MessageBoxButtons.OK);
                 return;
             }
         }
@@ -149,14 +142,9 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             maghi = 0;
             cmbKhoa.Enabled = false;
             txtMaSV.Enabled = true;
-            //  dgvSinhVien.Rows[dong].
             groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = false;
             txtMaSV.Text = txtHo.Text = txtTen.Text  = txtNgaySinh.Text = txtNoiSinh.Text = txtDiaChi.Text = txtGhiChu.Text = "";
             rdbtnNam.Checked = rdbtnNu.Checked = rdbtnDaNghiHoc.Checked = rdbtnChuaNghiHoc.Checked = false;
@@ -167,10 +155,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             if (MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
@@ -222,10 +206,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp "+malop+" không có sinh viên để chỉnh sửa", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -240,10 +220,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp " + malop + " không có sinh viên", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -263,10 +239,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 MessageBox.Show("Lớp " + malop + " không có sinh viên để xóa", "THÔNG BÁO", MessageBoxButtons.OK);
@@ -302,10 +274,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (BUL.LopBUL.LoadLop() == null)
-            {
-                return;
-            }
             if(txtMaSV.Text.Trim() == "")
             {
                 MessageBox.Show("Mã sinh viên không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
