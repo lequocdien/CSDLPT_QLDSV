@@ -14,10 +14,6 @@ namespace BUL
         public static List<LopDTO> LoadLop()
         {
             DataTable dt = DAL.LopDAL.LoadLop();
-            if(dt == null)
-            {
-                return null;
-            }
             List<LopDTO> list = new List<LopDTO>();
             if (dt.Rows.Count > 0)
             {
@@ -33,6 +29,10 @@ namespace BUL
             return list;
         }
 
+        public static DataTable LoadKhoa()
+        {
+            return DAL.LopDAL.LoadKhoa();
+        }
         public static bool AddLop(LopDTO lop)
         {
             return DAL.LopDAL.AddLop(lop);

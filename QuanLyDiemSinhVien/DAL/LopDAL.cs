@@ -12,6 +12,15 @@ namespace DAL
 {
     public class LopDAL
     {
+        public static DataTable LoadKhoa()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "select MAKH, TENKH from KHOA";
+                return DataProvider.ExecSQLQueryDataTable(str);
+            }
+            return null;
+        }
         public static DataTable LoadLop()
         {
             if(DataProvider.ConnectDatabase())

@@ -203,7 +203,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 391);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 408);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1308, 23);
             // 
@@ -213,7 +213,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 367);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 384);
             // 
             // barDockControlRight
             // 
@@ -221,7 +221,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1308, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 367);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 384);
             // 
             // panel1
             // 
@@ -290,7 +290,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1308, 303);
+            this.panel2.Size = new System.Drawing.Size(1308, 320);
             this.panel2.TabIndex = 11;
             // 
             // panel3
@@ -300,7 +300,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1308, 303);
+            this.panel3.Size = new System.Drawing.Size(1308, 320);
             this.panel3.TabIndex = 12;
             // 
             // groupControl_ThongTinLop
@@ -314,7 +314,7 @@
             this.groupControl_ThongTinLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl_ThongTinLop.Location = new System.Drawing.Point(790, 0);
             this.groupControl_ThongTinLop.Name = "groupControl_ThongTinLop";
-            this.groupControl_ThongTinLop.Size = new System.Drawing.Size(518, 303);
+            this.groupControl_ThongTinLop.Size = new System.Drawing.Size(518, 320);
             this.groupControl_ThongTinLop.TabIndex = 12;
             this.groupControl_ThongTinLop.Text = "Thông tin lớp";
             // 
@@ -354,7 +354,7 @@
             this.groupControl_DanhSachLop.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl_DanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.groupControl_DanhSachLop.Name = "groupControl_DanhSachLop";
-            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(790, 303);
+            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(790, 320);
             this.groupControl_DanhSachLop.TabIndex = 11;
             this.groupControl_DanhSachLop.Text = "Danh sách lớp";
             // 
@@ -372,7 +372,7 @@
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.ReadOnly = true;
             this.dgvLop.RowHeadersVisible = false;
-            this.dgvLop.Size = new System.Drawing.Size(786, 281);
+            this.dgvLop.Size = new System.Drawing.Size(786, 298);
             this.dgvLop.TabIndex = 0;
             this.dgvLop.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_RowEnter);
             this.dgvLop.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvLop_RowPrePaint);
@@ -413,7 +413,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 414);
+            this.ClientSize = new System.Drawing.Size(1308, 431);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
