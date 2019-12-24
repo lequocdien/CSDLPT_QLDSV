@@ -101,7 +101,7 @@ namespace DAL
             catch (SqlException ex)
             {
                 Data.Con.Close();
-                MessageBox.Show(ex.Message);
+             //   MessageBox.Show(ex.Message);
                 return null;
             }
         }

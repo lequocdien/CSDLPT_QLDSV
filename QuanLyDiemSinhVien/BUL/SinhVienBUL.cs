@@ -13,6 +13,10 @@ namespace BUL
         public static List<SinhVienDTO> LoadSinhVien(string Malop)
         {
             DataTable dt = DAL.SinhVienDAL.LoadSinhVien(Malop);
+            if(dt == null)
+            {
+                return null;
+            }
             List<SinhVienDTO> list = new List<SinhVienDTO>();
             if (dt.Rows.Count > 0)
             {
