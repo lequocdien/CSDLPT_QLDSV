@@ -202,6 +202,8 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             {
                 throw new Exception("TÊN MÔN HỌC không được để trống");
             }
+
+            //TODO: validate MaLop nchar(8), TenLop (nvarchar(40))
         }
         #endregion
     }

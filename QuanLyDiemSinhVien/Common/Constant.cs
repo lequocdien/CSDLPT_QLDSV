@@ -18,6 +18,8 @@ namespace Common
         public const string REMOTE_LOGIN = "HTKN";
         public const string REMOTE_PASSWORD = "12345";
 
-        public const string IGNORE_SITE_PKETOAN = "CSDLPT_QLDSV_KT";
+        public const string PUBLICATION_NAME_CNTT = "CSDLPT_QLDSV_CNTT";
+        public const string PUBLICATION_NAME_VT = "CSDLPT_QLDSV_VT";
+        public const string PUBLICATION_NAME_KT = "CSDLPT_QLDSV_KT";
     }
 }

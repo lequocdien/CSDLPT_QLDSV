@@ -51,6 +51,7 @@
     <Compile Include="KhoaDAL.cs" />
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
+    <Compile Include="NhapDiemDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVienDAL.cs" />
   </ItemGroup>
