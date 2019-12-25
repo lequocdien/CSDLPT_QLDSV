@@ -13,11 +13,13 @@ namespace Common
         public const string REMOTE_LOGIN = "HTKN";
         public const string REMOTE_PASSWORD = "12345";
 
+        public const string IGNORE_SITE_PKETOAN = "QLDSV_PKeToan";
+
         //public const string SERVER_NAME = "DIEN-PC";
         //public const string DATABASE_NAME = "CSDLPT_QLDSV";
         //public const string REMOTE_LOGIN = "HTKN";
         //public const string REMOTE_PASSWORD = "12345";
 
-        public const string IGNORE_SITE_PKETOAN = "CSDLPT_QLDSV_KT";
+        //public const string IGNORE_SITE_PKETOAN = "CSDLPT_QLDSV_KT";
     }
 }

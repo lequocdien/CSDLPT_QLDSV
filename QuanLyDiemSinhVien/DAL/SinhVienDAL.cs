@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,16 @@ namespace DAL
                 return DataProvider.ExecSQLQuery(str);
             }
             return false;
+        }
+
+        public static SqlDataReader KiemTraMaSinhVien(string masv)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "EXEC SP_KiemTraMaSinhVien '" + masv + "'";
+                return DataProvider.ExecSQLDataReader(str);
+            }
+            return null;
         }
     }
 }

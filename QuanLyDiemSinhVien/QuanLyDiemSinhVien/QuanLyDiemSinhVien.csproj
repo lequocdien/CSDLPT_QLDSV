@@ -79,6 +79,12 @@
     <Compile Include="LopGUI\frmLop.Designer.cs">
       <DependentUpon>frmLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmChuyenLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmChuyenLop.Designer.cs">
+      <DependentUpon>frmChuyenLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lop_SinhVienGUI\frmLop_SinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LopGUI\frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lop_SinhVienGUI\frmChuyenLop.resx">
+      <DependentUpon>frmChuyenLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lop_SinhVienGUI\frmLop_SinhVien.resx">
       <DependentUpon>frmLop_SinhVien.cs</DependentUpon>

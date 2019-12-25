@@ -224,6 +224,7 @@
             this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
             this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
             this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
             // 
             // btnThoat
             // 

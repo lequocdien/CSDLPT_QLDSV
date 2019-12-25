@@ -71,6 +71,16 @@ namespace DAL
             return null;
         }
 
+        public static DataTable TimKiemLop(string malop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "select MALOP,TENLOP,MAKH from LOP where MALOP = '"+malop+"'";
+                return DataProvider.ExecSQLQueryDataTable(str);
+            }
+            return null;
+        }
+
         public static SqlDataReader KiemTraTenLop(string tenlop)
         {
             if (DataProvider.ConnectDatabase())

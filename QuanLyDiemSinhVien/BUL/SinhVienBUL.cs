@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,11 @@ namespace BUL
         public static bool UpdatesinhVien(SinhVienDTO sv)
         {
             return DAL.SinhVienDAL.UpdateSinhVien(sv);
+        }
+
+        public static SqlDataReader KiemTraMaSinhVien(string masv)
+        {
+            return DAL.SinhVienDAL.KiemTraMaSinhVien(masv);
         }
     }
 }
