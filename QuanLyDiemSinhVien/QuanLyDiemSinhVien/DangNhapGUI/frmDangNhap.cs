@@ -48,32 +48,33 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
         {
             if(txtTaiKhoan.Text == "")
             {
-                MessageBox.Show("Tên tài khoản không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tên tài khoản không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtMatKhau.Text == "")
             {
-                MessageBox.Show("Mật khẩu không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string user = txtTaiKhoan.Text;
             string pass = txtMatKhau.Text;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 0)
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK);
-                txtTaiKhoan.ResetText();
-                txtMatKhau.ResetText();
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             //   txtTaiKhoan.ResetText();
+             //   txtMatKhau.ResetText();
                 return;
             }
             Common.Data.m_nKhoa = cmbKhoa.SelectedIndex;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 1)
             {
-                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            this.Close();
             PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
-            MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
+            MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Common.Data.Con.Close();
         }
     }

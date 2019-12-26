@@ -64,5 +64,25 @@ namespace DAL
             }
             return null;
         }
+
+        public static DataTable KiemTraHocPhiSinhVien(string masv)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "select MASV from LINK2.QLDSV.DBO.HOCPHI where MASV = '" + masv + "'";
+                return DataProvider.ExecSQLQueryDataTable(str);
+            }
+            return null;
+        }
+
+        public static DataTable KiemTraDiemSinhVien(string masv)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "select MASV from DIEM where MASV = '" + masv + "'";
+                return DataProvider.ExecSQLQueryDataTable(str);
+            }
+            return null;
+        }
     }
 }

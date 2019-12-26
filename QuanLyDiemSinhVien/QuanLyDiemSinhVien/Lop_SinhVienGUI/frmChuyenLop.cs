@@ -45,7 +45,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             list = BUL.LopBUL.TimKiemLop(txtMaLop.Text.Trim());
             if (list.Count == 0)
             {
-                MessageBox.Show("Lớp "+ txtMaLop.Text.Trim() + " không có trong danh sách ", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Lớp "+ txtMaLop.Text.Trim() + " không có trong danh sách ", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -72,15 +72,20 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             sv.PHAI = frmLop_SinhVien.sinhvien.sv.PHAI;
             sv.NGHIHOC = frmLop_SinhVien.sinhvien.sv.NGHIHOC;
 
-            if(MessageBox.Show("Bạn có muốn chuyển sinh viên có mã " + sv.MASV + " vào lớp "+sv.MALOP+" không? ", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(txtMaLop.Text.Trim().Equals(frmLop_SinhVien.sinhvien.sv.MALOP) == true)
+            {
+                MessageBox.Show("Sinh viên đang ở lớp hiện tại "+ txtMaLop.Text.Trim() + "", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if(MessageBox.Show("Bạn có muốn chuyển sinh viên có mã " + sv.MASV + " vào lớp "+sv.MALOP+" không? ", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (BUL.SinhVienBUL.UpdatesinhVien(sv) == true)
                 {
-                    MessageBox.Show("Chuyển lớp thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Chuyển lớp thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Chuyển lớp thất bại", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Chuyển lớp thất bại", "THÔNG BÁO", MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
                 }
             }

@@ -73,7 +73,7 @@ namespace QuanLyDiemSinhVien.LopGUI
             }
             if (BUL.DangNhapBUL.KiemTraKetNoi() == false)
             {
-                MessageBox.Show("Kết nối về khoa mới thất bại", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Kết nối về khoa mới thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -113,7 +113,7 @@ namespace QuanLyDiemSinhVien.LopGUI
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(MessageBox.Show("Bạn có muốn thoát không?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(MessageBox.Show("Bạn có muốn thoát không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
             }
@@ -123,16 +123,16 @@ namespace QuanLyDiemSinhVien.LopGUI
         {
             if(BUL.LopBUL.LoadLop().Count == 0)
             {
-                MessageBox.Show("Khoa "+tenkhoa+" không có lớp", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Khoa "+tenkhoa+" không có lớp", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
-            MessageBox.Show("Tải lại dữ liệu thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+            MessageBox.Show("Tải lại dữ liệu thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Bạn có muốn phục hồi lại thông tin không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
@@ -152,47 +152,47 @@ namespace QuanLyDiemSinhVien.LopGUI
         {
             if (txtMaLop.Text.Trim() == "")
             {
-                MessageBox.Show("Mã lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Mã lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtMaLop.Text.Trim().Length > 8)
             {
-                MessageBox.Show("Mã lớp không quá 8 ký tự", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Mã lớp không quá 8 ký tự", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtTenLop.Text.Trim() == "")
             {
-                MessageBox.Show("Tên lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tên lớp không được để trống", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SqlDataReader KTMaLop = BUL.LopBUL.KiemTraMaLop(txtMaLop.Text.Trim());
             if (KTMaLop != null && maghi == 0)
             {
                 KTMaLop.Read();
-                MessageBox.Show("Mã lớp: "+ txtMaLop.Text.Trim() + " đã tồn tại \nKhoa " + KTMaLop.GetString(0) + "", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Mã lớp: "+ txtMaLop.Text.Trim() + " đã tồn tại \nKhoa " + KTMaLop.GetString(0) + "", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SqlDataReader KTTenLop = BUL.LopBUL.KiemTraTenLop(txtTenLop.Text.Trim());
             if (KTTenLop != null)
             {
                 KTTenLop.Read();
-                MessageBox.Show("Tên lớp: "+ txtTenLop.Text.Trim() + " đã tồn tại \nKhoa: "+ KTTenLop.GetString(0)+"", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tên lớp: "+ txtTenLop.Text.Trim() + " đã tồn tại \nKhoa: "+ KTTenLop.GetString(0)+"", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             LopDTO lop = new LopDTO();
             lop.MALOP = txtMaLop.Text.Trim();
             lop.TENLOP = txtTenLop.Text.Trim();
             lop.MAKH = txtMaKhoa.Text.Trim();
-            if (MessageBox.Show("Bạn có muốn lưu lại thông tin lớp có mã " + txtMaLop.Text.Trim() + " không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (MessageBox.Show("Bạn có muốn lưu lại thông tin lớp có mã " + txtMaLop.Text.Trim() + " không?", "THÔNG BÁO", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No) return;
             if (maghi == 0)
             {
                 if (BUL.LopBUL.AddLop(lop) == true)
                 {
-                    MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Thêm thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -200,11 +200,11 @@ namespace QuanLyDiemSinhVien.LopGUI
             {
                 if (BUL.LopBUL.updateLop(lop) == true)
                 {   
-                    MessageBox.Show("Sửa thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Sửa thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Sửa thất bại", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Sửa thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -216,23 +216,23 @@ namespace QuanLyDiemSinhVien.LopGUI
         {
             if (BUL.LopBUL.LoadLop().Count == 0)
             {
-                MessageBox.Show("Khoa " + tenkhoa + " không có lớp", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Khoa " + tenkhoa + " không có lớp", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             string malop = txtMaLop.Text.Trim();
             if(BUL.SinhVienBUL.LoadSinhVien(malop).Count > 0)
             {
-                MessageBox.Show("Lớp "+malop+" có sinh viên không được xóa", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Lớp "+malop+" có sinh viên không được xóa", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (MessageBox.Show("Bạn có muốn xóa lớp" + malop + " không?", "THÔNG BÁO", MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (MessageBox.Show("Bạn có muốn xóa lớp " + malop + " không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             if (BUL.LopBUL.DeleteLop(malop)==true)
             {
-                MessageBox.Show("Xóa thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Xóa thất bại", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
@@ -247,7 +247,7 @@ namespace QuanLyDiemSinhVien.LopGUI
         {
             if (BUL.LopBUL.LoadLop().Count == 0)
             {
-                MessageBox.Show("Khoa "+ tenkhoa +" không có lớp", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Khoa "+ tenkhoa +" không có lớp", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             maghi = 1;
@@ -265,18 +265,21 @@ namespace QuanLyDiemSinhVien.LopGUI
         }
         private void ChucNang()
         {
-            txtMaKhoa.Enabled = txtMaLop.Enabled = false;
-            groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
+                txtMaKhoa.Enabled = txtMaLop.Enabled = false;
+                groupControl_DanhSachLop.Enabled = true;
                 cmbKhoa.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = true;
+                btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
             else
             {
+                //groupControl_ThongTinLop.Enabled = false;
                 cmbKhoa.Enabled = false;
+                btnLamMoi.Enabled = btnThoat.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = true;
-            btnGhi.Enabled = btnPhucHoi.Enabled = false;
         }
     }
 }

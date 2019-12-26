@@ -59,5 +59,15 @@ namespace BUL
         {
             return DAL.SinhVienDAL.KiemTraMaSinhVien(masv);
         }
+
+        public static DataTable KiemTraHocPhiSinhVien(string masv)
+        {
+            return DAL.SinhVienDAL.KiemTraHocPhiSinhVien(masv);
+        }
+
+        public static DataTable KiemTraDiemSinhVien(string masv)
+        {
+            return DAL.SinhVienDAL.KiemTraDiemSinhVien(masv);
+        }
     }
 }

@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvLop = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnChuyenLop = new System.Windows.Forms.Button();
             this.groupControl_DanhSachLop = new DevExpress.XtraEditors.GroupControl();
-            this.btnThoat = new System.Windows.Forms.Button();
+            this.dgvLop = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENLOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnChuyenLop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_DanhSachLop)).BeginInit();
             this.groupControl_DanhSachLop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,23 +67,15 @@
             this.panel1.Size = new System.Drawing.Size(722, 77);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // btnLamMoi
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lớp";
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Location = new System.Drawing.Point(231, 25);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.Properties.Appearance.Options.UseFont = true;
-            this.txtMaLop.Size = new System.Drawing.Size(218, 22);
-            this.txtMaLop.TabIndex = 1;
+            this.btnLamMoi.Location = new System.Drawing.Point(614, 26);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(82, 25);
+            this.btnLamMoi.TabIndex = 3;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnTimKiem
             // 
@@ -94,6 +87,24 @@
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
+            // txtMaLop
+            // 
+            this.txtMaLop.Location = new System.Drawing.Point(231, 25);
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.Properties.Appearance.Options.UseFont = true;
+            this.txtMaLop.Size = new System.Drawing.Size(218, 22);
+            this.txtMaLop.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(180, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lớp";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.groupControl_DanhSachLop);
@@ -103,8 +114,26 @@
             this.panel2.Size = new System.Drawing.Size(722, 235);
             this.panel2.TabIndex = 1;
             // 
+            // groupControl_DanhSachLop
+            // 
+            this.groupControl_DanhSachLop.Controls.Add(this.dgvLop);
+            this.groupControl_DanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl_DanhSachLop.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_DanhSachLop.Name = "groupControl_DanhSachLop";
+            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(722, 235);
+            this.groupControl_DanhSachLop.TabIndex = 0;
+            this.groupControl_DanhSachLop.Text = "Danh sách lớp";
+            // 
             // dgvLop
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLop.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -119,47 +148,6 @@
             this.dgvLop.TabIndex = 0;
             this.dgvLop.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_RowEnter);
             this.dgvLop.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvDanhSachLop_RowPrePaint);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnThoat);
-            this.panel3.Controls.Add(this.btnChuyenLop);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(0, 312);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(722, 74);
-            this.panel3.TabIndex = 2;
-            // 
-            // btnChuyenLop
-            // 
-            this.btnChuyenLop.Location = new System.Drawing.Point(203, 22);
-            this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.Size = new System.Drawing.Size(91, 29);
-            this.btnChuyenLop.TabIndex = 0;
-            this.btnChuyenLop.Text = "Chuyển lớp";
-            this.btnChuyenLop.UseVisualStyleBackColor = true;
-            this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
-            // 
-            // groupControl_DanhSachLop
-            // 
-            this.groupControl_DanhSachLop.Controls.Add(this.dgvLop);
-            this.groupControl_DanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl_DanhSachLop.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_DanhSachLop.Name = "groupControl_DanhSachLop";
-            this.groupControl_DanhSachLop.Size = new System.Drawing.Size(722, 235);
-            this.groupControl_DanhSachLop.TabIndex = 0;
-            this.groupControl_DanhSachLop.Text = "Danh sách lớp";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(442, 22);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(88, 29);
-            this.btnThoat.TabIndex = 1;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // STT
             // 
@@ -188,15 +176,36 @@
             this.MAKH.Name = "MAKH";
             this.MAKH.Width = 150;
             // 
-            // btnLamMoi
+            // panel3
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(614, 26);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(82, 25);
-            this.btnLamMoi.TabIndex = 3;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.panel3.Controls.Add(this.btnThoat);
+            this.panel3.Controls.Add(this.btnChuyenLop);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(0, 312);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(722, 74);
+            this.panel3.TabIndex = 2;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(442, 22);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(88, 29);
+            this.btnThoat.TabIndex = 1;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnChuyenLop
+            // 
+            this.btnChuyenLop.Location = new System.Drawing.Point(203, 22);
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.Size = new System.Drawing.Size(91, 29);
+            this.btnChuyenLop.TabIndex = 0;
+            this.btnChuyenLop.Text = "Chuyển lớp";
+            this.btnChuyenLop.UseVisualStyleBackColor = true;
+            this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
             // 
             // frmChuyenLop
             // 
@@ -216,10 +225,10 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_DanhSachLop)).EndInit();
             this.groupControl_DanhSachLop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

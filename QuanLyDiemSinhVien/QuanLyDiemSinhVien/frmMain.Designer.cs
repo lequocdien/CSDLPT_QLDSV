@@ -40,18 +40,18 @@
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.btnLop = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhapDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManagerFormMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).BeginInit();
             this.SuspendLayout();
@@ -119,8 +119,9 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Caption = "Thoát";
+            this.btnThoat.Caption = "Đăng xuất";
             this.btnThoat.Id = 6;
+            this.btnThoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThoat.ImageOptions.SvgImage")));
             this.btnThoat.Name = "btnThoat";
             // 
             // skinRibbonGalleryBarItem1
@@ -144,6 +145,14 @@
             this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapDiem.ImageOptions.SvgImage")));
             this.btnNhapDiem.Name = "btnNhapDiem";
             this.btnNhapDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDiem_ItemClick);
+            // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "Sinh viên";
+            this.btnSinhVien.Id = 14;
+            this.btnSinhVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSinhVien.ImageOptions.SvgImage")));
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -195,6 +204,14 @@
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Nhập điểm";
             // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.AllowTextClipping = false;
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnSinhVien);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.ShowCaptionButton = false;
+            this.ribbonPageGroup6.Text = "Sinh viên";
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -224,22 +241,6 @@
             // MdiManagerFormMain
             // 
             this.MdiManagerFormMain.MdiParent = this;
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.AllowTextClipping = false;
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnSinhVien);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.ShowCaptionButton = false;
-            this.ribbonPageGroup6.Text = "Sinh viên";
-            // 
-            // btnSinhVien
-            // 
-            this.btnSinhVien.Caption = "Sinh viên";
-            this.btnSinhVien.Id = 14;
-            this.btnSinhVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btnSinhVien.Name = "btnSinhVien";
-            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
             // 
             // frmMain
             // 
