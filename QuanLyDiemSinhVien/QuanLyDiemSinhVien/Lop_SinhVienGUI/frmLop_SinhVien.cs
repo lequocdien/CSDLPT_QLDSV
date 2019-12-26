@@ -49,7 +49,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
 
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
-            txtMaLop.Enabled = false;
             ChucNang();
         }
 
@@ -137,7 +136,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         {
             maghi = 0;
             cmbKhoa.Enabled = false;
-            txtMaSV.Enabled = true;
+            txtMaSV.Enabled = groupBox2.Enabled = true;
             groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = false;
             txtMaSV.Text = txtHo.Text = txtTen.Text  = txtNgaySinh.Text = txtNoiSinh.Text = txtDiaChi.Text = txtGhiChu.Text = "";
             rdbtnNam.Checked = rdbtnNu.Checked = rdbtnDaNghiHoc.Checked = rdbtnChuaNghiHoc.Checked = false;
@@ -178,11 +177,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
-            //{
-            //    MessageBox.Show("Lớp " + malop + " không có sinh viên", "THÔNG BÁO", MessageBoxButtons.OK);
-            //    return;
-            //}
             dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
             MessageBox.Show("Tải lại dữ liệu thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -331,7 +325,12 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnChuyenLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(rdbtnDaNghiHoc.Checked == true)
+            if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
+            {
+                MessageBox.Show("Lớp có mã " + malop + " không có sinh viên!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (rdbtnDaNghiHoc.Checked == true)
             {
                 MessageBox.Show("Sinh viên có mã "+ txtMaSV.Text.Trim() + " đã nghỉ học\nkhông được chuyển lớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -345,6 +344,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void ChucNang()
         {
+            groupBox2.Enabled = txtMaLop.Enabled = false;
             if (Common.Data.m_strGroup == "PGV")
             {
                 txtMaSV.Enabled = false;
