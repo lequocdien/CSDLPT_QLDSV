@@ -52,8 +52,8 @@ namespace QuanLyDiemSinhVien.MonHocGUI
 
         private void btnThemMonHoc_Click(object sender, EventArgs e)
         {
-            string strMaMonHoc = txtMaMonHoc.Text;
-            string strTenMonHoc = txtTenMonHoc.Text;
+            string strMaMonHoc = txtMaMonHoc.Text.Trim();
+            string strTenMonHoc = txtTenMonHoc.Text.Trim();
 
             try
             {
@@ -87,8 +87,8 @@ namespace QuanLyDiemSinhVien.MonHocGUI
 
         private void btnCapNhatMonHoc_Click(object sender, EventArgs e)
         {
-            string strMaMonHoc = txtMaMonHoc.Text;
-            string strTenMonHoc = txtTenMonHoc.Text;
+            string strMaMonHoc = txtMaMonHoc.Text.Trim();
+            string strTenMonHoc = txtTenMonHoc.Text.Trim();
 
             try
             {
@@ -100,14 +100,18 @@ namespace QuanLyDiemSinhVien.MonHocGUI
                 return;
             }
 
-            if (MonHocBUL.UpdateMonHoc(txtMaMonHoc.Text, txtTenMonHoc.Text))
+            if (MonHocBUL.UpdateMonHoc(strMaMonHoc, strTenMonHoc))
             {
-                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhật môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateMonHocIntoList(strMaMonHoc, strTenMonHoc);
+                ReloadDataGridView();
             }
         }
 
         private void btnXoaBoMonHoc_Click(object sender, EventArgs e)
         {
+            string strMaMonHoc = txtMaMonHoc.Text.Trim();
+
             try
             {
                 ValidateInput();
@@ -126,6 +130,8 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             if (MonHocBUL.DeleteMonHoc(txtMaMonHoc.Text.Trim()))
             {
                 MessageBox.Show("Xóa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DeleteMonHocIntoList(strMaMonHoc);
+                ReloadDataGridView();
             }
         }
 
@@ -182,28 +188,58 @@ namespace QuanLyDiemSinhVien.MonHocGUI
 
         private void UpdateMonHocIntoList(string x_strMaMonHoc, string x_strTenMonHoc)
         {
-            MonHocDTO objMonHoc = new MonHocDTO();
-            objMonHoc.MaMH = x_strMaMonHoc;
-            objMonHoc.TenMH = x_strTenMonHoc;
-            m_lstMonHoc.Add(objMonHoc);
+            for(int i = 0; i<m_lstMonHoc.Count; i++)
+            {
+                if (m_lstMonHoc[i].MaMH.Equals(x_strMaMonHoc.Trim()))
+                {
+                    m_lstMonHoc[i].TenMH = x_strTenMonHoc.Trim();
+                    return;
+                }
+            }
+        }
+
+        private void DeleteMonHocIntoList(string x_strMaMonHoc)
+        {
+            for (int i = 0; i < m_lstMonHoc.Count; i++)
+            {
+                if (m_lstMonHoc[i].MaMH.Equals(x_strMaMonHoc.Trim()))
+                {
+                    try
+                    {
+                        m_lstMonHoc.RemoveAt(i);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
 
         private void ValidateInput()
         {
-            string strMaMonHoc = txtMaMonHoc.Text;
-            string strTenMonHoc = txtTenMonHoc.Text;
+            string strMaMonHoc = txtMaMonHoc.Text.Trim();
+            string strTenMonHoc = txtTenMonHoc.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(strMaMonHoc))
             {
-                throw new Exception("MÃ MÔN HỌC không được để trống");
+                throw new Exception("MÃ MÔN HỌC không được để trống!");
             }
 
             if (string.IsNullOrWhiteSpace(strTenMonHoc))
             {
-                throw new Exception("TÊN MÔN HỌC không được để trống");
+                throw new Exception("TÊN MÔN HỌC không được để trống!");
             }
 
-            //TODO: validate MaLop nchar(8), TenLop (nvarchar(40))
+            if(strMaMonHoc.Length > 8)
+            {
+                throw new Exception("MÃ MÔN HỌC quá dài!");
+            }
+
+            if (strTenMonHoc.Length > 40)
+            {
+                throw new Exception("MÃ MÔN HỌC quá dài!");
+            }
         }
         #endregion
     }
