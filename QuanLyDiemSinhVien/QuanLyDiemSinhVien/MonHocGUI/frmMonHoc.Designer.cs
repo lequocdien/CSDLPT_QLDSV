@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnThemMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTaiLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnPhucHoiMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoaBoMonHoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnCapNhatMonHoc = new DevExpress.XtraEditors.SimpleButton();
@@ -43,7 +44,6 @@
             this.txtTenMonHoc = new System.Windows.Forms.TextBox();
             this.dgvMonHoc = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnReLoad = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
@@ -65,7 +65,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
-            this.panel1.Controls.Add(this.btnReLoad);
+            this.panel1.Controls.Add(this.btnTaiLai);
             this.panel1.Controls.Add(this.btnPhucHoiMonHoc);
             this.panel1.Controls.Add(this.btnXoaBoMonHoc);
             this.panel1.Controls.Add(this.btnCapNhatMonHoc);
@@ -75,6 +75,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1376, 86);
             this.panel1.TabIndex = 2;
+            // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiLai.Appearance.Options.UseFont = true;
+            this.btnTaiLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReLoad.ImageOptions.SvgImage")));
+            this.btnTaiLai.Location = new System.Drawing.Point(594, 12);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
+            this.btnTaiLai.TabIndex = 0;
+            this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnPhucHoiMonHoc
             // 
@@ -209,17 +221,6 @@
             this.panel3.Size = new System.Drawing.Size(825, 662);
             this.panel3.TabIndex = 5;
             // 
-            // btnReLoad
-            // 
-            this.btnReLoad.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReLoad.Appearance.Options.UseFont = true;
-            this.btnReLoad.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnReLoad.Location = new System.Drawing.Point(594, 12);
-            this.btnReLoad.Name = "btnReLoad";
-            this.btnReLoad.Size = new System.Drawing.Size(188, 61);
-            this.btnReLoad.TabIndex = 0;
-            this.btnReLoad.Text = "Tải lại";
-            // 
             // frmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -255,6 +256,6 @@
         private DevExpress.XtraEditors.SimpleButton btnPhucHoiMonHoc;
         private DevExpress.XtraEditors.SimpleButton btnXoaBoMonHoc;
         private DevExpress.XtraEditors.SimpleButton btnCapNhatMonHoc;
-        private DevExpress.XtraEditors.SimpleButton btnReLoad;
+        private DevExpress.XtraEditors.SimpleButton btnTaiLai;
     }
 }

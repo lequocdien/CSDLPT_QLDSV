@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapDiem));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapDiem));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPhucHoi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSuaDiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhapDiem = new DevExpress.XtraEditors.SimpleButton();
             this.gbxNhapDiemCho = new System.Windows.Forms.GroupBox();
+            this.btnChonLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
+            this.cbxMonHoc = new System.Windows.Forms.ComboBox();
             this.cbxLanThu = new System.Windows.Forms.ComboBox();
             this.cbxKhoa = new System.Windows.Forms.ComboBox();
             this.cbxLop = new System.Windows.Forms.ComboBox();
@@ -46,8 +48,7 @@
             this.lblLop = new System.Windows.Forms.Label();
             this.pnlPrepareNhapDiem = new System.Windows.Forms.Panel();
             this.dgvNhapDiem = new System.Windows.Forms.DataGridView();
-            this.btnChonLai = new DevExpress.XtraEditors.SimpleButton();
-            this.cbxMonHoc = new System.Windows.Forms.ComboBox();
+            this.btnTaiLai = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.gbxNhapDiemCho.SuspendLayout();
             this.pnlPrepareNhapDiem.SuspendLayout();
@@ -57,6 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
+            this.panel1.Controls.Add(this.btnTaiLai);
             this.panel1.Controls.Add(this.btnPhucHoi);
             this.panel1.Controls.Add(this.btnSuaDiem);
             this.panel1.Controls.Add(this.btnNhapDiem);
@@ -70,8 +72,8 @@
             // 
             this.btnPhucHoi.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhucHoi.Appearance.Options.UseFont = true;
-            this.btnPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoiMonHoc.ImageOptions.SvgImage")));
-            this.btnPhucHoi.Location = new System.Drawing.Point(400, 12);
+            this.btnPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoi.ImageOptions.SvgImage")));
+            this.btnPhucHoi.Location = new System.Drawing.Point(594, 12);
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.Size = new System.Drawing.Size(188, 61);
             this.btnPhucHoi.TabIndex = 0;
@@ -81,7 +83,7 @@
             // 
             this.btnSuaDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuaDiem.Appearance.Options.UseFont = true;
-            this.btnSuaDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhatMonHoc.ImageOptions.SvgImage")));
+            this.btnSuaDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSuaDiem.ImageOptions.SvgImage")));
             this.btnSuaDiem.Location = new System.Drawing.Point(206, 12);
             this.btnSuaDiem.Name = "btnSuaDiem";
             this.btnSuaDiem.Size = new System.Drawing.Size(188, 61);
@@ -93,7 +95,7 @@
             // 
             this.btnNhapDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapDiem.Appearance.Options.UseFont = true;
-            this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThemMonHoc.ImageOptions.SvgImage")));
+            this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapDiem.ImageOptions.SvgImage")));
             this.btnNhapDiem.Location = new System.Drawing.Point(12, 12);
             this.btnNhapDiem.Name = "btnNhapDiem";
             this.btnNhapDiem.Size = new System.Drawing.Size(188, 61);
@@ -124,6 +126,18 @@
             this.gbxNhapDiemCho.TabStop = false;
             this.gbxNhapDiemCho.Text = "Nhập điểm cho: ";
             // 
+            // btnChonLai
+            // 
+            this.btnChonLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChonLai.Appearance.Options.UseFont = true;
+            this.btnChonLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChonLai.ImageOptions.SvgImage")));
+            this.btnChonLai.Location = new System.Drawing.Point(162, 343);
+            this.btnChonLai.Name = "btnChonLai";
+            this.btnChonLai.Size = new System.Drawing.Size(142, 47);
+            this.btnChonLai.TabIndex = 5;
+            this.btnChonLai.Text = "Chọn lại";
+            this.btnChonLai.Click += new System.EventHandler(this.btnChonLai_Click);
+            // 
             // btnBatDau
             // 
             this.btnBatDau.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,6 +149,20 @@
             this.btnBatDau.TabIndex = 5;
             this.btnBatDau.Text = "Bắt đầu";
             this.btnBatDau.Click += new System.EventHandler(this.btnBatDau_Click);
+            // 
+            // cbxMonHoc
+            // 
+            this.cbxMonHoc.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cbxMonHoc.DropDownHeight = 150;
+            this.cbxMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMonHoc.FormattingEnabled = true;
+            this.cbxMonHoc.IntegralHeight = false;
+            this.cbxMonHoc.Location = new System.Drawing.Point(148, 202);
+            this.cbxMonHoc.Name = "cbxMonHoc";
+            this.cbxMonHoc.Size = new System.Drawing.Size(320, 36);
+            this.cbxMonHoc.TabIndex = 4;
+            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
             // 
             // cbxLanThu
             // 
@@ -269,31 +297,16 @@
             this.dgvNhapDiem.Size = new System.Drawing.Size(827, 662);
             this.dgvNhapDiem.TabIndex = 7;
             // 
-            // btnChonLai
+            // btnTaiLai
             // 
-            this.btnChonLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonLai.Appearance.Options.UseFont = true;
-            this.btnChonLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnChonLai.Location = new System.Drawing.Point(162, 343);
-            this.btnChonLai.Name = "btnChonLai";
-            this.btnChonLai.Size = new System.Drawing.Size(142, 47);
-            this.btnChonLai.TabIndex = 5;
-            this.btnChonLai.Text = "Chọn lại";
-            this.btnChonLai.Click += new System.EventHandler(this.btnChonLai_Click);
-            // 
-            // cbxMonHoc
-            // 
-            this.cbxMonHoc.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cbxMonHoc.DropDownHeight = 150;
-            this.cbxMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMonHoc.FormattingEnabled = true;
-            this.cbxMonHoc.IntegralHeight = false;
-            this.cbxMonHoc.Location = new System.Drawing.Point(148, 202);
-            this.cbxMonHoc.Name = "cbxMonHoc";
-            this.cbxMonHoc.Size = new System.Drawing.Size(320, 36);
-            this.cbxMonHoc.TabIndex = 4;
-            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
+            this.btnTaiLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiLai.Appearance.Options.UseFont = true;
+            this.btnTaiLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnTaiLai.Location = new System.Drawing.Point(400, 12);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
+            this.btnTaiLai.TabIndex = 0;
+            this.btnTaiLai.Text = "Tải lại";
             // 
             // frmNhapDiem
             // 
@@ -333,5 +346,6 @@
         private System.Windows.Forms.ComboBox cbxLanThu;
         private DevExpress.XtraEditors.SimpleButton btnChonLai;
         private System.Windows.Forms.ComboBox cbxMonHoc;
+        private DevExpress.XtraEditors.SimpleButton btnTaiLai;
     }
 }

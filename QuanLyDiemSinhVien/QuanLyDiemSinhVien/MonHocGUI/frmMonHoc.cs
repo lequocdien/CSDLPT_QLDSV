@@ -17,6 +17,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
     {
         #region Fields
         private List<MonHocDTO> m_lstMonHoc;
+        private BindingSource m_bdsMonHoc;
         #endregion
 
         #region Constructor
@@ -34,20 +35,40 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             {
                 return;
             }
+            m_bdsMonHoc = new BindingSource();
+            m_bdsMonHoc.DataSource = m_lstMonHoc;
 
-            dgvMonHoc.DataSource = m_lstMonHoc;
+            dgvMonHoc.DataSource = m_bdsMonHoc;
             InitializeDataGridView();
+            txtMaMonHoc.Enabled = false;
+            txtTenMonHoc.Enabled = true;
+            btnThemMonHoc.Enabled = false;
+            btnCapNhatMonHoc.Enabled = true;
+            btnXoaBoMonHoc.Enabled = true;
         }
 
         private void dgvMonHoc_Click(object sender, EventArgs e)
         {
-            if (dgvMonHoc.SelectedRows.Count == 0)
+            DataGridViewRow dgvRow = dgvMonHoc.SelectedRows[0];
+            if(dgvMonHoc.Rows.Count - 1 == dgvRow.Index)
             {
+                txtMaMonHoc.Text = string.Empty;
+                txtTenMonHoc.Text = string.Empty;
+
+                txtMaMonHoc.Enabled = true;
+                txtTenMonHoc.Enabled = true;
+                btnThemMonHoc.Enabled = true;
+                btnCapNhatMonHoc.Enabled = false;
+                btnXoaBoMonHoc.Enabled = false;
                 return;
             }
-            DataGridViewRow dgvRow = dgvMonHoc.SelectedRows[0];
             txtMaMonHoc.Text = dgvRow.Cells["MaMH"].Value.ToString();
             txtTenMonHoc.Text = dgvRow.Cells["TenMH"].Value.ToString();
+            txtMaMonHoc.Enabled = false;
+            txtTenMonHoc.Enabled = true;
+            btnThemMonHoc.Enabled = false;
+            btnCapNhatMonHoc.Enabled = true;
+            btnXoaBoMonHoc.Enabled = true;
         }
 
         private void btnThemMonHoc_Click(object sender, EventArgs e)
@@ -127,12 +148,31 @@ namespace QuanLyDiemSinhVien.MonHocGUI
                 return;
             }
 
+            if (MonHocBUL.IsExistedAtTableDiem(strMaMonHoc))
+            {
+                MessageBox.Show("Môn học này không được xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (MonHocBUL.DeleteMonHoc(txtMaMonHoc.Text.Trim()))
             {
                 MessageBox.Show("Xóa môn học thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DeleteMonHocIntoList(strMaMonHoc);
                 ReloadDataGridView();
             }
+        }
+
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+            m_lstMonHoc = MonHocBUL.LoadMonHoc();
+            if (m_lstMonHoc == null)
+            {
+                return;
+            }
+
+            dgvMonHoc.DataSource = typeof(List<MonHocDTO>);
+            dgvMonHoc.DataSource = m_lstMonHoc;
+            InitializeDataGridView();
         }
 
         private void btnPhucHoiMonHoc_Click(object sender, EventArgs e)
@@ -174,8 +214,8 @@ namespace QuanLyDiemSinhVien.MonHocGUI
 
         private void ReloadDataGridView()
         {
-            dgvMonHoc.DataSource = typeof(List<MonHocDTO>);
-            dgvMonHoc.DataSource = m_lstMonHoc;
+            dgvMonHoc.DataSource = m_bdsMonHoc;
+            InitializeDataGridView();
         }
 
         private void AddMonHocIntoList(string x_strMaMonHoc, string x_strTenMonHoc)
