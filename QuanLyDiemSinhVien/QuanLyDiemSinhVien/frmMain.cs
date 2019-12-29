@@ -15,6 +15,7 @@ using DevExpress.LookAndFeel;
 using QuanLyDiemSinhVien.LopGUI;
 using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
+using QuanLyDiemSinhVien.HocPhiGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -74,6 +75,13 @@ namespace QuanLyDiemSinhVien
         private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmLop_SinhVien f = new frmLop_SinhVien();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void btnHocPhi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHocPhi f = new frmHocPhi();
             f.MdiParent = this;
             f.Show();
         }
