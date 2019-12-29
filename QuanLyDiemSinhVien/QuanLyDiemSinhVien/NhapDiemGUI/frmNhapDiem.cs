@@ -28,7 +28,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         {
             InitializeComponent();
 
-            InitializeDictPhanManh();
+            InitializeListPhanManh();
 
             InitializeListLop();
 
@@ -46,6 +46,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void cbxKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cbxKhoa.SelectedIndex = Data.m_nKhoa;
             if (((PhanManhDTO)cbxKhoa.SelectedItem).TenPhanManh.Equals(Constant.PUBLICATION_NAME_CNTT))
             {
                 m_strMaKhoa = "CNTT";
@@ -125,7 +126,9 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void btnNhapDiem_Click(object sender, EventArgs e)
         {
-            if (NhapDiemBUL.InsertBangDiemSinhVien(m_lstBangDiem) == false)
+            string strMaMonHoc = cbxMonHoc.SelectedValue.ToString().Trim();
+            int nLan = cbxLanThu.SelectedIndex + 1;
+            if (NhapDiemBUL.InsertBangDiemSinhVien(m_lstBangDiem, strMaMonHoc, nLan) == false)
             {
                 MessageBox.Show("Nhập điểm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -136,7 +139,9 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void btnSuaDiem_Click(object sender, EventArgs e)
         {
-            if (NhapDiemBUL.UpdateBangDiemSinhVien(m_lstBangDiem) == false)
+            string strMaMonHoc = cbxMonHoc.SelectedValue.ToString().Trim();
+            int nLan = cbxLanThu.SelectedIndex + 1;
+            if (NhapDiemBUL.UpdateBangDiemSinhVien(m_lstBangDiem, strMaMonHoc, nLan) == false)
             {
                 MessageBox.Show("Cập nhật điểm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -147,7 +152,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         #endregion
 
         #region Utilities
-        private void InitializeDictPhanManh()
+        private void InitializeListPhanManh()
         {
             m_lstPhanManh = new List<PhanManhDTO>();
             DataTable dtPhanManh = DangNhapBUL.LoadPhanManh();
@@ -199,10 +204,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 objDiemSV.MaSinhVien = objReader[0].ToString();
                 objDiemSV.HoTen = objReader[1].ToString();
                 objDiemSV.Diem = Convert.ToSingle(objReader[2]);
-                objDiemSV.MaMonHoc = objReader[3].ToString();
-                objDiemSV.Lan = Convert.ToInt32(objReader[4]);
-                objDiemSV.TenLop = objReader[5].ToString();
-                objDiemSV.TenMonHoc = objReader[6].ToString();
                 m_lstBangDiem.Add(objDiemSV);
             }
         }
@@ -215,7 +216,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             cbxKhoa.ValueMember = "TenServer";
             cbxKhoa.SelectedItem = Data.m_nKhoa;
 
-            if (Data.m_strGroup.Equals("PKeToan") || Data.m_strGroup.Equals("Khoa"))
+            if (Data.m_strGroup.Equals("PKETOAN") || Data.m_strGroup.Equals("KHOA"))
             {
                 cbxKhoa.Enabled = false;
             }
@@ -245,12 +246,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         private void InitializeDataGridView()
         {
             dgvNhapDiem.DataSource = m_lstBangDiem;
-
-            dgvNhapDiem.Columns["MaMonHoc"].Visible = false;
-            dgvNhapDiem.Columns["Lan"].Visible = false;
-            dgvNhapDiem.Columns["TenLop"].Visible = false;
-            dgvNhapDiem.Columns["TenMonHoc"].Visible = false;
-
+            
             dgvNhapDiem.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
             dgvNhapDiem.Columns["HoTen"].HeaderText = "Họ tên";
             dgvNhapDiem.Columns["Diem"].HeaderText = "Điểm";
@@ -258,10 +254,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             dgvNhapDiem.Columns["MaSinhVien"].ReadOnly = true;
             dgvNhapDiem.Columns["HoTen"].ReadOnly = true;
             dgvNhapDiem.Columns["Diem"].ReadOnly = false;
-            dgvNhapDiem.Columns["MaMonHoc"].ReadOnly = true;
-            dgvNhapDiem.Columns["Lan"].ReadOnly = true;
-            dgvNhapDiem.Columns["TenLop"].ReadOnly = true;
-            dgvNhapDiem.Columns["TenMonHoc"].ReadOnly = true;
         }
 
         /// <summary>
@@ -295,7 +287,14 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void ToggleButtonBatDau(bool x_bIsEnable)
         {
-            cbxKhoa.Enabled = x_bIsEnable;
+            if (Data.m_strGroup.Equals("PKETOAN") || Data.m_strGroup.Equals("KHOA"))
+            {
+                cbxKhoa.Enabled = false;
+            }
+            else if (Data.m_strGroup.Equals("PGV"))
+            {
+                cbxKhoa.Enabled = x_bIsEnable;
+            }
             cbxLop.Enabled = x_bIsEnable;
             cbxMonHoc.Enabled = x_bIsEnable;
             cbxLanThu.Enabled = x_bIsEnable;

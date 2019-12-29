@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DangNhapBUL.cs" />
+    <Compile Include="HocPhiBUL.cs" />
     <Compile Include="LopBUL.cs" />
     <Compile Include="MonHocBUL.cs" />
     <Compile Include="NhapDiemBUL.cs" />

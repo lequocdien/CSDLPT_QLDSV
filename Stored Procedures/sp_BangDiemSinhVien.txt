@@ -2,31 +2,10 @@ CREATE PROC [dbo].[sp_BangDiemSinhVien]
 @MaLop nchar(8), @MaMonHoc nchar(8), @Lan smallint
 AS
 BEGIN
-	DECLARE @TenLop nvarchar(40)
-	DECLARE @temp nvarchar(40)
-	DECLARE @TenMonHoc nvarchar(40)
-	SELECT @TenLop = TENLOP FROM LOP WHERE MALOP = @MaLop
-	SELECT @TenMonHoc = TENMH FROM MONHOC WHERE MAMH = @MaMonHoc
-	
-	SELECT @temp = sv.MASV FROM SINHVIEN sv,
-			(SELECT MASV FROM DIEM
-			WHERE MAMH = @MaMonHoc AND LAN = @Lan) d 
-	WHERE sv.MALOP = @MaLop AND d.MASV = sv.MASV
-
-	IF @@ROWCOUNT = 0
-	BEGIN
-		SELECT MASV = sv.MASV, HOTEN = HO + ' '+ TEN, DIEM = 0,
-		MAMONHOC = @MaMonHoc, LAN = @Lan, TENLOP = @TenLop,
-		TenMonHoc = @TenMonHoc
-		FROM (SELECT MASV, HO, TEN FROM SINHVIEN WHERE MALOP = @MaLop) sv
-	END
-	ELSE
-	BEGIN
-		SELECT MASV = sv.MASV, HOTEN = HO + ' '+ TEN, DIEM = diem.DIEM,
-		MAMONHOC = @MaMonHoc, LAN = @Lan, TENLOP = @TenLop,
-		TenMonHoc = @TenMonHoc
-		FROM (SELECT MASV, HO, TEN FROM SINHVIEN WHERE MALOP = @MaLop) sv,
-			(SELECT * FROM DIEM WHERE MAMH = @MaMonHoc AND LAN = @Lan) diem
-		WHERE sv.MASV = diem.MASV
-	END
+	SELECT sv.MASV, sv.HOTEN,
+			DIEM = isnull(di.DIEM, 0)
+	FROM (SELECT MASV, HOTEN = HO + ' ' + TEN FROM SINHVIEN
+			WHERE MALOP = @MaLop) sv
+			LEFT JOIN (SELECT MASV, DIEM FROM DIEM WHERE MAMH = @MaMonHoc AND LAN = @Lan) di
+			on sv.MASV = di.MASV
 END

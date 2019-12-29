@@ -17,14 +17,14 @@ namespace BUL
             return NhapDiemDAL.LoadBangDiemSinhVien(x_strMaLop, x_strMaMonHoc, x_nLanThi);
         }
 
-        public static bool InsertBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem)
+        public static bool InsertBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem, string x_strMaMonHoc, int x_nLan)
         {
-            return NhapDiemDAL.InsertBangDiemSinhVien(x_lstBangDiem);
+            return NhapDiemDAL.InsertBangDiemSinhVien(x_lstBangDiem, x_strMaMonHoc, x_nLan);
         }
 
-        public static bool UpdateBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem)
+        public static bool UpdateBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem, string x_strMaMonHoc, int x_nLan)
         {
-            return NhapDiemDAL.UpdateBangDiemSinhVien(x_lstBangDiem);
+            return NhapDiemDAL.UpdateBangDiemSinhVien(x_lstBangDiem, x_strMaMonHoc, x_nLan);
         }
     }
 }

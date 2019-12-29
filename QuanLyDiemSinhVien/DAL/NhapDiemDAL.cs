@@ -23,7 +23,7 @@ namespace DAL
             return null;
         }
 
-        public static bool InsertBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem)
+        public static bool InsertBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem, string x_strMaMonHoc, int x_nLan)
         {
             if (DataProvider.ConnectDatabase())
             {
@@ -33,7 +33,7 @@ namespace DAL
                     SqlCommand objCmd;
                     for (int i = 0; i < x_lstBangDiem.Count; i++)
                     {
-                        objCmd = new SqlCommand(string.Format("INSERT INTO DIEM(MASV, MAMH, LAN, DIEM) VALUES('{0}', '{1}', {2}, {3})", x_lstBangDiem[i].MaSinhVien, x_lstBangDiem[i].MaMonHoc, x_lstBangDiem[i].Lan, x_lstBangDiem[i].Diem), Data.Con, objTrans);
+                        objCmd = new SqlCommand(string.Format("INSERT INTO DIEM(MASV, MAMH, LAN, DIEM) VALUES('{0}', '{1}', {2}, {3})", x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan, x_lstBangDiem[i].Diem), Data.Con, objTrans);
                         objCmd.ExecuteNonQuery();
                     }
                     objTrans.Commit();
@@ -48,7 +48,7 @@ namespace DAL
             return false;
         }
 
-        public static bool UpdateBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem)
+        public static bool UpdateBangDiemSinhVien(List<BangDiemSinhVienDTO> x_lstBangDiem, string x_strMaMonHoc, int x_nLan)
         {
             if (DataProvider.ConnectDatabase())
             {
@@ -58,7 +58,7 @@ namespace DAL
                     SqlCommand objCmd;
                     for (int i = 0; i < x_lstBangDiem.Count; i++)
                     {
-                        objCmd = new SqlCommand(string.Format("UPDATE DIEM SET DIEM = {0} WHERE MASV = '{1}' AND MAMH = '{2}' AND LAN = {3}", x_lstBangDiem[i].Diem, x_lstBangDiem[i].MaSinhVien, x_lstBangDiem[i].MaMonHoc, x_lstBangDiem[i].Lan), Data.Con, objTrans);
+                        objCmd = new SqlCommand(string.Format("UPDATE DIEM SET DIEM = {0} WHERE MASV = '{1}' AND MAMH = '{2}' AND LAN = {3}", x_lstBangDiem[i].Diem, x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan), Data.Con, objTrans);
                         objCmd.ExecuteNonQuery();
                     }
                     objTrans.Commit();

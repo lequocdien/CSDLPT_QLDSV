@@ -69,12 +69,19 @@ namespace DAL
                 objCommand.CommandText = x_strQueryString;
                 objCommand.CommandType = CommandType.Text;
                 objCommand.Connection = Data.Con;
-                int nRes = objCommand.ExecuteNonQuery();
-                if(nRes == 0)
+                try
                 {
-                    return false;
+                    int nRes = objCommand.ExecuteNonQuery();
+                    if (nRes == 0)
+                    {
+                        return false;
+                    }
+                    return true;
                 }
-                return true;
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Giảng viên không có quyền thay đổi dữ liệu ở bảng này!\nSQL ERORR: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             return false;
         }
@@ -101,7 +108,7 @@ namespace DAL
             catch (SqlException ex)
             {
                 Data.Con.Close();
-             //   MessageBox.Show(ex.Message);
+                MessageBox.Show("SQL ERORR: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
         }

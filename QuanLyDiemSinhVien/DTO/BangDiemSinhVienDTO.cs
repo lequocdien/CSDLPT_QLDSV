@@ -10,8 +10,6 @@ namespace DTO
 
         #region Properties
         public string MaSinhVien { get; set; }
-        public string MaMonHoc { get; set; }
-        public int Lan { get; set; }
         public string HoTen { get; set; }
         public float Diem {
             get{
@@ -29,8 +27,6 @@ namespace DTO
                 }
             }
         }
-        public string TenLop { get; set; }
-        public string TenMonHoc { get; set; }
         #endregion
     }
 }

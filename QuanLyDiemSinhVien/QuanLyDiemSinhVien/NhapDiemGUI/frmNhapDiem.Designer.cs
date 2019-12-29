@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapDiem));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTaiLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnPhucHoi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSuaDiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhapDiem = new DevExpress.XtraEditors.SimpleButton();
@@ -48,7 +49,6 @@
             this.lblLop = new System.Windows.Forms.Label();
             this.pnlPrepareNhapDiem = new System.Windows.Forms.Panel();
             this.dgvNhapDiem = new System.Windows.Forms.DataGridView();
-            this.btnTaiLai = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.gbxNhapDiemCho.SuspendLayout();
             this.pnlPrepareNhapDiem.SuspendLayout();
@@ -67,6 +67,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1376, 86);
             this.panel1.TabIndex = 3;
+            // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiLai.Appearance.Options.UseFont = true;
+            this.btnTaiLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaiLai.ImageOptions.SvgImage")));
+            this.btnTaiLai.Location = new System.Drawing.Point(400, 12);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
+            this.btnTaiLai.TabIndex = 0;
+            this.btnTaiLai.Text = "Tải lại";
             // 
             // btnPhucHoi
             // 
@@ -170,6 +181,7 @@
             this.cbxLanThu.DropDownHeight = 100;
             this.cbxLanThu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLanThu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLanThu.ForeColor = System.Drawing.Color.White;
             this.cbxLanThu.FormattingEnabled = true;
             this.cbxLanThu.IntegralHeight = false;
             this.cbxLanThu.Location = new System.Drawing.Point(148, 256);
@@ -182,10 +194,7 @@
             // 
             this.cbxKhoa.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cbxKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxKhoa.Enabled = false;
             this.cbxKhoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxKhoa.FormattingEnabled = true;
-            this.cbxKhoa.IntegralHeight = false;
             this.cbxKhoa.Location = new System.Drawing.Point(148, 94);
             this.cbxKhoa.Name = "cbxKhoa";
             this.cbxKhoa.Size = new System.Drawing.Size(320, 36);
@@ -270,14 +279,14 @@
             this.dgvNhapDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhapDiem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dgvNhapDiem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNhapDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhapDiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNhapDiem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -287,26 +296,15 @@
             this.dgvNhapDiem.Name = "dgvNhapDiem";
             this.dgvNhapDiem.RowHeadersVisible = false;
             this.dgvNhapDiem.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dgvNhapDiem.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dgvNhapDiem.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNhapDiem.RowTemplate.Height = 28;
             this.dgvNhapDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhapDiem.Size = new System.Drawing.Size(827, 662);
             this.dgvNhapDiem.TabIndex = 7;
-            // 
-            // btnTaiLai
-            // 
-            this.btnTaiLai.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaiLai.Appearance.Options.UseFont = true;
-            this.btnTaiLai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnTaiLai.Location = new System.Drawing.Point(400, 12);
-            this.btnTaiLai.Name = "btnTaiLai";
-            this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
-            this.btnTaiLai.TabIndex = 0;
-            this.btnTaiLai.Text = "Tải lại";
             // 
             // frmNhapDiem
             // 
