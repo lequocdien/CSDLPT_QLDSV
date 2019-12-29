@@ -18,6 +18,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
     {
         #region Fields
         private List<HocPhiDTO> m_lstHocPhi;
+        private BindingSource m_bdHocPhi;
         #endregion
 
         #region Constructor
@@ -49,6 +50,12 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             }
 
             m_lstHocPhi = HocPhiBUL.LoadHocPhi(strMaSinhVien);
+            if(m_lstHocPhi == null)
+            {
+                return;
+            }
+            m_bdHocPhi = new BindingSource();
+            m_bdHocPhi.DataSource = m_lstHocPhi;
             InitializeDataGridView();
         }
         #endregion
@@ -56,7 +63,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         #region Utilities
         private void InitializeDataGridView()
         {
-            dgvHocPhi.DataSource = m_lstHocPhi;
+            dgvHocPhi.DataSource = m_bdHocPhi;
 
             dgvHocPhi.Columns["NienKhoa"].HeaderText = "Niên khóa";
             dgvHocPhi.Columns["HocKy"].HeaderText = "Học kỳ";

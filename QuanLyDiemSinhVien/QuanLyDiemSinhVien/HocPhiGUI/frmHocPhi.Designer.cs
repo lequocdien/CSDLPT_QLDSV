@@ -37,6 +37,7 @@
             this.btnNhapDiem = new DevExpress.XtraEditors.SimpleButton();
             this.pnlPrepareNhapDiem = new System.Windows.Forms.Panel();
             this.gbxNhapDiemCho = new System.Windows.Forms.GroupBox();
+            this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.cbxMaSinhVien = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.dgvHocPhi = new System.Windows.Forms.DataGridView();
-            this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.pnlPrepareNhapDiem.SuspendLayout();
             this.gbxNhapDiemCho.SuspendLayout();
@@ -128,8 +128,21 @@
             this.gbxNhapDiemCho.TabStop = false;
             this.gbxNhapDiemCho.Text = "Đóng học phí cho: ";
             // 
+            // btnBatDau
+            // 
+            this.btnBatDau.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBatDau.Appearance.Options.UseFont = true;
+            this.btnBatDau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBatDau.ImageOptions.SvgImage")));
+            this.btnBatDau.Location = new System.Drawing.Point(346, 314);
+            this.btnBatDau.Name = "btnBatDau";
+            this.btnBatDau.Size = new System.Drawing.Size(142, 47);
+            this.btnBatDau.TabIndex = 6;
+            this.btnBatDau.Text = "Bắt đầu";
+            this.btnBatDau.Click += new System.EventHandler(this.btnBatDau_Click);
+            // 
             // txtMaLop
             // 
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Location = new System.Drawing.Point(168, 234);
             this.txtMaLop.Multiline = true;
@@ -140,6 +153,7 @@
             // 
             // txtHoTen
             // 
+            this.txtHoTen.Enabled = false;
             this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Location = new System.Drawing.Point(168, 168);
             this.txtHoTen.Multiline = true;
@@ -227,18 +241,6 @@
             this.dgvHocPhi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHocPhi.Size = new System.Drawing.Size(827, 662);
             this.dgvHocPhi.TabIndex = 8;
-            // 
-            // btnBatDau
-            // 
-            this.btnBatDau.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBatDau.Appearance.Options.UseFont = true;
-            this.btnBatDau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBatDau.ImageOptions.SvgImage")));
-            this.btnBatDau.Location = new System.Drawing.Point(346, 314);
-            this.btnBatDau.Name = "btnBatDau";
-            this.btnBatDau.Size = new System.Drawing.Size(142, 47);
-            this.btnBatDau.TabIndex = 6;
-            this.btnBatDau.Text = "Bắt đầu";
-            this.btnBatDau.Click += new System.EventHandler(this.btnBatDau_Click);
             // 
             // frmHocPhi
             // 
