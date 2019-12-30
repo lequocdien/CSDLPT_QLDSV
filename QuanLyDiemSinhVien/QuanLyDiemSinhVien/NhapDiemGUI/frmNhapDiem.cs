@@ -21,20 +21,13 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         private string m_strMaLop;
         private string m_strMaMonHoc;
         private int m_nLanThi;
+        private bool m_bAllowSuaDiemLan1;
         #endregion
 
         #region Constructor
         public frmNhapDiem()
         {
             InitializeComponent();
-
-            InitializeListPhanManh();
-
-            InitializeListLop();
-
-            InitializeListMonHoc();
-
-            InitializeCombox();
         }
         #endregion
 
@@ -42,11 +35,15 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
             ToggleComponent(true);
+            InitializeListPhanManh();
+            InitializeListMonHoc();
+            InitializeListLop();
+            InitializeCombox();
+            cbxKhoa.SelectedItem = Data.m_nKhoa;
         }
 
         private void cbxKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cbxKhoa.SelectedIndex = Data.m_nKhoa;
             if (((PhanManhDTO)cbxKhoa.SelectedItem).TenPhanManh.Equals(Constant.PUBLICATION_NAME_CNTT))
             {
                 m_strMaKhoa = "CNTT";
@@ -84,16 +81,55 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 cbxKhoa.SelectedIndex = Data.m_nKhoa;
                 return;
             }
+
+            InitializeListMonHoc();
+            InitializeListLop();
+            InitializeCombox();
         }
 
-        private void cbxLop_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxLopAndcbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.ToString();
-        }
-
-        private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            if(cbxLop.Items.Count == 0 || cbxMonHoc.Items.Count == 0)
+            {
+                return;
+            }
             m_strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.ToString();
+            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.ToString();
+
+            int nSoLanThi = NhapDiemBUL.CountSoLanThi(m_strMaMonHoc, m_strMaLop);
+            if(nSoLanThi == -1)
+            {
+                return;
+            }
+
+            if(nSoLanThi == 0)
+            {
+                //Initialize ComboBox LAN THI THU
+                cbxLanThu.Items.Clear();
+                cbxLanThu.Items.Add("Lần 1");
+                cbxLanThu.SelectedIndex = 0;
+                m_bAllowSuaDiemLan1 = false;
+            }
+
+            if (nSoLanThi == 1)
+            {
+                //Initialize ComboBox LAN THI THU
+                cbxLanThu.Items.Clear();
+                cbxLanThu.Items.Add("Lần 1");
+                cbxLanThu.Items.Add("Lần 2");
+                cbxLanThu.SelectedIndex = 0;
+                m_bAllowSuaDiemLan1 = true;
+            }
+
+            if (nSoLanThi == 2)
+            {
+                //Initialize ComboBox LAN THI THU
+                cbxLanThu.Items.Clear();
+                cbxLanThu.Items.Add("Lần 1");
+                cbxLanThu.Items.Add("Lần 2");
+                cbxLanThu.SelectedIndex = 0;
+                m_bAllowSuaDiemLan1 = false;
+            }
         }
 
         private void cbxLanThu_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,13 +143,25 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
             InitializeListBangDiem();
 
-            if (CanInsertOrUpdateBangDiem())
+            if (CanInsertOrUpdateBangDiem() == -1)
             {
-                btnSuaDiem.Enabled = true;
+                return;
             }
-            else
+            
+            if(CanInsertOrUpdateBangDiem() == 0)
             {
                 btnNhapDiem.Enabled = true;
+                btnSuaDiem.Enabled = false;
+            }
+            else if(CanInsertOrUpdateBangDiem() == 1)
+            {
+                btnNhapDiem.Enabled = false;
+                btnSuaDiem.Enabled = true;
+            }
+            else if(CanInsertOrUpdateBangDiem() == 2)
+            {
+                btnNhapDiem.Enabled = false;
+                btnSuaDiem.Enabled = false;
             }
 
             InitializeDataGridView();
@@ -214,7 +262,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             cbxKhoa.DataSource = m_lstPhanManh;
             cbxKhoa.DisplayMember = "TenPhanManh";
             cbxKhoa.ValueMember = "TenServer";
-            cbxKhoa.SelectedItem = Data.m_nKhoa;
 
             if (Data.m_strGroup.Equals("PKETOAN") || Data.m_strGroup.Equals("KHOA"))
             {
@@ -225,28 +272,29 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 cbxKhoa.Enabled = true;
             }
 
-            //Initialize ComboBox LOP
-            cbxLop.DataSource = m_lstLop;
-            cbxLop.DisplayMember = "TENLOP";
-            cbxLop.ValueMember = "MALOP";
-            cbxLop.SelectedIndex = 0;
-
             //Initialize ComboBox MON HOC
             cbxMonHoc.DataSource = m_lstMonHoc;
             cbxMonHoc.DisplayMember = "TENMH";
             cbxMonHoc.ValueMember = "MAMH";
-            cbxMonHoc.SelectedIndex = 0;
 
-            //Initialize ComboBox LAN THI THU
-            cbxLanThu.Items.Add("Lần 1");
-            cbxLanThu.Items.Add("Lần 2");
+            //Initialize ComboBox LOP
+            cbxLop.DataSource = m_lstLop;
+            cbxLop.DisplayMember = "TENLOP";
+            cbxLop.ValueMember = "MALOP";
+
+            cbxLop.SelectedIndex = 0;
+            cbxMonHoc.SelectedIndex = 0;
             cbxLanThu.SelectedIndex = 0;
         }
 
         private void InitializeDataGridView()
         {
+            if(m_lstBangDiem == null)
+            {
+                return;
+            }
+
             dgvNhapDiem.DataSource = m_lstBangDiem;
-            
             dgvNhapDiem.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
             dgvNhapDiem.Columns["HoTen"].HeaderText = "Họ tên";
             dgvNhapDiem.Columns["Diem"].HeaderText = "Điểm";
@@ -257,23 +305,54 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         }
 
         /// <summary>
-        /// true is can Update;
-        /// false is can Insert
+        /// -1 is can Erorr;
+        /// 0 is can Insert
+        /// 1 is can Update;
+        /// 2 is can't Insert or Update
         /// </summary>
         /// <returns></returns>
-        private bool CanInsertOrUpdateBangDiem()
+        private int CanInsertOrUpdateBangDiem()
         {
-            float fDiemTong = 0;
-            for (int i = 0; i < m_lstBangDiem.Count; i++)
+            if (cbxLop.Items.Count == 0 || cbxMonHoc.Items.Count == 0)
             {
-                fDiemTong = fDiemTong + m_lstBangDiem[i].Diem;
+                return -1;
             }
 
-            if (fDiemTong == 0)
+            m_strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.ToString();
+            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.ToString();
+            int nIndexCBXLanThu = cbxLanThu.SelectedIndex + 1;
+
+            int nSoLanThi = NhapDiemBUL.CountSoLanThi(m_strMaMonHoc, m_strMaLop);
+            if (nSoLanThi == -1)
             {
-                return false;
+                return -1;
             }
-            return true;
+
+            if (nIndexCBXLanThu == 1 && nSoLanThi == 0)
+            {
+                return 0;
+            }
+
+            if (nIndexCBXLanThu == 1 && nSoLanThi == 1)
+            {
+                return 1;
+            }
+
+            if (nIndexCBXLanThu == 1 && nSoLanThi == 2)
+            {
+                return 2;
+            }
+             
+            if (nIndexCBXLanThu == 2 && nSoLanThi == 1)
+            {
+                return 0;
+            }
+
+            if (nIndexCBXLanThu == 2 && nSoLanThi == 2)
+            {
+                return 1;
+            }
+            return -1;
         }
 
         private void ToggleComponent(bool x_bIsEnableBatDau)

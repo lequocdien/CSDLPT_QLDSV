@@ -26,5 +26,23 @@ namespace BUL
         {
             return NhapDiemDAL.UpdateBangDiemSinhVien(x_lstBangDiem, x_strMaMonHoc, x_nLan);
         }
+
+        public static int CountSoLanThi(string x_strMaMonHoc, string x_strMaLop)
+        {
+            SqlDataReader objReader = NhapDiemDAL.CountSoLanThi(x_strMaMonHoc, x_strMaLop);
+            if(objReader == null)
+            {
+                //Erorr
+                return -1;
+            }
+
+            int nSoLanThi = 0;
+            if (objReader.Read())
+            {
+                int.TryParse(objReader[0].ToString(), out nSoLanThi);
+            }
+
+            return nSoLanThi;
+        }
     }
 }

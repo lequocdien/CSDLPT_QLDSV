@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocPhi));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTaiLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnPhucHoi = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNhapDiem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.pnlPrepareNhapDiem = new System.Windows.Forms.Panel();
             this.gbxNhapDiemCho = new System.Windows.Forms.GroupBox();
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
@@ -45,6 +47,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.dgvHocPhi = new System.Windows.Forms.DataGridView();
+            this.colNienKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoTienDaDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnlPrepareNhapDiem.SuspendLayout();
             this.gbxNhapDiemCho.SuspendLayout();
@@ -56,7 +62,7 @@
             this.panel1.BackColor = System.Drawing.Color.Aqua;
             this.panel1.Controls.Add(this.btnTaiLai);
             this.panel1.Controls.Add(this.btnPhucHoi);
-            this.panel1.Controls.Add(this.btnNhapDiem);
+            this.panel1.Controls.Add(this.btnGhi);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -73,6 +79,7 @@
             this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
             this.btnTaiLai.TabIndex = 0;
             this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnPhucHoi
             // 
@@ -85,16 +92,17 @@
             this.btnPhucHoi.TabIndex = 0;
             this.btnPhucHoi.Text = "Phục hồi";
             // 
-            // btnNhapDiem
+            // btnGhi
             // 
-            this.btnNhapDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapDiem.Appearance.Options.UseFont = true;
-            this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapDiem.ImageOptions.SvgImage")));
-            this.btnNhapDiem.Location = new System.Drawing.Point(12, 12);
-            this.btnNhapDiem.Name = "btnNhapDiem";
-            this.btnNhapDiem.Size = new System.Drawing.Size(188, 61);
-            this.btnNhapDiem.TabIndex = 0;
-            this.btnNhapDiem.Text = "Ghi";
+            this.btnGhi.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGhi.Appearance.Options.UseFont = true;
+            this.btnGhi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGhi.ImageOptions.SvgImage")));
+            this.btnGhi.Location = new System.Drawing.Point(12, 12);
+            this.btnGhi.Name = "btnGhi";
+            this.btnGhi.Size = new System.Drawing.Size(188, 61);
+            this.btnGhi.TabIndex = 0;
+            this.btnGhi.Text = "Ghi";
+            this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
             // pnlPrepareNhapDiem
             // 
@@ -142,8 +150,9 @@
             // 
             // txtMaLop
             // 
-            this.txtMaLop.Enabled = false;
+            this.txtMaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtMaLop.Location = new System.Drawing.Point(168, 234);
             this.txtMaLop.Multiline = true;
             this.txtMaLop.Name = "txtMaLop";
@@ -153,8 +162,9 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Enabled = false;
+            this.txtHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtHoTen.Location = new System.Drawing.Point(168, 168);
             this.txtHoTen.Multiline = true;
             this.txtHoTen.Name = "txtHoTen";
@@ -209,7 +219,6 @@
             // 
             // dgvHocPhi
             // 
-            this.dgvHocPhi.AllowUserToAddRows = false;
             this.dgvHocPhi.AllowUserToDeleteRows = false;
             this.dgvHocPhi.AllowUserToResizeRows = false;
             this.dgvHocPhi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -224,6 +233,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvHocPhi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHocPhi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHocPhi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNienKhoa,
+            this.colHocKy,
+            this.colHocPhi,
+            this.colSoTienDaDong});
             this.dgvHocPhi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHocPhi.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvHocPhi.Location = new System.Drawing.Point(549, 86);
@@ -232,18 +246,57 @@
             this.dgvHocPhi.Name = "dgvHocPhi";
             this.dgvHocPhi.RowHeadersVisible = false;
             this.dgvHocPhi.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dgvHocPhi.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dgvHocPhi.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHocPhi.RowTemplate.Height = 28;
             this.dgvHocPhi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHocPhi.Size = new System.Drawing.Size(827, 662);
             this.dgvHocPhi.TabIndex = 8;
+            this.dgvHocPhi.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvHocPhi_CellValidating);
+            // 
+            // colNienKhoa
+            // 
+            this.colNienKhoa.DataPropertyName = "NienKhoa";
+            this.colNienKhoa.HeaderText = "Niên khóa";
+            this.colNienKhoa.MaxInputLength = 9;
+            this.colNienKhoa.MinimumWidth = 8;
+            this.colNienKhoa.Name = "colNienKhoa";
+            // 
+            // colHocKy
+            // 
+            this.colHocKy.DataPropertyName = "HocKy";
+            this.colHocKy.HeaderText = "Học kỳ";
+            this.colHocKy.MaxInputLength = 1;
+            this.colHocKy.MinimumWidth = 8;
+            this.colHocKy.Name = "colHocKy";
+            // 
+            // colHocPhi
+            // 
+            this.colHocPhi.DataPropertyName = "HocPhi";
+            dataGridViewCellStyle2.Format = "C0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.colHocPhi.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colHocPhi.HeaderText = "Học phí";
+            this.colHocPhi.MinimumWidth = 8;
+            this.colHocPhi.Name = "colHocPhi";
+            // 
+            // colSoTienDaDong
+            // 
+            this.colSoTienDaDong.DataPropertyName = "SoTienDaDong";
+            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colSoTienDaDong.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colSoTienDaDong.HeaderText = "Số tiền đã đóng";
+            this.colSoTienDaDong.MinimumWidth = 8;
+            this.colSoTienDaDong.Name = "colSoTienDaDong";
             // 
             // frmHocPhi
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 748);
@@ -267,7 +320,7 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnTaiLai;
         private DevExpress.XtraEditors.SimpleButton btnPhucHoi;
-        private DevExpress.XtraEditors.SimpleButton btnNhapDiem;
+        private DevExpress.XtraEditors.SimpleButton btnGhi;
         private System.Windows.Forms.Panel pnlPrepareNhapDiem;
         private System.Windows.Forms.GroupBox gbxNhapDiemCho;
         private System.Windows.Forms.ComboBox cbxMaSinhVien;
@@ -278,5 +331,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNienKhoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHocKy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHocPhi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoTienDaDong;
     }
 }

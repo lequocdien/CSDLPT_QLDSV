@@ -72,5 +72,14 @@ namespace DAL
             }
             return false;
         }
+
+        public static SqlDataReader CountSoLanThi(string x_strMaMonHoc, string x_strMaLop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_SoLanThi '{0}', '{1}'", x_strMaMonHoc, x_strMaLop));
+            }
+            return null;
+        }
     }
 }

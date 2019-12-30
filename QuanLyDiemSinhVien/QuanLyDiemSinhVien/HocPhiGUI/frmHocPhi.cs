@@ -58,6 +58,39 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             m_bdHocPhi.DataSource = m_lstHocPhi;
             InitializeDataGridView();
         }
+
+        private void btnGhi_Click(object sender, EventArgs e)
+        {
+            string strMaSinhVien = cbxMaSinhVien.Text.Trim();
+            if(HocPhiBUL.InsertHocPhi(strMaSinhVien, m_lstHocPhi) == false)
+            {
+                MessageBox.Show("Ghi vào database thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            MessageBox.Show("Ghi vào database thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void dgvHocPhi_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            try
+            {
+                DataGridView dgv = (DataGridView)sender;
+                if(dgv.CurrentRow.Cells[e.ColumnIndex].FormattedValue.GetType() != dgv.CurrentRow.Cells[e.ColumnIndex].Value.GetType())
+                {
+                    MessageBox.Show("Input không hợp lệ");
+                    dgv.CancelEdit();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region Utilities
@@ -65,11 +98,26 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         {
             dgvHocPhi.DataSource = m_bdHocPhi;
 
-            dgvHocPhi.Columns["NienKhoa"].HeaderText = "Niên khóa";
-            dgvHocPhi.Columns["HocKy"].HeaderText = "Học kỳ";
-            dgvHocPhi.Columns["HocPhi"].HeaderText = "Học phí";
-            dgvHocPhi.Columns["SoTienDaDong"].HeaderText = "Số tiền đã đóng";
+            dgvHocPhi.Columns["colNienKhoa"].HeaderText = "Niên khóa";
+            dgvHocPhi.Columns["colHocKy"].HeaderText = "Học kỳ";
+            dgvHocPhi.Columns["colHocPhi"].HeaderText = "Học phí";
+            dgvHocPhi.Columns["colSoTienDaDong"].HeaderText = "Số tiền đã đóng";
+
+            for(int i = 0; i<dgvHocPhi.RowCount; i++)
+            {
+                if(i == dgvHocPhi.RowCount - 1)
+                {
+                    dgvHocPhi.Rows[i].ReadOnly = false;
+                }
+                else
+                {
+                    dgvHocPhi.Rows[i].ReadOnly = true;
+                }
+            }
         }
+
         #endregion
+
+        
     }
 }

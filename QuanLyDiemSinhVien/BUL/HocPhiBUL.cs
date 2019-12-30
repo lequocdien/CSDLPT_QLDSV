@@ -38,5 +38,10 @@ namespace BUL
             }
             return lstHocPhi;
         }
+
+        public static bool InsertHocPhi(string x_strMaSinhVien, List<HocPhiDTO> x_lstHocPhi)
+        {
+            return HocPhiDAL.InsertHocPhi(x_strMaSinhVien, x_lstHocPhi);
+        }
     }
 }
