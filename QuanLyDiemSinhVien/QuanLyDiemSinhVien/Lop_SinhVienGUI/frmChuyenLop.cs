@@ -45,7 +45,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             list = BUL.LopBUL.TimKiemLop(txtMaLop.Text.Trim());
             if (list.Count == 0)
             {
-                MessageBox.Show("Lớp "+ txtMaLop.Text.Trim() + " không có trong danh sách ", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Lớp "+ txtMaLop.Text.Trim() + " không có trong danh sách ", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

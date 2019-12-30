@@ -21,36 +21,18 @@ namespace QuanLyDiemSinhVien.LopGUI
         {
             InitializeComponent();
         }
-
-        private DataTable loadphanmanh()
-        {
-            DataTable ds = new DataTable();
-            DataTable dt = BUL.DangNhapBUL.LoadPhanManh();
-            ds.Columns.Add("TENKHOA");
-            ds.Columns.Add("TENSERVER");
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (dt.Rows[i][0].ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == true)
-                {
-                    continue;
-                }
-                string[] arr = { dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString() };
-                ds.Rows.Add(arr);
-            }
-            return ds;
-        }
         private void frmLopGUI_Load(object sender, EventArgs e)
         {
-            if(BUL.LopBUL.LoadLop() == null)
+            if (BUL.LopBUL.LoadLop() == null)
             {
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
                 return;
             }
-            dgvLop.DataSource = BUL.LopBUL.LoadLop();
-            cmbKhoa.DataSource = loadphanmanh();
+            cmbKhoa.DataSource = Common.Data.bds_2_pm;
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
+            dgvLop.DataSource = BUL.LopBUL.LoadLop();
 
             ChucNang();
         }
@@ -89,8 +71,8 @@ namespace QuanLyDiemSinhVien.LopGUI
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             maghi = 0;
-            cmbKhoa.Enabled = txtMaKhoa.Enabled = groupControl_DanhSachLop.Enabled = false;
-            txtMaLop.Enabled = true;
+            txtMaLop.ReadOnly = txtTenLop.ReadOnly = false;
+            cmbKhoa.Enabled = groupControl_DanhSachLop.Enabled = false;
             txtMaLop.ResetText();
             txtTenLop.ResetText();
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = false;
@@ -251,7 +233,8 @@ namespace QuanLyDiemSinhVien.LopGUI
                 return;
             }
             maghi = 1;
-            cmbKhoa.Enabled = txtMaLop.Enabled = txtMaKhoa.Enabled = groupControl_DanhSachLop.Enabled = false;
+            cmbKhoa.Enabled = groupControl_DanhSachLop.Enabled = false;
+            txtTenLop.ReadOnly = false;
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
         }
@@ -265,17 +248,16 @@ namespace QuanLyDiemSinhVien.LopGUI
         }
         private void ChucNang()
         {
+            txtMaLop.ReadOnly = txtTenLop.ReadOnly = txtMaKhoa.ReadOnly = true;
+            groupControl_DanhSachLop.Enabled = true;
             if (Common.Data.m_strGroup == "PGV")
             {
-                txtMaKhoa.Enabled = txtMaLop.Enabled = false;
-                groupControl_DanhSachLop.Enabled = true;
                 cmbKhoa.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = true;
                 btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
             else
             {
-                //groupControl_ThongTinLop.Enabled = false;
                 cmbKhoa.Enabled = false;
                 btnLamMoi.Enabled = btnThoat.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;

@@ -15,6 +15,7 @@ using DevExpress.LookAndFeel;
 using QuanLyDiemSinhVien.LopGUI;
 using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
+using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -76,6 +77,43 @@ namespace QuanLyDiemSinhVien
             frmLop_SinhVien f = new frmLop_SinhVien();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void btnTaoLogin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmTaoTaiKhoan f = new frmTaoTaiKhoan();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (Data.Con != null && Data.Con.State == ConnectionState.Open)
+                {
+                    Data.Con.Close();
+                }
+                ShowStatusBar("", "", "");
+                Common.Data.m_strServerName = "";
+                Common.Data.m_strLogin = "";
+                Common.Data.m_strPassword = "";
+
+                Common.Data.m_strLoginDN = "";
+                Common.Data.m_strPasswordDN = "";
+
+                Common.Data.m_strMaGV = "";
+                Common.Data.m_strGroup = "";
+                Common.Data.m_strHoten = "";
+
+                Common.Data.m_nKhoa = 0;
+                MessageBox.Show("Đăng xuất thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Đăng xuất thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

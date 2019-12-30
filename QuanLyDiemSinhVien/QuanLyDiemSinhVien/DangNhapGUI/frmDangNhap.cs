@@ -28,6 +28,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
+            Common.Data.bds_dspm.DataSource = DangNhapBUL.LoadPhanManh();
             cmbKhoa.DataSource = DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
@@ -61,8 +62,6 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 0)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             //   txtTaiKhoan.ResetText();
-             //   txtMatKhau.ResetText();
                 return;
             }
             Common.Data.m_nKhoa = cmbKhoa.SelectedIndex;
@@ -71,11 +70,39 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
                 MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            this.Close();
             PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(cmbKhoa.SelectedValue.ToString() != Common.Constant.IGNORE_SITE_PKETOAN)
+            {
+                Common.Data.bds_2_pm.DataSource = Load_2_PhanManh();
+            }
+            this.Close();
             Common.Data.Con.Close();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private DataTable Load_2_PhanManh()
+        {
+            DataTable ds = new DataTable();
+            ds.Columns.Add("TENKHOA");
+            ds.Columns.Add("TENSERVER");
+
+            DataTable dt = new DataTable();
+            dt = BUL.DangNhapBUL.LoadPhanManh();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i][0].ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == true)
+                {
+                    continue;
+                }
+                string[] arr = { dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString() };
+                ds.Rows.Add(arr);
+            }
+            return ds;
         }
     }
 }

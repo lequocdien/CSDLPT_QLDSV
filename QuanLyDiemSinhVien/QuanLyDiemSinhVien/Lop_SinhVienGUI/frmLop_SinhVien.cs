@@ -24,30 +24,17 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         {
             public static SinhVienDTO sv;
         }
-        private DataTable loadphanmanh()
-        {
-            DataTable ds = new DataTable();
-            DataTable dt = BUL.DangNhapBUL.LoadPhanManh();
-            ds.Columns.Add("TENKHOA");
-            ds.Columns.Add("TENSERVER");
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (dt.Rows[i][0].ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == true)
-                {
-                    continue;
-                }
-                string[] arr = { dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString() };
-                ds.Rows.Add(arr);
-            }
-            return ds;
-        }
         private void frmLop_SinhVien_Load(object sender, EventArgs e)
         {
-            cmbKhoa.DataSource = loadphanmanh();
+            if (BUL.LopBUL.LoadLop() == null)
+            {
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                return;
+            }
+            cmbKhoa.DataSource = Common.Data.bds_2_pm;
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
-
             dgvLop.DataSource = BUL.LopBUL.LoadLop();
             ChucNang();
         }
@@ -135,11 +122,12 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             maghi = 0;
+            txtMaSV.ReadOnly = txtHo.ReadOnly = txtTen.ReadOnly = txtNgaySinh.ReadOnly = txtNoiSinh.ReadOnly = txtDiaChi.ReadOnly = txtGhiChu.ReadOnly = false;
+            groupBox_Phai.Enabled = true;
             cmbKhoa.Enabled = false;
-            txtMaSV.Enabled = groupBox2.Enabled = true;
             groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = false;
             txtMaSV.Text = txtHo.Text = txtTen.Text  = txtNgaySinh.Text = txtNoiSinh.Text = txtDiaChi.Text = txtGhiChu.Text = "";
-            rdbtnNam.Checked = rdbtnNu.Checked = rdbtnDaNghiHoc.Checked = rdbtnChuaNghiHoc.Checked = false;
+            rdbtnChuaNghiHoc.Checked = true;
 
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = btnChuyenLop.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
@@ -155,7 +143,6 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             if (BUL.SinhVienBUL.LoadSinhVien(malop).Count == 0)
             {
                 txtMaSV.Text = txtHo.Text = txtTen.Text = txtNgaySinh.Text = txtNoiSinh.Text = txtDiaChi.Text = txtGhiChu.Text = "";
-                rdbtnNam.Checked = rdbtnNu.Checked = rdbtnDaNghiHoc.Checked = rdbtnChuaNghiHoc.Checked = false;
                 return;
             }
             LoadThongTin_SinhVien(dong);
@@ -169,6 +156,8 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                 return;
             }
             maghi = 1;
+            txtHo.ReadOnly = txtTen.ReadOnly = txtNgaySinh.ReadOnly = txtNoiSinh.ReadOnly = txtDiaChi.ReadOnly = txtGhiChu.ReadOnly = false;
+            groupBox_Phai.Enabled = groupBox_NghiHoc.Enabled = true;
             cmbKhoa.Enabled = false;
             groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = false;
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = btnChuyenLop.Enabled = false;
@@ -205,12 +194,12 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
             }
             if(BUL.SinhVienBUL.KiemTraHocPhiSinhVien(masv).Rows.Count > 0)
             {
-                MessageBox.Show("Sinh viên " + masv + " đã dữ liệu học phí không thể xóa", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sinh viên " + masv + " đã dữ liệu học phí không được xóa", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (BUL.SinhVienBUL.KiemTraDiemSinhVien(masv).Rows.Count > 0)
             {
-                MessageBox.Show("Sinh viên " + masv + " đã nhập điểm không thể xóa", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sinh viên " + masv + " có dữ liệu điểm không được xóa", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (MessageBox.Show("Bạn có muốn xóa sinh viên có mã "+masv+" không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -344,13 +333,13 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void ChucNang()
         {
-            groupBox2.Enabled = txtMaLop.Enabled = false;
+            groupBox_NghiHoc.Enabled = groupBox_Phai.Enabled = false;
+            txtMaSV.ReadOnly = txtHo.ReadOnly = txtTen.ReadOnly = txtNgaySinh.ReadOnly = txtNoiSinh.ReadOnly = txtDiaChi.ReadOnly = txtGhiChu.ReadOnly = true;
             if (Common.Data.m_strGroup == "PGV")
             {
-                txtMaSV.Enabled = false;
                 groupControl_DanhSachLop.Enabled = groupControl_DanhSachSinhVien.Enabled = true;
                 cmbKhoa.Enabled = true;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnChuyenLop.Enabled = btnThoat.Enabled = true;
                 btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
             else
