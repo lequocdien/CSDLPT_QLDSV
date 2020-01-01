@@ -78,9 +78,9 @@ namespace DAL
                     }
                     return true;
                 }
-                catch (SqlException ex)
+                catch
                 {
-                    MessageBox.Show("Giảng viên không có quyền thay đổi dữ liệu ở bảng này!\nSQL ERORR: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
             return false;
@@ -105,12 +105,11 @@ namespace DAL
                 objDataReader = objSQLCommand.ExecuteReader(); 
                 return objDataReader;
             }
-            catch (SqlException ex)
+            catch
             {
                 Data.Con.Close();
-                MessageBox.Show("SQL ERORR: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
             }
+            return null;
         }
 
     }

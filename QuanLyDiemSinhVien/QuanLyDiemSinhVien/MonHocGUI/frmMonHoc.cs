@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DTO;
 using BUL;
+using Common;
 
 namespace QuanLyDiemSinhVien.MonHocGUI
 {
@@ -30,13 +31,22 @@ namespace QuanLyDiemSinhVien.MonHocGUI
         #region UI Event
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
+            if (Data.m_strGroup.Trim().Equals("KHOA"))
+            {
+                txtMaMonHoc.Enabled = false;
+                txtTenMonHoc.Enabled = false;
+                btnThemMonHoc.Enabled = false;
+                btnCapNhatMonHoc.Enabled = false;
+                btnXoaBoMonHoc.Enabled = false;
+                dgvMonHoc.AllowUserToAddRows = false;
+            }
             m_bdsMonHoc = new BindingSource();
             ReloadGUI();
         }
 
         private void dgvMonHoc_Click(object sender, EventArgs e)
         {
-            SetupTextBox();
+            ToggleTextBoxAndButton();
         }
 
         private void btnThemMonHoc_Click(object sender, EventArgs e)
@@ -142,11 +152,6 @@ namespace QuanLyDiemSinhVien.MonHocGUI
         #endregion 
 
         #region Utilities
-        private void InitializeDataGridView()
-        {
-            dgvMonHoc.Columns[0].HeaderText = "Mã môn học";
-            dgvMonHoc.Columns[1].HeaderText = "Tên môn học";
-        }
 
         private bool IsDuplicateMaMonHoc()
         {
@@ -239,8 +244,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
         private void ReloadGUI()
         {
             LoadDataGridView();
-            InitializeDataGridView();
-            SetupTextBox();
+            ToggleTextBoxAndButton();
         }
 
         private void LoadDataGridView()
@@ -256,9 +260,16 @@ namespace QuanLyDiemSinhVien.MonHocGUI
             dgvMonHoc.DataSource = m_bdsMonHoc;
         }
 
-        private void SetupTextBox()
+        private void ToggleTextBoxAndButton()
         {
             DataGridViewRow dgvRow = dgvMonHoc.SelectedRows[0];
+            if (Data.m_strGroup.Trim().Equals("KHOA"))
+            {
+                txtMaMonHoc.Text = dgvRow.Cells[0].Value.ToString().Trim();
+                txtTenMonHoc.Text = dgvRow.Cells[1].Value.ToString().Trim();
+                return;
+            }
+            
             if (dgvMonHoc.Rows.Count - 1 == dgvRow.Index)
             {
                 txtMaMonHoc.Text = string.Empty;
