@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,22 @@ namespace DAL
                 return DataProvider.ExecSQLQuery(string.Format("UPDATE MONHOC SET TENMH = N'{0}' WHERE MAMH = '{1}'", x_strTenMonHoc, x_strMaMonHoc));
             }
             return false;
+        }
+
+        public static bool IsExistedAtTableDiem(string x_strMaMonHoc)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                SqlDataReader objReader = DataProvider.ExecSQLDataReader(string.Format("EXEC sp_IsExistMaMonHoc '{0}'", x_strMaMonHoc));
+                if (objReader.Read())
+                {
+                    if(int.Parse(objReader.GetValue(0).ToString()) == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         public static bool DeleteMonHoc(string x_strMaMonHoc)

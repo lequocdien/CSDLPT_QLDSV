@@ -1,0 +1,10 @@
+create proc sp_SoLanThi
+@maMH nchar(8), @maLop nchar(8)
+as
+begin
+	select top 1 SOLANTHI = count(LAN)
+	from (select MASV, LAN from diem where mamh = @maMH) di, 
+	(select MASV from sinhvien where MALOP = @maLop) sv
+	where di.MASV = sv.MASV
+	group by di.LAN
+end

@@ -15,7 +15,7 @@ using DevExpress.LookAndFeel;
 using QuanLyDiemSinhVien.LopGUI;
 using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
-using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
+using QuanLyDiemSinhVien.HocPhiGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -26,20 +26,22 @@ namespace QuanLyDiemSinhVien
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region UI Event
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             UserLookAndFeel.Default.SkinName = "Office 2016 Colorful";
             //UserLookAndFeel.Default.SkinMaskColor = Color.Blue;
-        }
-        #endregion
-
-        #region UI Event
-        private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmMonHoc frmMonHoc = new frmMonHoc();
-            frmMonHoc.MdiParent = this;
-            frmMonHoc.Show();
+            btnDangNhap.Enabled = true;
+            btnDangXuat.Enabled = false;
+            btnTaoTaiKhoan.Enabled = false;
+            btnMonHoc.Enabled = false;
+            btnLop.Enabled = false;
+            btnSinhVien.Enabled = false;
+            btnNhapDiem.Enabled = false;
+            btnHocPhi.Enabled = false;
         }
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
@@ -50,6 +52,13 @@ namespace QuanLyDiemSinhVien
             f.PrintInfoLoginEvent += new frmDangNhap.PrintInfoLoginHandler(ShowStatusBar);
         }
 
+        private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmMonHoc frmMonHoc = new frmMonHoc();
+            frmMonHoc.MdiParent = this;
+            frmMonHoc.Show();
+        }
+
         private void btnLop_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmLop f = new frmLop();
@@ -57,63 +66,78 @@ namespace QuanLyDiemSinhVien
             f.Show();
         }
 
+        private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmLop_SinhVien f = new frmLop_SinhVien();
+            f.MdiParent = this;
+            f.Show();
+        }        
+
         private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmNhapDiem f = new frmNhapDiem();
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnHocPhi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHocPhi f = new frmHocPhi();
+            f.MdiParent = this;
+            f.Show();
+        }
         #endregion
 
-        public void ShowStatusBar(string x_strMaGV, string x_strHoTen, string x_strNhom)
+        #region Utilities
+        private void ShowStatusBar(string x_strMaGV, string x_strHoTen, string x_strNhom)
         {
             MAGV.Caption = string.Format("MAGV: {0}", x_strMaGV);
             HOTEN.Caption = string.Format("| HOTEN: {0}", x_strHoTen);
             NHOM.Caption = string.Format("| NHOM: {0}", x_strNhom);
+            ToggleButton(x_strNhom.Trim());
         }
 
-        private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
+        private void ToggleButton(string x_strNhomQuyen)
         {
-            frmLop_SinhVien f = new frmLop_SinhVien();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void btnTaoLogin_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmTaoTaiKhoan f = new frmTaoTaiKhoan();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
+            if (x_strNhomQuyen.Equals("PGV"))
             {
-                if (Data.Con != null && Data.Con.State == ConnectionState.Open)
-                {
-                    Data.Con.Close();
-                }
-                ShowStatusBar("", "", "");
-                Common.Data.m_strServerName = "";
-                Common.Data.m_strLogin = "";
-                Common.Data.m_strPassword = "";
-
-                Common.Data.m_strLoginDN = "";
-                Common.Data.m_strPasswordDN = "";
-
-                Common.Data.m_strMaGV = "";
-                Common.Data.m_strGroup = "";
-                Common.Data.m_strHoten = "";
-
-                Common.Data.m_nKhoa = 0;
-                MessageBox.Show("Đăng xuất thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnMonHoc.Enabled = true;
+                btnLop.Enabled = true;
+                btnSinhVien.Enabled = true;
+                btnNhapDiem.Enabled = true;
+                btnHocPhi.Enabled = false;
+                btnDangXuat.Enabled = true;
+                btnDangNhap.Enabled = false;
+                btnTaoTaiKhoan.Enabled = true;
+                return;
             }
-            catch
+
+            if (x_strNhomQuyen.Equals("KHOA"))
             {
-                MessageBox.Show("Đăng xuất thất bại", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnMonHoc.Enabled = true;
+                btnLop.Enabled = true;
+                btnSinhVien.Enabled = true;
+                btnNhapDiem.Enabled = true;
+                btnHocPhi.Enabled = false;
+                btnDangXuat.Enabled = true;
+                btnDangNhap.Enabled = false;
+                btnTaoTaiKhoan.Enabled = true;
+                return;
+            }
+
+            if (x_strNhomQuyen.Equals("PKETOAN"))
+            {
+                btnMonHoc.Enabled = false;
+                btnLop.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnNhapDiem.Enabled = false;
+                btnHocPhi.Enabled = true;
+                btnDangXuat.Enabled = true;
+                btnDangNhap.Enabled = false;
+                btnTaoTaiKhoan.Enabled = true;
                 return;
             }
         }
+        #endregion
     }
 }

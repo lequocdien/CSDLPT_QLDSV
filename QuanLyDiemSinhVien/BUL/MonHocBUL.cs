@@ -40,6 +40,11 @@ namespace BUL
             return MonHocDAL.UpdateMonHoc(x_strMaMonHoc, x_strTenMonHoc);
         }
 
+        public static bool IsExistedAtTableDiem(string x_strMaMonHoc)
+        {
+            return MonHocDAL.IsExistedAtTableDiem(x_strMaMonHoc);
+        }
+
         public static bool DeleteMonHoc(string x_strMaMonHoc)
         {
             return MonHocDAL.DeleteMonHoc(x_strMaMonHoc);

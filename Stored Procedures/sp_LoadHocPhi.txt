@@ -1,0 +1,8 @@
+CREATE proc [dbo].[sp_LoadHocPhi]
+@maSV nchar(8)
+as
+begin
+	select NIENKHOA, HOCKY, HOCPHI, SOTIENDADONG 
+	FROM HOCPHI 
+	WHERE MASV = @maSV
+end
