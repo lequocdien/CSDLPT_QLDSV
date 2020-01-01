@@ -144,7 +144,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("Khoa"))
+            if (x_strNhomQuyen.Equals("KHOA"))
             {
                 btnMonHoc.Enabled = true;
                 btnLop.Enabled = true;
@@ -157,7 +157,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("PKeToan"))
+            if (x_strNhomQuyen.Equals("PKETOAN"))
             {
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
