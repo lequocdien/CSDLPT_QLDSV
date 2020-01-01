@@ -22,5 +22,6 @@ namespace Common
         public const string PUBLICATION_NAME_KT = "CSDLPT_QLDSV_KT";
 
         public const string TEST_Revert = "CSDLPT_QLDSV_KT";
+        public const string TEST_Revert2 = "CSDLPT_QLDSV_KT";
     }
 }
