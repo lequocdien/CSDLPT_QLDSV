@@ -62,7 +62,7 @@ namespace QuanLyDiemSinhVien.LopGUI
             {
                 DataTable dt = new DataTable();
                 dt = BUL.LopBUL.LoadKhoa();
-                tenkhoa = dt.Rows[0]["TENKH"].ToString();
+                tenkhoa = dt.Rows[0]["TENKH"].ToString();//trường hợp chưa có lớp nào
                 txtMaKhoa.Text = dt.Rows[0]["MAKH"].ToString();
                 dgvLop.DataSource = BUL.LopBUL.LoadLop();
             }

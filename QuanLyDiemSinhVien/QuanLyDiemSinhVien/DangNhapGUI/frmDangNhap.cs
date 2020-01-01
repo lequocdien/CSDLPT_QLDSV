@@ -73,7 +73,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
             MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if(cmbKhoa.SelectedValue.ToString() != Common.Constant.IGNORE_SITE_PKETOAN)
+            if(cmbKhoa.SelectedValue.ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == false)
             {
                 Common.Data.bds_2_pm.DataSource = Load_2_PhanManh();
             }
