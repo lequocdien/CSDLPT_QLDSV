@@ -17,11 +17,23 @@ using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 using QuanLyDiemSinhVien.HocPhiGUI;
 using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
+using QuanLyDiemSinhVien.Report;
+using DTO;
+using BUL;
+using DevExpress.XtraReports.UI;
+using QuanLyDiemSinhVien.FormInput;
 
 namespace QuanLyDiemSinhVien
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        #region Fields
+        private string m_strMaLop;
+        private string m_strMaMonHoc;
+        private string m_strNgayThi;
+        private int m_nLanThi;
+        #endregion
+
         #region Constructor
         public frmMain()
         {
@@ -118,6 +130,20 @@ namespace QuanLyDiemSinhVien
                 f.Show();
             }
         }
+
+        private void btnDSThiHetMon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmInputDanhSachThiHetMon frmDSTHM = new frmInputDanhSachThiHetMon();
+            frmDSTHM.InputReceivedEvent += new frmInputDanhSachThiHetMon.InputReceivedHandler(GetDataDanhSachThiHetMon);
+            if(frmDSTHM.ShowDialog() == DialogResult.Yes)
+            {
+                rptDanhSachThiHetMon objReport = new rptDanhSachThiHetMon();
+                objReport.DataSource = DanhSachThiHetMonBUL.LoadDanhSachThiHetMon(m_strMaLop, m_strMaMonHoc, m_nLanThi);
+
+                ReportPrintTool objTool = new ReportPrintTool(objReport);
+                objTool.ShowPreview();
+            }
+        }
         #endregion
 
         #region Utilities
@@ -127,6 +153,14 @@ namespace QuanLyDiemSinhVien
             HOTEN.Caption = string.Format("| HOTEN: {0}", x_strHoTen);
             NHOM.Caption = string.Format("| NHOM: {0}", x_strNhom);
             ToggleButton(x_strNhom.Trim());
+        }
+
+        private void GetDataDanhSachThiHetMon(string x_strMaLop, string x_strMaMonHoc, string x_strNgayThi, int x_nLanThi)
+        {
+            m_strMaLop = x_strMaLop;
+            m_strMaMonHoc = x_strMaMonHoc;
+            m_strNgayThi = x_strNgayThi;
+            m_nLanThi = x_nLanThi;
         }
 
         private void ToggleButton(string x_strNhomQuyen)
@@ -235,6 +269,5 @@ namespace QuanLyDiemSinhVien
                     return f;
             return null;
         }
-
     }
 }

@@ -55,6 +55,9 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManagerFormMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDSThiHetMon = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).BeginInit();
             this.SuspendLayout();
@@ -76,16 +79,18 @@
             this.btnNhapDiem,
             this.btnSinhVien,
             this.btnHocPhi,
-            this.btnTaoTaiKhoan});
+            this.btnTaoTaiKhoan,
+            this.btnDSThiHetMon});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ribbon.MaxItemId = 18;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
+            this.ribbonPage4,
             this.ribbonPage3});
-            this.ribbon.Size = new System.Drawing.Size(917, 143);
+            this.ribbon.Size = new System.Drawing.Size(1376, 206);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // MAGV
@@ -264,25 +269,48 @@
             this.ribbonStatusBar.ItemLinks.Add(this.MAGV);
             this.ribbonStatusBar.ItemLinks.Add(this.HOTEN);
             this.ribbonStatusBar.ItemLinks.Add(this.NHOM);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 507);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 745);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(917, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1376, 41);
             // 
             // MdiManagerFormMain
             // 
             this.MdiManagerFormMain.MdiParent = this;
             // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "Báo cáo";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnDSThiHetMon);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Bảng điểm thi hết môn";
+            // 
+            // btnDSThiHetMon
+            // 
+            this.btnDSThiHetMon.Caption = "Danh sách thi hết môn";
+            this.btnDSThiHetMon.Id = 17;
+            this.btnDSThiHetMon.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDSThiHetMon.ImageOptions.SvgImage")));
+            this.btnDSThiHetMon.Name = "btnDSThiHetMon";
+            this.btnDSThiHetMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSThiHetMon_ItemClick);
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 538);
+            this.ClientSize = new System.Drawing.Size(1376, 786);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -323,5 +351,8 @@
         private DevExpress.XtraBars.BarButtonItem btnHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnDSThiHetMon;
     }
 }
