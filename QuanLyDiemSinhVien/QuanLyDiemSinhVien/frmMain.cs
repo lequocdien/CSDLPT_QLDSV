@@ -17,6 +17,7 @@ using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 using QuanLyDiemSinhVien.HocPhiGUI;
 using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
+using QuanLyDiemSinhVien.BaoCaoGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -236,5 +237,16 @@ namespace QuanLyDiemSinhVien
             return null;
         }
 
+        private void btn_InDSSV_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Xrm_DanhSachSinhVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xrm_DanhSachSinhVien f = new Xrm_DanhSachSinhVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
