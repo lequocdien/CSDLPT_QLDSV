@@ -37,9 +37,9 @@ namespace BUL
             }
 
             int nSoLanThi = 0;
-            if (objReader.Read())
+            while (objReader.Read())
             {
-                int.TryParse(objReader[0].ToString(), out nSoLanThi);
+                nSoLanThi = nSoLanThi + 1;
             }
 
             return nSoLanThi;

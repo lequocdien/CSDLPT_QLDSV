@@ -38,7 +38,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         {
             string strMaSinhVien = cbxMaSinhVien.Text.Trim();
             SqlDataReader objReader = HocPhiBUL.LoadInfoSinhVien(strMaSinhVien);
-            if(objReader == null)
+            if (objReader == null)
             {
                 return;
             }
@@ -50,7 +50,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             }
 
             m_lstHocPhi = HocPhiBUL.LoadHocPhi(strMaSinhVien);
-            if(m_lstHocPhi == null)
+            if (m_lstHocPhi == null)
             {
                 return;
             }
@@ -62,7 +62,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         private void btnGhi_Click(object sender, EventArgs e)
         {
             string strMaSinhVien = cbxMaSinhVien.Text.Trim();
-            if(HocPhiBUL.InsertHocPhi(strMaSinhVien, m_lstHocPhi) == false)
+            if (HocPhiBUL.InsertHocPhi(strMaSinhVien, m_lstHocPhi) == false)
             {
                 MessageBox.Show("Ghi vào database thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -70,18 +70,59 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             MessageBox.Show("Ghi vào database thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void dgvHocPhi_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        private void dgvHocPhi_CellValidating(object x_objSender, DataGridViewCellValidatingEventArgs x_objEventArgs)
         {
+            DataGridView dgv = (DataGridView)x_objSender;
             try
             {
-                DataGridView dgv = (DataGridView)sender;
-                if(dgv.CurrentRow.Cells[e.ColumnIndex].FormattedValue.GetType() != dgv.CurrentRow.Cells[e.ColumnIndex].Value.GetType())
+                if (x_objEventArgs.ColumnIndex == 1)
                 {
-                    MessageBox.Show("Input không hợp lệ");
-                    dgv.CancelEdit();
+                    int nHocKy;
+                    if (!int.TryParse(x_objEventArgs.FormattedValue.ToString(), out nHocKy) || nHocKy <= 0)
+                    {
+                        MessageBox.Show("Dữ liệu không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvHocPhi.CancelEdit();
+                        dgv.CurrentCell.Value = 1;
+                        return;
+                    }
+
+                    if(nHocKy > 3)
+                    {
+                        MessageBox.Show("Chỉ có học kỳ 1; 2; 3!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvHocPhi.CancelEdit();
+                        dgv.CurrentCell.Value = 1;
+                        return;
+                    }
+                }
+                else if (x_objEventArgs.ColumnIndex == 2)
+                {
+                    int nHocPhi;
+                    if (!int.TryParse(x_objEventArgs.FormattedValue.ToString(), out nHocPhi) || nHocPhi < 0)
+                    {
+                        MessageBox.Show("Dữ liệu không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvHocPhi.CancelEdit();
+                        return;
+                    }
+                }
+                else if (x_objEventArgs.ColumnIndex == 3)
+                {
+                    int nSoTienDaDong;
+                    if (!int.TryParse(x_objEventArgs.FormattedValue.ToString(), out nSoTienDaDong) || nSoTienDaDong < 0)
+                    {
+                        MessageBox.Show("Dữ liệu không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvHocPhi.CancelEdit();
+                        return;
+                    }
+
+                    if (nSoTienDaDong < (int)((DataGridView)x_objSender).CurrentRow.Cells["colHocPhi"].Value)
+                    {
+                        MessageBox.Show("Số tiền đã đóng phải lớn hơn HỌC PHÍ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvHocPhi.CancelEdit();
+                        return;
+                    }
                 }
             }
-            catch (Exception)
+            catch
             {
 
             }
@@ -103,9 +144,9 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             dgvHocPhi.Columns["colHocPhi"].HeaderText = "Học phí";
             dgvHocPhi.Columns["colSoTienDaDong"].HeaderText = "Số tiền đã đóng";
 
-            for(int i = 0; i<dgvHocPhi.RowCount; i++)
+            for (int i = 0; i < dgvHocPhi.RowCount; i++)
             {
-                if(i == dgvHocPhi.RowCount - 1)
+                if (i == dgvHocPhi.RowCount - 1)
                 {
                     dgvHocPhi.Rows[i].ReadOnly = false;
                 }
@@ -117,7 +158,5 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         }
 
         #endregion
-
-        
     }
 }

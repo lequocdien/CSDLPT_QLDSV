@@ -276,20 +276,18 @@
             // colHocPhi
             // 
             this.colHocPhi.DataPropertyName = "HocPhi";
-            dataGridViewCellStyle2.Format = "C0";
             dataGridViewCellStyle2.NullValue = null;
             this.colHocPhi.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colHocPhi.HeaderText = "Học phí";
+            this.colHocPhi.HeaderText = "Học phí (VND)";
             this.colHocPhi.MinimumWidth = 8;
             this.colHocPhi.Name = "colHocPhi";
             // 
             // colSoTienDaDong
             // 
             this.colSoTienDaDong.DataPropertyName = "SoTienDaDong";
-            dataGridViewCellStyle3.Format = "C0";
             dataGridViewCellStyle3.NullValue = null;
             this.colSoTienDaDong.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colSoTienDaDong.HeaderText = "Số tiền đã đóng";
+            this.colSoTienDaDong.HeaderText = "Số tiền đã đóng (VND)";
             this.colSoTienDaDong.MinimumWidth = 8;
             this.colSoTienDaDong.Name = "colSoTienDaDong";
             // 

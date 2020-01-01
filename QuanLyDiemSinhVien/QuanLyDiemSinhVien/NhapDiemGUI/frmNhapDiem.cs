@@ -21,7 +21,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         private string m_strMaLop;
         private string m_strMaMonHoc;
         private int m_nLanThi;
-        private bool m_bAllowSuaDiemLan1;
+        BindingSource m_bdBangDiem = new BindingSource();
         #endregion
 
         #region Constructor
@@ -108,7 +108,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 cbxLanThu.Items.Clear();
                 cbxLanThu.Items.Add("Lần 1");
                 cbxLanThu.SelectedIndex = 0;
-                m_bAllowSuaDiemLan1 = false;
             }
 
             if (nSoLanThi == 1)
@@ -118,7 +117,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 cbxLanThu.Items.Add("Lần 1");
                 cbxLanThu.Items.Add("Lần 2");
                 cbxLanThu.SelectedIndex = 0;
-                m_bAllowSuaDiemLan1 = true;
             }
 
             if (nSoLanThi == 2)
@@ -128,7 +126,6 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 cbxLanThu.Items.Add("Lần 1");
                 cbxLanThu.Items.Add("Lần 2");
                 cbxLanThu.SelectedIndex = 0;
-                m_bAllowSuaDiemLan1 = false;
             }
         }
 
@@ -143,22 +140,23 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
             InitializeListBangDiem();
 
-            if (CanInsertOrUpdateBangDiem() == -1)
+            int nUpdateOrInsert = CanInsertOrUpdateBangDiem();
+            if (nUpdateOrInsert == -1)
             {
                 return;
             }
             
-            if(CanInsertOrUpdateBangDiem() == 0)
+            if(nUpdateOrInsert == 0)
             {
                 btnNhapDiem.Enabled = true;
                 btnSuaDiem.Enabled = false;
             }
-            else if(CanInsertOrUpdateBangDiem() == 1)
+            else if(nUpdateOrInsert == 1)
             {
                 btnNhapDiem.Enabled = false;
                 btnSuaDiem.Enabled = true;
             }
-            else if(CanInsertOrUpdateBangDiem() == 2)
+            else if(nUpdateOrInsert == 2)
             {
                 btnNhapDiem.Enabled = false;
                 btnSuaDiem.Enabled = false;
@@ -167,6 +165,28 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             InitializeDataGridView();
         }
 
+        private void dgvNhapDiem_CellValidating(object sender, DataGridViewCellValidatingEventArgs x_objEventArgs)
+        {
+            try
+            {
+                float fValue;
+                if(x_objEventArgs.ColumnIndex == 2)
+                {
+                    if (!float.TryParse(x_objEventArgs.FormattedValue.ToString(), out fValue) || fValue < 0 || fValue > 10)
+                    {
+                        MessageBox.Show("Điểm không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvNhapDiem.CancelEdit();
+                        return;
+                    }
+                }
+                return;
+            }
+            catch
+            {
+
+            }
+        }
+        
         private void btnChonLai_Click(object sender, EventArgs e)
         {
             ToggleComponent(true);
@@ -289,28 +309,10 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void InitializeDataGridView()
         {
-            if(m_lstBangDiem == null)
-            {
-                return;
-            }
-
-            dgvNhapDiem.DataSource = m_lstBangDiem;
-            dgvNhapDiem.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
-            dgvNhapDiem.Columns["HoTen"].HeaderText = "Họ tên";
-            dgvNhapDiem.Columns["Diem"].HeaderText = "Điểm";
-
-            dgvNhapDiem.Columns["MaSinhVien"].ReadOnly = true;
-            dgvNhapDiem.Columns["HoTen"].ReadOnly = true;
-            dgvNhapDiem.Columns["Diem"].ReadOnly = false;
+            m_bdBangDiem.DataSource = m_lstBangDiem;
+            dgvNhapDiem.DataSource = m_bdBangDiem;
         }
-
-        /// <summary>
-        /// -1 is can Erorr;
-        /// 0 is can Insert
-        /// 1 is can Update;
-        /// 2 is can't Insert or Update
-        /// </summary>
-        /// <returns></returns>
+         
         private int CanInsertOrUpdateBangDiem()
         {
             if (cbxLop.Items.Count == 0 || cbxMonHoc.Items.Count == 0)
@@ -361,7 +363,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             btnNhapDiem.Enabled = !x_bIsEnableBatDau;
             btnSuaDiem.Enabled = !x_bIsEnableBatDau;
             btnPhucHoi.Enabled = !x_bIsEnableBatDau;
-            dgvNhapDiem.DataSource = typeof(List<BangDiemSinhVienDTO>);
+            dgvNhapDiem.Rows.Clear();
         }
 
         private void ToggleButtonBatDau(bool x_bIsEnable)
