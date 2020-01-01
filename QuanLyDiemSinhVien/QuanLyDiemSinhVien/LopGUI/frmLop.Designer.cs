@@ -325,6 +325,7 @@
             this.txtMaKhoa.Name = "txtMaKhoa";
             this.txtMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKhoa.Properties.Appearance.Options.UseFont = true;
+            this.txtMaKhoa.Properties.ReadOnly = true;
             this.txtMaKhoa.Size = new System.Drawing.Size(272, 22);
             this.txtMaKhoa.TabIndex = 7;
             // 
@@ -335,6 +336,7 @@
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
+            this.txtTenLop.Properties.ReadOnly = true;
             this.txtTenLop.Size = new System.Drawing.Size(272, 22);
             this.txtTenLop.TabIndex = 6;
             // 
@@ -345,6 +347,7 @@
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
+            this.txtMaLop.Properties.ReadOnly = true;
             this.txtMaLop.Size = new System.Drawing.Size(272, 22);
             this.txtMaLop.TabIndex = 2;
             // 

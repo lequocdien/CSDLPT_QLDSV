@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BangDiemSinhVienDTO.cs" />
+    <Compile Include="GiangVienDTO.cs" />
     <Compile Include="HocPhiDTO.cs" />
     <Compile Include="LopDTO.cs" />
     <Compile Include="MonHocDTO.cs" />

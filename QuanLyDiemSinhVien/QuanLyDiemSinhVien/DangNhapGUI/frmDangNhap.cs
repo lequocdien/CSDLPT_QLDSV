@@ -48,33 +48,60 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
         {
             if(txtTaiKhoan.Text == "")
             {
-                MessageBox.Show("Tên tài khoản không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tên tài khoản không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtMatKhau.Text == "")
             {
-                MessageBox.Show("Mật khẩu không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu không được để trống!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string user = txtTaiKhoan.Text;
             string pass = txtMatKhau.Text;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 0)
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK);
-                txtTaiKhoan.ResetText();
-                txtMatKhau.ResetText();
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Common.Data.m_nKhoa = cmbKhoa.SelectedIndex;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 1)
             {
-                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
-            MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK);
+            MessageBox.Show("Đăng nhập thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(cmbKhoa.SelectedValue.ToString().Equals(Common.Constant.PUBLICATION_NAME_KT) == false)
+            {
+                Common.Data.bds_CNTT_VT.DataSource = Load_2_PhanManh();
+            }
+            this.Close();
             Common.Data.Con.Close();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private DataTable Load_2_PhanManh()
+        {
+            DataTable ds = new DataTable();
+            ds.Columns.Add("TENKHOA");
+            ds.Columns.Add("TENSERVER");
+
+            DataTable dt = new DataTable();
+            dt = BUL.DangNhapBUL.LoadPhanManh();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i][0].ToString().Equals(Common.Constant.PUBLICATION_NAME_KT) == true)
+                {
+                    continue;
+                }
+                string[] arr = { dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString() };
+                ds.Rows.Add(arr);
+            }
+            return ds;
         }
     }
 }

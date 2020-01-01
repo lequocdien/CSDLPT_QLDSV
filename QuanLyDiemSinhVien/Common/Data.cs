@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Common
 {
@@ -23,5 +24,6 @@ namespace Common
         public static String m_strHoten = ""; // họ tên
 
         public static int m_nKhoa = 0; // vị trí item trong combobox
+        public static BindingSource bds_CNTT_VT = new BindingSource(); 
     }
 }

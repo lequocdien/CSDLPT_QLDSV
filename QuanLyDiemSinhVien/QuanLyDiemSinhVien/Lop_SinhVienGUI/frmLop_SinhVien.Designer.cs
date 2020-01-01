@@ -66,12 +66,12 @@
             this.GHICHU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupControl_ThongTinSinhVien = new DevExpress.XtraEditors.GroupControl();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdbtnChuaNghiHoc = new System.Windows.Forms.RadioButton();
-            this.rdbtnDaNghiHoc = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox_Phai = new System.Windows.Forms.GroupBox();
             this.rdbtnNam = new System.Windows.Forms.RadioButton();
             this.rdbtnNu = new System.Windows.Forms.RadioButton();
+            this.groupBox_NghiHoc = new System.Windows.Forms.GroupBox();
+            this.rdbtnDaNghiHoc = new System.Windows.Forms.RadioButton();
+            this.rdbtnChuaNghiHoc = new System.Windows.Forms.RadioButton();
             this.txtGhiChu = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
@@ -105,8 +105,8 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_ThongTinSinhVien)).BeginInit();
             this.groupControl_ThongTinSinhVien.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox_Phai.SuspendLayout();
+            this.groupBox_NghiHoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
@@ -224,6 +224,7 @@
             this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
             this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
             this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
             // 
             // btnThoat
             // 
@@ -291,6 +292,7 @@
             // cmbKhoa
             // 
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKhoa.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(521, 26);
             this.cmbKhoa.Name = "cmbKhoa";
@@ -458,8 +460,8 @@
             // 
             // groupControl_ThongTinSinhVien
             // 
-            this.groupControl_ThongTinSinhVien.Controls.Add(this.groupBox2);
-            this.groupControl_ThongTinSinhVien.Controls.Add(this.groupBox1);
+            this.groupControl_ThongTinSinhVien.Controls.Add(this.groupBox_Phai);
+            this.groupControl_ThongTinSinhVien.Controls.Add(this.groupBox_NghiHoc);
             this.groupControl_ThongTinSinhVien.Controls.Add(this.txtGhiChu);
             this.groupControl_ThongTinSinhVien.Controls.Add(this.txtDiaChi);
             this.groupControl_ThongTinSinhVien.Controls.Add(this.txtNoiSinh);
@@ -485,56 +487,21 @@
             this.groupControl_ThongTinSinhVien.TabIndex = 2;
             this.groupControl_ThongTinSinhVien.Text = "Thông tin sinh viên";
             // 
-            // groupBox2
+            // groupBox_Phai
             // 
-            this.groupBox2.Controls.Add(this.rdbtnChuaNghiHoc);
-            this.groupBox2.Controls.Add(this.rdbtnDaNghiHoc);
-            this.groupBox2.Location = new System.Drawing.Point(129, 228);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(255, 41);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            // 
-            // rdbtnChuaNghiHoc
-            // 
-            this.rdbtnChuaNghiHoc.AutoSize = true;
-            this.rdbtnChuaNghiHoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnChuaNghiHoc.Location = new System.Drawing.Point(155, 18);
-            this.rdbtnChuaNghiHoc.Name = "rdbtnChuaNghiHoc";
-            this.rdbtnChuaNghiHoc.Size = new System.Drawing.Size(105, 19);
-            this.rdbtnChuaNghiHoc.TabIndex = 25;
-            this.rdbtnChuaNghiHoc.TabStop = true;
-            this.rdbtnChuaNghiHoc.Text = "Chưa nghỉ học";
-            this.rdbtnChuaNghiHoc.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnDaNghiHoc
-            // 
-            this.rdbtnDaNghiHoc.AutoSize = true;
-            this.rdbtnDaNghiHoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnDaNghiHoc.Location = new System.Drawing.Point(6, 18);
-            this.rdbtnDaNghiHoc.Name = "rdbtnDaNghiHoc";
-            this.rdbtnDaNghiHoc.Size = new System.Drawing.Size(90, 19);
-            this.rdbtnDaNghiHoc.TabIndex = 24;
-            this.rdbtnDaNghiHoc.TabStop = true;
-            this.rdbtnDaNghiHoc.Text = "Đã nghỉ học";
-            this.rdbtnDaNghiHoc.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.groupBox1.Controls.Add(this.rdbtnNam);
-            this.groupBox1.Controls.Add(this.rdbtnNu);
-            this.groupBox1.Location = new System.Drawing.Point(557, 119);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 42);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
+            this.groupBox_Phai.Controls.Add(this.rdbtnNam);
+            this.groupBox_Phai.Controls.Add(this.rdbtnNu);
+            this.groupBox_Phai.Location = new System.Drawing.Point(557, 118);
+            this.groupBox_Phai.Name = "groupBox_Phai";
+            this.groupBox_Phai.Size = new System.Drawing.Size(255, 39);
+            this.groupBox_Phai.TabIndex = 33;
+            this.groupBox_Phai.TabStop = false;
             // 
             // rdbtnNam
             // 
             this.rdbtnNam.AutoSize = true;
             this.rdbtnNam.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnNam.Location = new System.Drawing.Point(31, 20);
+            this.rdbtnNam.Location = new System.Drawing.Point(29, 14);
             this.rdbtnNam.Name = "rdbtnNam";
             this.rdbtnNam.Size = new System.Drawing.Size(50, 19);
             this.rdbtnNam.TabIndex = 22;
@@ -546,13 +513,47 @@
             // 
             this.rdbtnNu.AutoSize = true;
             this.rdbtnNu.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnNu.Location = new System.Drawing.Point(168, 20);
+            this.rdbtnNu.Location = new System.Drawing.Point(169, 14);
             this.rdbtnNu.Name = "rdbtnNu";
             this.rdbtnNu.Size = new System.Drawing.Size(42, 19);
             this.rdbtnNu.TabIndex = 23;
             this.rdbtnNu.TabStop = true;
             this.rdbtnNu.Text = "Nữ";
             this.rdbtnNu.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_NghiHoc
+            // 
+            this.groupBox_NghiHoc.Controls.Add(this.rdbtnDaNghiHoc);
+            this.groupBox_NghiHoc.Controls.Add(this.rdbtnChuaNghiHoc);
+            this.groupBox_NghiHoc.Location = new System.Drawing.Point(129, 224);
+            this.groupBox_NghiHoc.Name = "groupBox_NghiHoc";
+            this.groupBox_NghiHoc.Size = new System.Drawing.Size(255, 37);
+            this.groupBox_NghiHoc.TabIndex = 32;
+            this.groupBox_NghiHoc.TabStop = false;
+            // 
+            // rdbtnDaNghiHoc
+            // 
+            this.rdbtnDaNghiHoc.AutoSize = true;
+            this.rdbtnDaNghiHoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbtnDaNghiHoc.Location = new System.Drawing.Point(6, 12);
+            this.rdbtnDaNghiHoc.Name = "rdbtnDaNghiHoc";
+            this.rdbtnDaNghiHoc.Size = new System.Drawing.Size(90, 19);
+            this.rdbtnDaNghiHoc.TabIndex = 24;
+            this.rdbtnDaNghiHoc.TabStop = true;
+            this.rdbtnDaNghiHoc.Text = "Đã nghỉ học";
+            this.rdbtnDaNghiHoc.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnChuaNghiHoc
+            // 
+            this.rdbtnChuaNghiHoc.AutoSize = true;
+            this.rdbtnChuaNghiHoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbtnChuaNghiHoc.Location = new System.Drawing.Point(144, 12);
+            this.rdbtnChuaNghiHoc.Name = "rdbtnChuaNghiHoc";
+            this.rdbtnChuaNghiHoc.Size = new System.Drawing.Size(105, 19);
+            this.rdbtnChuaNghiHoc.TabIndex = 25;
+            this.rdbtnChuaNghiHoc.TabStop = true;
+            this.rdbtnChuaNghiHoc.Text = "Chưa nghỉ học";
+            this.rdbtnChuaNghiHoc.UseVisualStyleBackColor = true;
             // 
             // txtGhiChu
             // 
@@ -561,6 +562,7 @@
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGhiChu.Properties.Appearance.Options.UseFont = true;
+            this.txtGhiChu.Properties.ReadOnly = true;
             this.txtGhiChu.Size = new System.Drawing.Size(255, 22);
             this.txtGhiChu.TabIndex = 17;
             // 
@@ -571,6 +573,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
+            this.txtDiaChi.Properties.ReadOnly = true;
             this.txtDiaChi.Size = new System.Drawing.Size(255, 22);
             this.txtDiaChi.TabIndex = 16;
             // 
@@ -581,6 +584,7 @@
             this.txtNoiSinh.Name = "txtNoiSinh";
             this.txtNoiSinh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiSinh.Properties.Appearance.Options.UseFont = true;
+            this.txtNoiSinh.Properties.ReadOnly = true;
             this.txtNoiSinh.Size = new System.Drawing.Size(255, 22);
             this.txtNoiSinh.TabIndex = 15;
             // 
@@ -591,6 +595,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
+            this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(255, 22);
             this.txtTen.TabIndex = 13;
             // 
@@ -601,6 +606,7 @@
             this.txtHo.Name = "txtHo";
             this.txtHo.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHo.Properties.Appearance.Options.UseFont = true;
+            this.txtHo.Properties.ReadOnly = true;
             this.txtHo.Size = new System.Drawing.Size(255, 22);
             this.txtHo.TabIndex = 12;
             // 
@@ -611,6 +617,7 @@
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
+            this.txtMaLop.Properties.ReadOnly = true;
             this.txtMaLop.Size = new System.Drawing.Size(255, 22);
             this.txtMaLop.TabIndex = 11;
             // 
@@ -621,6 +628,7 @@
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSV.Properties.Appearance.Options.UseFont = true;
+            this.txtMaSV.Properties.ReadOnly = true;
             this.txtMaSV.Size = new System.Drawing.Size(255, 22);
             this.txtMaSV.TabIndex = 10;
             // 
@@ -742,6 +750,7 @@
             this.txtNgaySinh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNgaySinh.Properties.Mask.EditMask = "";
             this.txtNgaySinh.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtNgaySinh.Properties.ReadOnly = true;
             this.txtNgaySinh.Size = new System.Drawing.Size(255, 22);
             this.txtNgaySinh.TabIndex = 14;
             // 
@@ -839,10 +848,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_ThongTinSinhVien)).EndInit();
             this.groupControl_ThongTinSinhVien.ResumeLayout(false);
             this.groupControl_ThongTinSinhVien.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox_Phai.ResumeLayout(false);
+            this.groupBox_Phai.PerformLayout();
+            this.groupBox_NghiHoc.ResumeLayout(false);
+            this.groupBox_NghiHoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
@@ -907,8 +916,6 @@
         private System.Windows.Forms.RadioButton rdbtnNam;
         private System.Windows.Forms.RadioButton rdbtnChuaNghiHoc;
         private System.Windows.Forms.RadioButton rdbtnDaNghiHoc;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.DateEdit txtNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn columMaLop;
@@ -926,5 +933,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn NGHIHOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn GHICHU;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private System.Windows.Forms.GroupBox groupBox_NghiHoc;
+        private System.Windows.Forms.GroupBox groupBox_Phai;
     }
 }
