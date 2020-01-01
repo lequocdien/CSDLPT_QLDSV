@@ -1,0 +1,8 @@
+CREATE PROC [dbo].[sp_IsExistMaMonHoc]
+@maMonHoc nchar(8)
+AS
+BEGIN
+	DECLARE @temp nchar(8)
+	SELECT @temp = MAMH FROM Diem WHERE MAMH = @maMonHoc
+	SELECT @@ROWCOUNT
+END
