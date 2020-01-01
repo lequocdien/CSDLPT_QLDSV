@@ -21,7 +21,7 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
 
         private void Xrm_DanhSachSinhVien_Load(object sender, EventArgs e)
         {
-            cmbKhoa.DataSource = Common.Data.bds_CNTT_VT;
+            cmbKhoa.DataSource = Common.Data.bds_CNTT_VT; 
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại
