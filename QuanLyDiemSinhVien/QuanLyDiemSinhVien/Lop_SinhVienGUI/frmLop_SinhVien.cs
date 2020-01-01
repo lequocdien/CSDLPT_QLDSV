@@ -31,7 +31,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
                 return;
             }
-            cmbKhoa.DataSource = Common.Data.bds_2_pm;
+            cmbKhoa.DataSource = Common.Data.bds_CNTT_VT;
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
             cmbKhoa.SelectedIndex = Common.Data.m_nKhoa;//vị trí item hiện tại

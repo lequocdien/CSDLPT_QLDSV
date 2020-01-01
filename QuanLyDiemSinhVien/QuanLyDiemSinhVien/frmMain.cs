@@ -47,45 +47,76 @@ namespace QuanLyDiemSinhVien
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDangNhap f = new frmDangNhap();
-            f.MdiParent = this;
-            f.Show();
-            f.PrintInfoLoginEvent += new frmDangNhap.PrintInfoLoginHandler(ShowStatusBar);
+            Form frm = this.CheckExists(typeof(frmDangNhap));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDangNhap f = new frmDangNhap();
+                f.MdiParent = this;
+                f.Show();
+                f.PrintInfoLoginEvent += new frmDangNhap.PrintInfoLoginHandler(ShowStatusBar);
+            }
+
         }
 
         private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmMonHoc frmMonHoc = new frmMonHoc();
-            frmMonHoc.MdiParent = this;
-            frmMonHoc.Show();
+            Form frm = this.CheckExists(typeof(frmMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMonHoc frmMonHoc = new frmMonHoc();
+                frmMonHoc.MdiParent = this;
+                frmMonHoc.Show();
+            }
         }
 
         private void btnLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmLop f = new frmLop();
-            f.MdiParent = this;
-            f.Show();
+            Form frm = this.CheckExists(typeof(frmLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLop f = new frmLop();
+                f.MdiParent = this;
+                f.Show();
+            }       
         }
 
         private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmLop_SinhVien f = new frmLop_SinhVien();
-            f.MdiParent = this;
-            f.Show();
+            Form frm = this.CheckExists(typeof(frmLop_SinhVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLop_SinhVien f = new frmLop_SinhVien();
+                f.MdiParent = this;
+                f.Show();
+            }
         }        
 
         private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNhapDiem f = new frmNhapDiem();
-            f.MdiParent = this;
-            f.Show();
+            Form frm = this.CheckExists(typeof(frmNhapDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmNhapDiem f = new frmNhapDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnHocPhi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmHocPhi f = new frmHocPhi();
-            f.MdiParent = this;
-            f.Show();
+            Form frm = this.CheckExists(typeof(frmHocPhi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmHocPhi f = new frmHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
         #endregion
 
@@ -113,7 +144,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("KHOA"))
+            if (x_strNhomQuyen.Equals("Khoa"))
             {
                 btnMonHoc.Enabled = true;
                 btnLop.Enabled = true;
@@ -126,7 +157,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("PKETOAN"))
+            if (x_strNhomQuyen.Equals("PKeToan"))
             {
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
@@ -143,9 +174,14 @@ namespace QuanLyDiemSinhVien
 
         private void btnTaoTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmTaoTaiKhoan f = new frmTaoTaiKhoan();
-            f.MdiParent = this;
-            f.Show();
+            Form frm = this.CheckExists(typeof(frmTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoTaiKhoan f = new frmTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
@@ -169,7 +205,21 @@ namespace QuanLyDiemSinhVien
                 Common.Data.m_strHoten = "";
 
                 Common.Data.m_nKhoa = 0;
+
+                btnDangNhap.Enabled = true;
+                btnDangXuat.Enabled = false;
+                btnTaoTaiKhoan.Enabled = false;
+                btnMonHoc.Enabled = false;
+                btnLop.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnNhapDiem.Enabled = false;
+                btnHocPhi.Enabled = false;
+
                 MessageBox.Show("Đăng xuất thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmDangNhap f = new frmDangNhap();
+                f.MdiParent = this;
+                f.Show();
+                f.PrintInfoLoginEvent += new frmDangNhap.PrintInfoLoginHandler(ShowStatusBar);
             }
             catch
             {
@@ -177,5 +227,14 @@ namespace QuanLyDiemSinhVien
                 return;
             }
         }
+
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+        }
+
     }
 }

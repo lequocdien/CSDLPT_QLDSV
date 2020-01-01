@@ -28,7 +28,6 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            Common.Data.bds_dspm.DataSource = DangNhapBUL.LoadPhanManh();
             cmbKhoa.DataSource = DangNhapBUL.LoadPhanManh();
             cmbKhoa.DisplayMember = "TENKHOA";//tên field chứa dữ liệu ta chọn
             cmbKhoa.ValueMember = "TENSERVER";//tên field chứa dữ liệu tương ứng với item ta chọn
@@ -67,15 +66,15 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             Common.Data.m_nKhoa = cmbKhoa.SelectedIndex;
             if (DangNhapBUL.KiemTraTaiKhoan(user, pass) == 1)
             {
-                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tài khoản không có quyền truy cập.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             PrintInfoLoginEvent(Data.m_strMaGV, Data.m_strHoten, Data.m_strGroup);
 
-            MessageBox.Show("kết nối thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if(cmbKhoa.SelectedValue.ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == false)
+            MessageBox.Show("Đăng nhập thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(cmbKhoa.SelectedValue.ToString().Equals(Common.Constant.PUBLICATION_NAME_KT) == false)
             {
-                Common.Data.bds_2_pm.DataSource = Load_2_PhanManh();
+                Common.Data.bds_CNTT_VT.DataSource = Load_2_PhanManh();
             }
             this.Close();
             Common.Data.Con.Close();
@@ -95,7 +94,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
             dt = BUL.DangNhapBUL.LoadPhanManh();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (dt.Rows[i][0].ToString().Equals(Common.Constant.IGNORE_SITE_PKETOAN) == true)
+                if (dt.Rows[i][0].ToString().Equals(Common.Constant.PUBLICATION_NAME_KT) == true)
                 {
                     continue;
                 }

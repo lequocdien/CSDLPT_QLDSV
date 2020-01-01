@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DangNhapDAL.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="GiangVienDAL.cs" />
     <Compile Include="HocPhiDAL.cs" />
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
