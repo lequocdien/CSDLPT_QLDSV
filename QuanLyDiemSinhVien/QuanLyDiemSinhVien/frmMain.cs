@@ -239,11 +239,11 @@ namespace QuanLyDiemSinhVien
 
         private void btn_InDSSV_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(Xrm_DanhSachSinhVien));
+            Form frm = this.CheckExists(typeof(Xrm_DanhSachDongHocPhi));
             if (frm != null) frm.Activate();
             else
             {
-                Xrm_DanhSachSinhVien f = new Xrm_DanhSachSinhVien();
+                Xrm_DanhSachDongHocPhi f = new Xrm_DanhSachDongHocPhi();
                 f.MdiParent = this;
                 f.Show();
             }

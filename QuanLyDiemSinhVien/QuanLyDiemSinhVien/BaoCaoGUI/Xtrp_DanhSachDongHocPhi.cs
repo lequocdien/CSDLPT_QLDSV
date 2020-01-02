@@ -8,9 +8,11 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
 {
     public partial class Xtrp_DanhSachDongHocPhi : DevExpress.XtraReports.UI.XtraReport
     {
-        public Xtrp_DanhSachDongHocPhi()
+        public Xtrp_DanhSachDongHocPhi(string MaLop, string NienKhoa, int HocKy)
         {
             InitializeComponent();
+            qldsvDataSet_PKeToan1.EnforceConstraints = false;
+            this.sP_InDanhSachDongHocPhiTableAdapter.Fill(qldsvDataSet_PKeToan1.SP_InDanhSachDongHocPhi, MaLop, NienKhoa, HocKy);
         }
 
     }

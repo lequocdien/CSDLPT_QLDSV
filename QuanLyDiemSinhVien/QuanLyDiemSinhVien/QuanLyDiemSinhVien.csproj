@@ -75,6 +75,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.Designer.cs">
+      <DependentUpon>Xrm_DanhSachDongHocPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoGUI\Xrm_DanhSachSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <Compile Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.Designer.cs">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.resx">
+      <DependentUpon>Xrm_DanhSachDongHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoGUI\Xrm_DanhSachSinhVien.resx">
       <DependentUpon>Xrm_DanhSachSinhVien.cs</DependentUpon>
     </EmbeddedResource>
