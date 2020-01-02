@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyDiemSinhVien.Properties {
+namespace DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -31,17 +31,6 @@ namespace QuanLyDiemSinhVien.Properties {
         public string QLDSVConnectionString {
             get {
                 return ((string)(this["QLDSVConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EI49O32\\TRANQUANGCHAU_3;Initial Catalog=QLDSV;User ID=sa;Pass" +
-            "word=12345")]
-        public string QLDSVConnectionString1 {
-            get {
-                return ((string)(this["QLDSVConnectionString1"]));
             }
         }
     }

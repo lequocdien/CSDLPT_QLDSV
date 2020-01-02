@@ -43,6 +43,7 @@
             this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -76,10 +77,11 @@
             this.btnNhapDiem,
             this.btnSinhVien,
             this.btnHocPhi,
-            this.btnTaoTaiKhoan});
+            this.btnTaoTaiKhoan,
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -175,6 +177,12 @@
             this.btnTaoTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.SvgImage")));
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
+
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Id = 21;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ribbonPage1
             // 
@@ -323,5 +331,6 @@
         private DevExpress.XtraBars.BarButtonItem btnHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

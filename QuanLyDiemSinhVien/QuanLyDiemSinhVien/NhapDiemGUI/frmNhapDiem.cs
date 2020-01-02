@@ -283,7 +283,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             cbxKhoa.DisplayMember = "TenPhanManh";
             cbxKhoa.ValueMember = "TenServer";
 
-            if (Data.m_strGroup.Equals("PKETOAN") || Data.m_strGroup.Equals("KHOA"))
+            if (Data.m_strGroup.Equals("PKeToan") || Data.m_strGroup.Equals("Khoa"))
             {
                 cbxKhoa.Enabled = false;
             }
@@ -368,7 +368,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
         private void ToggleButtonBatDau(bool x_bIsEnable)
         {
-            if (Data.m_strGroup.Equals("PKETOAN") || Data.m_strGroup.Equals("KHOA"))
+            if (Data.m_strGroup.Equals("PKeToan") || Data.m_strGroup.Equals("Khoa"))
             {
                 cbxKhoa.Enabled = false;
             }

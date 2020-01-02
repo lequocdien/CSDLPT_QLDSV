@@ -31,7 +31,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
         #region UI Event
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
-            if (Data.m_strGroup.Trim().Equals("KHOA"))
+            if (Data.m_strGroup.Trim().Equals("Khoa"))
             {
                 txtMaMonHoc.Enabled = false;
                 txtTenMonHoc.Enabled = false;
@@ -263,7 +263,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
         private void ToggleTextBoxAndButton()
         {
             DataGridViewRow dgvRow = dgvMonHoc.SelectedRows[0];
-            if (Data.m_strGroup.Trim().Equals("KHOA"))
+            if (Data.m_strGroup.Trim().Equals("Khoa"))
             {
                 txtMaMonHoc.Text = dgvRow.Cells[0].Value.ToString().Trim();
                 txtTenMonHoc.Text = dgvRow.Cells[1].Value.ToString().Trim();

@@ -17,6 +17,7 @@ using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 using QuanLyDiemSinhVien.HocPhiGUI;
 using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
+using QuanLyDiemSinhVien.BaoCaoGUI;
 
 namespace QuanLyDiemSinhVien
 {
@@ -235,6 +236,5 @@ namespace QuanLyDiemSinhVien
                     return f;
             return null;
         }
-
     }
 }
