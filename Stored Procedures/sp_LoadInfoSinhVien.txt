@@ -2,5 +2,5 @@ CREATE proc [dbo].[sp_LoadInfoSinhVien]
 @maSV nchar(8)
 as
 begin
-	select HOTEN = HO + ' ' + TEN, MALOP from SINHVIEN where MASV = @maSV
+	select HOTEN = HO + ' ' + TEN, MALOP from SINHVIEN where MASV = @maSV AND NGHIHOC = 0
 end
