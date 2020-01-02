@@ -45,6 +45,12 @@ namespace QuanLyDiemSinhVien
             btnSinhVien.Enabled = false;
             btnNhapDiem.Enabled = false;
             btnHocPhi.Enabled = false;
+
+            btnBangDiemTheoMonHoc.Enabled = false;
+            btnBangDiemTheoSinhVien.Enabled = false;
+            btnDanhSachDongHocPhi.Enabled = false;
+            btnDSThiHetMon.Enabled = false;
+            btnInDanhSachSinhVien.Enabled = false;
         }
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
@@ -179,6 +185,12 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+
+                btnBangDiemTheoMonHoc.Enabled = true;
+                btnBangDiemTheoSinhVien.Enabled = true;
+                btnDanhSachDongHocPhi.Enabled = false;
+                btnDSThiHetMon.Enabled = true;
+                btnInDanhSachSinhVien.Enabled = true;
                 return;
             }
 
@@ -192,6 +204,12 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+
+                btnBangDiemTheoMonHoc.Enabled = true;
+                btnBangDiemTheoSinhVien.Enabled = true;
+                btnDanhSachDongHocPhi.Enabled = false;
+                btnDSThiHetMon.Enabled = true;
+                btnInDanhSachSinhVien.Enabled = true;
                 return;
             }
 
@@ -205,6 +223,12 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+
+                btnBangDiemTheoMonHoc.Enabled = false;
+                btnBangDiemTheoSinhVien.Enabled = false;
+                btnDanhSachDongHocPhi.Enabled = true;
+                btnDSThiHetMon.Enabled = false;
+                btnInDanhSachSinhVien.Enabled = false;
                 return;
             }
         }
@@ -274,6 +298,28 @@ namespace QuanLyDiemSinhVien
             return null;
         }
 
-        
+        private void btnInDanhSachSinhVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Xrm_DanhSachSinhVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xrm_DanhSachSinhVien f = new Xrm_DanhSachSinhVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachDongHocPhi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Xrm_DanhSachDongHocPhi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xrm_DanhSachDongHocPhi f = new Xrm_DanhSachDongHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
