@@ -26,20 +26,28 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
             cmbMaLop.SelectedIndex = 0;
         }
 
-        //string MaLop = "";
         private void cmbMaLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-         //   MaLop = cmbMaLop.Text.Trim();
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
             string strMaLop = cmbMaLop.Text.Trim();
+            if(txtNienKhoa.Text.Trim() == "")
+            {
+                MessageBox.Show("Niên khóa không được để trống", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string strNienKhoa = txtNienKhoa.Text.Trim();
             int HocKy;
-            if(int.TryParse(this.txtHocKy.Text, out HocKy) == false)
+            if (txtHocKy.Text.Trim() == "")
             {
-                MessageBox.Show("Giá trị nhập là số", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Học kỳ không được để trống", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (int.TryParse(this.txtHocKy.Text, out HocKy) == false)
+            {
+                MessageBox.Show("Học kỳ phải là số", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Xtrp_DanhSachDongHocPhi rpt = new Xtrp_DanhSachDongHocPhi(strMaLop, strNienKhoa, HocKy);

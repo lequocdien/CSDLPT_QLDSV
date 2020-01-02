@@ -200,7 +200,7 @@
             // xrLabel_HocKy
             // 
             this.xrLabel_HocKy.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_HocKy.LocationFloat = new DevExpress.Utils.PointFloat(581.5001F, 61.45833F);
+            this.xrLabel_HocKy.LocationFloat = new DevExpress.Utils.PointFloat(599.5592F, 61.45833F);
             this.xrLabel_HocKy.Multiline = true;
             this.xrLabel_HocKy.Name = "xrLabel_HocKy";
             this.xrLabel_HocKy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -222,7 +222,7 @@
             // xrLabel_MaLop
             // 
             this.xrLabel_MaLop.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_MaLop.LocationFloat = new DevExpress.Utils.PointFloat(61.94947F, 61.45833F);
+            this.xrLabel_MaLop.LocationFloat = new DevExpress.Utils.PointFloat(50.25F, 61.45833F);
             this.xrLabel_MaLop.Multiline = true;
             this.xrLabel_MaLop.Name = "xrLabel_MaLop";
             this.xrLabel_MaLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -511,7 +511,7 @@
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell1.Summary = xrSummary2;
             this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell1.TextFormatString = "{0:#,#} VND";
+            this.xrTableCell1.TextFormatString = "{0:#,#0} VND";
             this.xrTableCell1.Weight = 1D;
             // 
             // Xtrp_DanhSachDongHocPhi

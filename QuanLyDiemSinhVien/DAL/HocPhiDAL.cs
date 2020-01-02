@@ -61,7 +61,7 @@ namespace DAL
         {
             if (DataProvider.ConnectDatabase())
             {
-                string str = "select MALOP from SINHVIEN";
+                string str = "select distinct MALOP from SINHVIEN";
                 return DataProvider.ExecSQLQueryDataTable(str);
             }
             return null;
