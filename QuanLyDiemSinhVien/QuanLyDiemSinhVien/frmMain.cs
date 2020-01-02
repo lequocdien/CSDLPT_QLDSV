@@ -175,7 +175,7 @@ namespace QuanLyDiemSinhVien
 
         private void ToggleButton(string x_strNhomQuyen)
         {
-            if (x_strNhomQuyen.Equals("PGV"))
+            if (x_strNhomQuyen.ToUpper().Equals("PGV"))
             {
                 btnMonHoc.Enabled = true;
                 btnLop.Enabled = true;
@@ -194,7 +194,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("Khoa"))
+            if (x_strNhomQuyen.ToUpper().Equals("KHOA"))
             {
                 btnMonHoc.Enabled = true;
                 btnLop.Enabled = true;
@@ -213,7 +213,7 @@ namespace QuanLyDiemSinhVien
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("PKeToan"))
+            if (x_strNhomQuyen.ToUpper().Equals("PKETOAN"))
             {
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
