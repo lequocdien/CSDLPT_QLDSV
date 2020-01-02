@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -52,6 +53,18 @@ namespace DAL
                 }
             }
             return false;
+        }
+
+        //============================= Lấy danh sách mã lớp tạo report học phí================================
+
+        public static DataTable LoadMaLop()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                string str = "select distinct MALOP from SINHVIEN";
+                return DataProvider.ExecSQLQueryDataTable(str);
+            }
+            return null;
         }
     }
 }

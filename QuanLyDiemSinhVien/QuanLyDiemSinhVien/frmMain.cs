@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using Common;
@@ -11,6 +17,7 @@ using QuanLyDiemSinhVien.NhapDiemGUI;
 using QuanLyDiemSinhVien.Lop_SinhVienGUI;
 using QuanLyDiemSinhVien.HocPhiGUI;
 using QuanLyDiemSinhVien.TaoTaiKhoanGUI;
+using QuanLyDiemSinhVien.BaoCaoGUI;
 using QuanLyDiemSinhVien.InputGUI;
 
 namespace QuanLyDiemSinhVien
@@ -38,9 +45,6 @@ namespace QuanLyDiemSinhVien
             btnSinhVien.Enabled = false;
             btnNhapDiem.Enabled = false;
             btnHocPhi.Enabled = false;
-            btnDSThiHetMon.Enabled = false;
-            btnPhieuDiem.Enabled = false;
-            btnBangDiemMH.Enabled = false;
         }
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
@@ -123,34 +127,33 @@ namespace QuanLyDiemSinhVien
             if (frm != null) frm.Activate();
             else
             {
-                frmInputDanhSachThiHetMon frmDSTHM = new frmInputDanhSachThiHetMon();
-                frmDSTHM.MdiParent = this;
-                frmDSTHM.Show();
-            }
-            
-        }
-
-        private void btnPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = this.CheckExists(typeof(frmInputPhieuDiem));
-            if (frm != null) frm.Activate();
-            else
-            {
-                frmInputPhieuDiem frmDSTHM = new frmInputPhieuDiem();
-                frmDSTHM.MdiParent = this;
-                frmDSTHM.Show();
+                frmInputDanhSachThiHetMon f = new frmInputDanhSachThiHetMon();
+                f.MdiParent = this;
+                f.Show();
             }
         }
 
-        private void btnBangDiemMH_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnBangDiemTheoMonHoc_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(frmInputBangDiemMonHoc));
             if (frm != null) frm.Activate();
             else
             {
-                frmInputBangDiemMonHoc frmBDMH = new frmInputBangDiemMonHoc();
-                frmBDMH.MdiParent = this;
-                frmBDMH.Show();
+                frmInputBangDiemMonHoc f = new frmInputBangDiemMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInputPhieuDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInputPhieuDiem f = new frmInputPhieuDiem();
+                f.MdiParent = this;
+                f.Show();
             }
         }
         #endregion
@@ -176,13 +179,10 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
-                btnDSThiHetMon.Enabled = true;
-                btnPhieuDiem.Enabled = true;
-                btnBangDiemMH.Enabled = true;
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("KHOA"))
+            if (x_strNhomQuyen.Equals("Khoa"))
             {
                 btnMonHoc.Enabled = true;
                 btnLop.Enabled = true;
@@ -192,13 +192,10 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
-                btnDSThiHetMon.Enabled = true;
-                btnPhieuDiem.Enabled = true;
-                btnBangDiemMH.Enabled = true;
                 return;
             }
 
-            if (x_strNhomQuyen.Equals("PKETOAN"))
+            if (x_strNhomQuyen.Equals("PKeToan"))
             {
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
@@ -208,9 +205,6 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
-                btnDSThiHetMon.Enabled = false; ;
-                btnPhieuDiem.Enabled = false;
-                btnBangDiemMH.Enabled = false;
                 return;
             }
         }
@@ -279,5 +273,7 @@ namespace QuanLyDiemSinhVien
                     return f;
             return null;
         }
+
+        
     }
 }

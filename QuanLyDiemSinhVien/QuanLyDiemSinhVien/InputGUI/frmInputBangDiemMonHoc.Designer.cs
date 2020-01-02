@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
-            this.lblMaLop = new System.Windows.Forms.Label();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtLanThi = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnXacNhan = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtLanThi = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMaLop = new System.Windows.Forms.TextBox();
+            this.lblMaLop = new System.Windows.Forms.Label();
+            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -57,51 +57,16 @@
             this.panel1.Size = new System.Drawing.Size(475, 280);
             this.panel1.TabIndex = 0;
             // 
-            // txtMaMonHoc
+            // btnXacNhan
             // 
-            this.txtMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaMonHoc.Location = new System.Drawing.Point(176, 28);
-            this.txtMaMonHoc.Name = "txtMaMonHoc";
-            this.txtMaMonHoc.Size = new System.Drawing.Size(289, 34);
-            this.txtMaMonHoc.TabIndex = 29;
-            // 
-            // lblMaLop
-            // 
-            this.lblMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaLop.ForeColor = System.Drawing.Color.White;
-            this.lblMaLop.Location = new System.Drawing.Point(3, 31);
-            this.lblMaLop.Name = "lblMaLop";
-            this.lblMaLop.Size = new System.Drawing.Size(166, 28);
-            this.lblMaLop.TabIndex = 32;
-            this.lblMaLop.Text = "Mã môn học:";
-            this.lblMaLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.Location = new System.Drawing.Point(176, 88);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(289, 34);
-            this.txtMaLop.TabIndex = 28;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 28);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Mã lớp";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtLanThi
-            // 
-            this.txtLanThi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLanThi.Location = new System.Drawing.Point(176, 145);
-            this.txtLanThi.Name = "txtLanThi";
-            this.txtLanThi.Size = new System.Drawing.Size(289, 34);
-            this.txtLanThi.TabIndex = 27;
+            this.btnXacNhan.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnXacNhan.Location = new System.Drawing.Point(353, 205);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(112, 49);
+            this.btnXacNhan.TabIndex = 33;
+            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // label2
             // 
@@ -114,15 +79,51 @@
             this.label2.Text = "Lần thi:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnXacNhan
+            // txtLanThi
             // 
-            this.btnXacNhan.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnXacNhan.Location = new System.Drawing.Point(353, 205);
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(112, 49);
-            this.btnXacNhan.TabIndex = 33;
-            this.btnXacNhan.Text = "Xác nhận";
-            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.txtLanThi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLanThi.Location = new System.Drawing.Point(176, 145);
+            this.txtLanThi.Name = "txtLanThi";
+            this.txtLanThi.Size = new System.Drawing.Size(289, 34);
+            this.txtLanThi.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 28);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Mã lớp";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.Location = new System.Drawing.Point(176, 88);
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(289, 34);
+            this.txtMaLop.TabIndex = 28;
+            // 
+            // lblMaLop
+            // 
+            this.lblMaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaLop.ForeColor = System.Drawing.Color.White;
+            this.lblMaLop.Location = new System.Drawing.Point(3, 31);
+            this.lblMaLop.Name = "lblMaLop";
+            this.lblMaLop.Size = new System.Drawing.Size(166, 28);
+            this.lblMaLop.TabIndex = 32;
+            this.lblMaLop.Text = "Mã môn học:";
+            this.lblMaLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMaMonHoc
+            // 
+            this.txtMaMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaMonHoc.Location = new System.Drawing.Point(176, 28);
+            this.txtMaMonHoc.Name = "txtMaMonHoc";
+            this.txtMaMonHoc.Size = new System.Drawing.Size(289, 34);
+            this.txtMaMonHoc.TabIndex = 29;
             // 
             // tableLayoutPanel1
             // 

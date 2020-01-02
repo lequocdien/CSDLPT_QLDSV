@@ -43,5 +43,13 @@ namespace BUL
         {
             return HocPhiDAL.InsertHocPhi(x_strMaSinhVien, x_lstHocPhi);
         }
+
+        //================ Lấy danh sách mã lớp tạo report học phí  ==========
+
+        public static DataTable LoadMaLop()
+        {
+            return HocPhiDAL.LoadMaLop();
+        }
+
     }
 }
