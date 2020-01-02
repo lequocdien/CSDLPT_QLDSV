@@ -54,6 +54,10 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
             }
             else
             {
+                if(BUL.LopBUL.LoadLop() == null)
+                {
+                    return;
+                }
                 cmbTenLop.DataSource = BUL.LopBUL.LoadLop();
                 cmbTenLop.DisplayMember = "TENLOP";
                 cmbTenLop.ValueMember = "MALOP";

@@ -81,6 +81,12 @@
     <Compile Include="BaoCaoGUI\Xrm_DanhSachSinhVien.Designer.cs">
       <DependentUpon>Xrm_DanhSachSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.Designer.cs">
+      <DependentUpon>Xtrp_DanhSachDongHocPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -142,6 +148,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLDSVDataSet_PKeToan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TaoTaiKhoanGUI\frmGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="BaoCaoGUI\Xrm_DanhSachSinhVien.resx">
       <DependentUpon>Xrm_DanhSachSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.resx">
+      <DependentUpon>Xtrp_DanhSachDongHocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.resx">
       <DependentUpon>Xtrp_DanhSachSinhVien.cs</DependentUpon>
@@ -219,6 +233,17 @@
     </None>
     <None Include="QLDSVDataSet.xss">
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xsc">
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDataSet_PKeToan.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xss">
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
