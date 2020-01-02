@@ -236,17 +236,5 @@ namespace QuanLyDiemSinhVien
                     return f;
             return null;
         }
-
-        private void btn_InDSSV_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = this.CheckExists(typeof(Xrm_DanhSachDongHocPhi));
-            if (frm != null) frm.Activate();
-            else
-            {
-                Xrm_DanhSachDongHocPhi f = new Xrm_DanhSachDongHocPhi();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
     }
 }

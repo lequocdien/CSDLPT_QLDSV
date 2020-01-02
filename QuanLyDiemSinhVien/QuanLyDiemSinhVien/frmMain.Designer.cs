@@ -44,6 +44,7 @@
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_InDSSV = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -52,12 +53,10 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.MdiManagerFormMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btn_InDSSV = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManagerFormMain)).BeginInit();
             this.SuspendLayout();
@@ -186,6 +185,13 @@
             this.btnBaoCao.Id = 18;
             this.btnBaoCao.Name = "btnBaoCao";
             // 
+            // btn_InDSSV
+            // 
+            this.btn_InDSSV.Caption = "In danh sách sinh viên";
+            this.btn_InDSSV.Id = 19;
+            this.btn_InDSSV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_InDSSV.ImageOptions.SvgImage")));
+            this.btn_InDSSV.Name = "btn_InDSSV";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -210,8 +216,7 @@
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
             this.ribbonPageGroup5,
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup7});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Quản lý";
             // 
@@ -255,14 +260,6 @@
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Học phí";
             // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.AllowTextClipping = false;
-            this.ribbonPageGroup8.ItemLinks.Add(this.btn_InDSSV);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.ShowCaptionButton = false;
-            this.ribbonPageGroup8.Text = "Báo cáo";
-            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -292,14 +289,6 @@
             // MdiManagerFormMain
             // 
             this.MdiManagerFormMain.MdiParent = this;
-            // 
-            // btn_InDSSV
-            // 
-            this.btn_InDSSV.Caption = "In danh sách sinh viên";
-            this.btn_InDSSV.Id = 19;
-            this.btn_InDSSV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btn_InDSSV.Name = "btn_InDSSV";
-            this.btn_InDSSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_InDSSV_ItemClick);
             // 
             // frmMain
             // 
@@ -351,7 +340,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnBaoCao;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btn_InDSSV;
     }
 }
