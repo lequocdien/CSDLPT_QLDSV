@@ -43,8 +43,7 @@
             this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
-            this.btnBaoCao = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_InDSSV = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -79,11 +78,10 @@
             this.btnSinhVien,
             this.btnHocPhi,
             this.btnTaoTaiKhoan,
-            this.btnBaoCao,
-            this.btn_InDSSV});
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -179,18 +177,12 @@
             this.btnTaoTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.SvgImage")));
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
+
             // 
-            // btnBaoCao
+            // barButtonItem1
             // 
-            this.btnBaoCao.Id = 18;
-            this.btnBaoCao.Name = "btnBaoCao";
-            // 
-            // btn_InDSSV
-            // 
-            this.btn_InDSSV.Caption = "In danh sách sinh viên";
-            this.btn_InDSSV.Id = 19;
-            this.btn_InDSSV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_InDSSV.ImageOptions.SvgImage")));
-            this.btn_InDSSV.Name = "btn_InDSSV";
+            this.barButtonItem1.Id = 21;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ribbonPage1
             // 
@@ -339,7 +331,6 @@
         private DevExpress.XtraBars.BarButtonItem btnHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
-        private DevExpress.XtraBars.BarButtonItem btnBaoCao;
-        private DevExpress.XtraBars.BarButtonItem btn_InDSSV;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
