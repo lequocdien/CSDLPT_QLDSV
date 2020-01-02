@@ -1,0 +1,11 @@
+create proc sp_PhieuDiem
+@maSV nchar(8)
+as
+begin
+	select STT = 0, TENMH, di.DIEM
+	from (select MASV, MAMH, DIEM = MAX(DIEM) 
+			from DIEM 
+			where MASV = @maSV
+			group by MASV, MAMH) di, MONHOC
+	where di.MAMH = MONHOC.MAMH
+end

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DTO
 {
-    public class DiemDAL
+    public class MonHocDTO
     {
-
+        public string MaMH { set; get; }
+        public string TenMH { set; get; }
     }
 }

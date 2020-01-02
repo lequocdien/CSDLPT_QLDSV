@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangDiemMonHocBUL.cs" />
+    <Compile Include="DangNhapBUL.cs" />
+    <Compile Include="DanhSachThiHetMonBUL.cs" />
+    <Compile Include="GiangVienBUL.cs" />
+    <Compile Include="HocPhiBUL.cs" />
+    <Compile Include="LopBUL.cs" />
+    <Compile Include="MonHocBUL.cs" />
+    <Compile Include="NhapDiemBUL.cs" />
+    <Compile Include="PhieuDiemBUL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinhVienBUL.cs" />
+    <Compile Include="TaoTaiKhoanBUL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

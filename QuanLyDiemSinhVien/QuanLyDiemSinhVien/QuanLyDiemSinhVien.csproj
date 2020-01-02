@@ -33,6 +33,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Export, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1.UI, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDiagram.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,19 +72,187 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.Designer.cs">
+      <DependentUpon>Xrm_DanhSachDongHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xrm_DanhSachSinhVien.Designer.cs">
+      <DependentUpon>Xrm_DanhSachSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.Designer.cs">
+      <DependentUpon>Xtrp_DanhSachDongHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.Designer.cs">
+      <DependentUpon>Xtrp_DanhSachSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DangNhapGUI\frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhapGUI\frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HocPhiGUI\frmHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HocPhiGUI\frmHocPhi.Designer.cs">
+      <DependentUpon>frmHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputGUI\frmInputBangDiemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputGUI\frmInputBangDiemMonHoc.Designer.cs">
+      <DependentUpon>frmInputBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputGUI\frmInputDanhSachThiHetMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputGUI\frmInputDanhSachThiHetMon.Designer.cs">
+      <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputGUI\frmInputPhieuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputGUI\frmInputPhieuDiem.Designer.cs">
+      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopGUI\frmLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopGUI\frmLop.Designer.cs">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmChuyenLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmChuyenLop.Designer.cs">
+      <DependentUpon>frmChuyenLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmLop_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lop_SinhVienGUI\frmLop_SinhVien.Designer.cs">
+      <DependentUpon>frmLop_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonHocGUI\frmMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonHocGUI\frmMonHoc.Designer.cs">
+      <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhapDiemGUI\frmNhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapDiemGUI\frmNhapDiem.Designer.cs">
+      <DependentUpon>frmNhapDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="QLDSVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSVDataSet_PKeToan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportGUI\rptBangDiemMonHoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGUI\rptBangDiemMonHoc.Designer.cs">
+      <DependentUpon>rptBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportGUI\rptDanhSachThiHetMon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGUI\rptDanhSachThiHetMon.Designer.cs">
+      <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportGUI\rptPhieuDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGUI\rptPhieuDiem.Designer.cs">
+      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoTaiKhoanGUI\frmGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoTaiKhoanGUI\frmGiangVien.Designer.cs">
+      <DependentUpon>frmGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaoCaoGUI\Xrm_DanhSachDongHocPhi.resx">
+      <DependentUpon>Xrm_DanhSachDongHocPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoGUI\Xrm_DanhSachSinhVien.resx">
+      <DependentUpon>Xrm_DanhSachSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoGUI\Xtrp_DanhSachDongHocPhi.resx">
+      <DependentUpon>Xtrp_DanhSachDongHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.resx">
+      <DependentUpon>Xtrp_DanhSachSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhapGUI\frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HocPhiGUI\frmHocPhi.resx">
+      <DependentUpon>frmHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputGUI\frmInputBangDiemMonHoc.resx">
+      <DependentUpon>frmInputBangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputGUI\frmInputDanhSachThiHetMon.resx">
+      <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputGUI\frmInputPhieuDiem.resx">
+      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopGUI\frmLop.resx">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lop_SinhVienGUI\frmChuyenLop.resx">
+      <DependentUpon>frmChuyenLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lop_SinhVienGUI\frmLop_SinhVien.resx">
+      <DependentUpon>frmLop_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonHocGUI\frmMonHoc.resx">
+      <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapDiemGUI\frmNhapDiem.resx">
+      <DependentUpon>frmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -66,6 +262,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportGUI\rptBangDiemMonHoc.resx">
+      <DependentUpon>rptBangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportGUI\rptDanhSachThiHetMon.resx">
+      <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportGUI\rptPhieuDiem.resx">
+      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoTaiKhoanGUI\frmGiangVien.resx">
+      <DependentUpon>frmGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.resx">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +286,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLDSVDataSet.xsc">
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDataSet.xss">
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xsc">
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDataSet_PKeToan.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDataSet_PKeToan.xss">
+      <DependentUpon>QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -93,12 +326,6 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DangNhapGUI\" />
-    <Folder Include="DongHocPhiGUI\" />
-    <Folder Include="Lop_SinhVienGUI\" />
-    <Folder Include="MonHocGUI\" />
-    <Folder Include="NhapDiemGUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
