@@ -14,7 +14,7 @@ namespace BUL
         public static List<DanhSachThiHetMonDTO> LoadDanhSachThiHetMon(string x_strMaLop, string x_strMaMonHoc, int x_nLanThi)
         {
             SqlDataReader objReader = DanhSachThiHetMonDAL.LoadDanhSachThiHetMon(x_strMaLop, x_strMaMonHoc, x_nLanThi);
-            if(objReader == null)
+            if (objReader == null)
             {
                 return null;
             }
@@ -34,6 +34,36 @@ namespace BUL
                 nSTT++;
             }
             return lstThiHetMon;
+        }
+
+        public static string GetTenLop(string x_strMaLop)
+        {
+            SqlDataReader objReader = DanhSachThiHetMonDAL.GetTenLop(x_strMaLop);
+            if (objReader == null)
+            {
+                return null;
+            }
+
+            if (objReader.Read())
+            {
+                return objReader[0].ToString();
+            }
+            return null;
+        }
+
+        public static string GetTenMonHoc(string x_strMaMonHoc)
+        {
+            SqlDataReader objReader = DanhSachThiHetMonDAL.GetTenMonHoc(x_strMaMonHoc);
+            if (objReader == null)
+            {
+                return null;
+            }
+
+            if (objReader.Read())
+            {
+                return objReader[0].ToString();
+            }
+            return null;
         }
     }
 }

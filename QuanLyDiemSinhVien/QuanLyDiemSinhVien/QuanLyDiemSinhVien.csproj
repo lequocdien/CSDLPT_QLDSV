@@ -78,10 +78,10 @@
     <Compile Include="DangNhapGUI\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInput\frmInputDanhSachThiHetMon.cs">
+    <Compile Include="InputGUI\frmInputDanhSachThiHetMon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInput\frmInputDanhSachThiHetMon.Designer.cs">
+    <Compile Include="InputGUI\frmInputDanhSachThiHetMon.Designer.cs">
       <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -128,10 +128,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\rptDanhSachThiHetMon.cs">
+    <Compile Include="ReportGUI\rptDanhSachThiHetMon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\rptDanhSachThiHetMon.Designer.cs">
+    <Compile Include="ReportGUI\rptDanhSachThiHetMon.Designer.cs">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
     </Compile>
     <Compile Include="TaoTaiKhoanGUI\frmGiangVien.cs">
@@ -149,7 +149,7 @@
     <EmbeddedResource Include="DangNhapGUI\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInput\frmInputDanhSachThiHetMon.resx">
+    <EmbeddedResource Include="InputGUI\frmInputDanhSachThiHetMon.resx">
       <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
@@ -183,7 +183,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report\rptDanhSachThiHetMon.resx">
+    <EmbeddedResource Include="ReportGUI\rptDanhSachThiHetMon.resx">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoTaiKhoanGUI\frmGiangVien.resx">

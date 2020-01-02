@@ -17,5 +17,23 @@ namespace DAL
             }
             return null;
         }
+
+        public static SqlDataReader GetTenLop(string x_strMaLop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT TENLOP FROM LOP WHERE MALOP = '{0}'", x_strMaLop));
+            }
+            return null;
+        }
+
+        public static SqlDataReader GetTenMonHoc(string x_strMaMonHoc)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT TENMH FROM MONHOC WHERE MAMH = '{0}'", x_strMaMonHoc));
+            }
+            return null;
+        }
     }
 }
