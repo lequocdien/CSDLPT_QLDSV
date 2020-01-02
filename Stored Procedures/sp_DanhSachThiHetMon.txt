@@ -3,7 +3,7 @@ ALTER proc [dbo].[sp_DanhSachThiHetMon]
 as
 begin
 	select sv.MASV, HOTEN = sv.HO + ' ' + sv.TEN, SOTO = 1, DIEM, CHUKY = TEN
-	from (select MASV, HO, TEN from SINHVIEN where MALOP = @maLop) sv,
+	from (select MASV, HO, TEN from SINHVIEN where MALOP = @maLop AND NGHIHOC = 0) sv,
 	(select MASV, DIEM from DIEM where MAMH = @maMonHoc AND LAN = @lan ) di
 	where sv.MASV = di.MASV
 end

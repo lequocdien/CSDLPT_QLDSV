@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangDiemMonHocDAL.cs" />
     <Compile Include="DangNhapDAL.cs" />
     <Compile Include="DanhSachThiHetMonDAL.cs" />
     <Compile Include="DataProvider.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
     <Compile Include="NhapDiemDAL.cs" />
+    <Compile Include="PhieuDiemDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVienDAL.cs" />
     <Compile Include="TaoTaiKhoanDAL.cs" />

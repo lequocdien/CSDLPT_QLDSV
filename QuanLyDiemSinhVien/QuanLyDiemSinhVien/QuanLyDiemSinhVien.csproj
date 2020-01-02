@@ -78,6 +78,12 @@
     <Compile Include="DangNhapGUI\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputGUI\frmInputBangDiemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputGUI\frmInputBangDiemMonHoc.Designer.cs">
+      <DependentUpon>frmInputBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputGUI\frmInputDanhSachThiHetMon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="HocPhiGUI\frmHocPhi.Designer.cs">
       <DependentUpon>frmHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputGUI\frmInputPhieuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputGUI\frmInputPhieuDiem.Designer.cs">
+      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="LopGUI\frmLop.cs">
       <SubType>Form</SubType>
@@ -128,11 +140,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportGUI\rptBangDiemMonHoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGUI\rptBangDiemMonHoc.Designer.cs">
+      <DependentUpon>rptBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportGUI\rptDanhSachThiHetMon.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReportGUI\rptDanhSachThiHetMon.Designer.cs">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportGUI\rptPhieuDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGUI\rptPhieuDiem.Designer.cs">
+      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="TaoTaiKhoanGUI\frmGiangVien.cs">
       <SubType>Form</SubType>
@@ -149,6 +173,9 @@
     <EmbeddedResource Include="DangNhapGUI\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputGUI\frmInputBangDiemMonHoc.resx">
+      <DependentUpon>frmInputBangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputGUI\frmInputDanhSachThiHetMon.resx">
       <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HocPhiGUI\frmHocPhi.resx">
       <DependentUpon>frmHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputGUI\frmInputPhieuDiem.resx">
+      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LopGUI\frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
@@ -183,8 +213,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportGUI\rptBangDiemMonHoc.resx">
+      <DependentUpon>rptBangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportGUI\rptDanhSachThiHetMon.resx">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportGUI\rptPhieuDiem.resx">
+      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoTaiKhoanGUI\frmGiangVien.resx">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
@@ -192,6 +228,8 @@
     <EmbeddedResource Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.resx">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DTO.BangDiemMonHocDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.PhieuDiemDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -219,8 +257,6 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

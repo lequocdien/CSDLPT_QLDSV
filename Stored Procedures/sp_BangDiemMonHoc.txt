@@ -1,0 +1,10 @@
+create proc sp_BangDiemMonHoc
+@maLop nchar(8), @maMonHoc nchar(8), @lan int
+as
+begin
+select STT = 0, HOTEN, DIEM
+from (select MASV, HOTEN = HO + ' '+ TEN
+		 from SINHVIEN where MALOP = @maLop AND NGHIHOC = 0) sv,
+		(select MASV, DIEM from Diem where MAMH = @maMonHoc AND LAN = @lan) di
+where sv.MASV = di.MASV
+end

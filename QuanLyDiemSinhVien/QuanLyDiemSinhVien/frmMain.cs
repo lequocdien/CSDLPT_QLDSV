@@ -38,6 +38,9 @@ namespace QuanLyDiemSinhVien
             btnSinhVien.Enabled = false;
             btnNhapDiem.Enabled = false;
             btnHocPhi.Enabled = false;
+            btnDSThiHetMon.Enabled = false;
+            btnPhieuDiem.Enabled = false;
+            btnBangDiemMH.Enabled = false;
         }
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
@@ -126,6 +129,30 @@ namespace QuanLyDiemSinhVien
             }
             
         }
+
+        private void btnPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInputPhieuDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInputPhieuDiem frmDSTHM = new frmInputPhieuDiem();
+                frmDSTHM.MdiParent = this;
+                frmDSTHM.Show();
+            }
+        }
+
+        private void btnBangDiemMH_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInputBangDiemMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInputBangDiemMonHoc frmBDMH = new frmInputBangDiemMonHoc();
+                frmBDMH.MdiParent = this;
+                frmBDMH.Show();
+            }
+        }
         #endregion
 
         #region Utilities
@@ -149,6 +176,9 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+                btnDSThiHetMon.Enabled = true;
+                btnPhieuDiem.Enabled = true;
+                btnBangDiemMH.Enabled = true;
                 return;
             }
 
@@ -162,6 +192,9 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+                btnDSThiHetMon.Enabled = true;
+                btnPhieuDiem.Enabled = true;
+                btnBangDiemMH.Enabled = true;
                 return;
             }
 
@@ -175,6 +208,9 @@ namespace QuanLyDiemSinhVien
                 btnDangXuat.Enabled = true;
                 btnDangNhap.Enabled = false;
                 btnTaoTaiKhoan.Enabled = true;
+                btnDSThiHetMon.Enabled = false; ;
+                btnPhieuDiem.Enabled = false;
+                btnBangDiemMH.Enabled = false;
                 return;
             }
         }

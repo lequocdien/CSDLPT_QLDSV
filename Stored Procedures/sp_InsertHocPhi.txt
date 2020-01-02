@@ -1,4 +1,4 @@
-ALTER proc [dbo].[sp_InsertHocPhi]
+create proc [dbo].[sp_InsertHocPhi]
 @maSV nchar(8), @nienKhoa nvarchar(12), @hocKy int,
 @hocPhi int, @soTienDaDong int
 as

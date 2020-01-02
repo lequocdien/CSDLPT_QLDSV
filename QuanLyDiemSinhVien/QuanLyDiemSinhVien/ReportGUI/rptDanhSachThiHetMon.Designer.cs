@@ -48,6 +48,9 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lblNgayThi = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTenMonHoc = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTenLop = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -60,9 +63,6 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTenLop = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTenMonHoc = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblNgayThi = new DevExpress.XtraReports.UI.XRLabel();
             this.bdDanhSachThiHetMon = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -81,8 +81,9 @@
             // 
             // xrTable1
             // 
-            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
+            this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTable1.BorderWidth = 2F;
             this.xrTable1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(25F, 0F);
             this.xrTable1.Name = "xrTable1";
@@ -90,6 +91,7 @@
             this.xrTableRow1});
             this.xrTable1.SizeF = new System.Drawing.SizeF(701.6944F, 25F);
             this.xrTable1.StylePriority.UseBorders = false;
+            this.xrTable1.StylePriority.UseBorderWidth = false;
             this.xrTable1.StylePriority.UseFont = false;
             this.xrTable1.StylePriority.UseTextAlignment = false;
             this.xrTable1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -287,12 +289,46 @@
             this.PageHeader.HeightF = 215.3611F;
             this.PageHeader.Name = "PageHeader";
             // 
+            // lblNgayThi
+            // 
+            this.lblNgayThi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayThi.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 141.2499F);
+            this.lblNgayThi.Multiline = true;
+            this.lblNgayThi.Name = "lblNgayThi";
+            this.lblNgayThi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblNgayThi.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
+            this.lblNgayThi.StylePriority.UseFont = false;
+            this.lblNgayThi.Text = "xrLabel10";
+            // 
+            // lblTenMonHoc
+            // 
+            this.lblTenMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 103.0556F);
+            this.lblTenMonHoc.Multiline = true;
+            this.lblTenMonHoc.Name = "lblTenMonHoc";
+            this.lblTenMonHoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTenMonHoc.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
+            this.lblTenMonHoc.StylePriority.UseFont = false;
+            this.lblTenMonHoc.Text = "xrLabel10";
+            // 
+            // lblTenLop
+            // 
+            this.lblTenLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenLop.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 63.47224F);
+            this.lblTenLop.Multiline = true;
+            this.lblTenLop.Name = "lblTenLop";
+            this.lblTenLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTenLop.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
+            this.lblTenLop.StylePriority.UseFont = false;
+            this.lblTenLop.Text = "lblTenLop";
+            // 
             // xrTable2
             // 
             this.xrTable2.BackColor = System.Drawing.Color.Silver;
-            this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
-            | DevExpress.XtraPrinting.BorderSide.Right)
+            this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTable2.BorderWidth = 2F;
             this.xrTable2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(25F, 190.3611F);
             this.xrTable2.Name = "xrTable2";
@@ -302,6 +338,7 @@
             this.xrTable2.SizeF = new System.Drawing.SizeF(701.6944F, 25F);
             this.xrTable2.StylePriority.UseBackColor = false;
             this.xrTable2.StylePriority.UseBorders = false;
+            this.xrTable2.StylePriority.UseBorderWidth = false;
             this.xrTable2.StylePriority.UseFont = false;
             this.xrTable2.StylePriority.UseTextAlignment = false;
             this.xrTable2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -362,7 +399,7 @@
             // 
             // xrLabel5
             // 
-            this.xrLabel5.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(203.3426F, 141.2499F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
@@ -375,7 +412,7 @@
             // 
             // xrLabel4
             // 
-            this.xrLabel4.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(203.3426F, 103.0556F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
@@ -388,7 +425,7 @@
             // 
             // xrLabel3
             // 
-            this.xrLabel3.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(203.3426F, 63.47224F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
@@ -409,39 +446,6 @@
             this.xrLabel2.SizeF = new System.Drawing.SizeF(312.7778F, 26.38891F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.Text = "DANH SÁCH THI  HẾT MÔN";
-            // 
-            // lblTenLop
-            // 
-            this.lblTenLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenLop.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 63.47224F);
-            this.lblTenLop.Multiline = true;
-            this.lblTenLop.Name = "lblTenLop";
-            this.lblTenLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTenLop.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
-            this.lblTenLop.StylePriority.UseFont = false;
-            this.lblTenLop.Text = "lblTenLop";
-            // 
-            // lblTenMonHoc
-            // 
-            this.lblTenMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 103.0556F);
-            this.lblTenMonHoc.Multiline = true;
-            this.lblTenMonHoc.Name = "lblTenMonHoc";
-            this.lblTenMonHoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTenMonHoc.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
-            this.lblTenMonHoc.StylePriority.UseFont = false;
-            this.lblTenMonHoc.Text = "xrLabel10";
-            // 
-            // lblNgayThi
-            // 
-            this.lblNgayThi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayThi.LocationFloat = new DevExpress.Utils.PointFloat(302.2361F, 141.2499F);
-            this.lblNgayThi.Multiline = true;
-            this.lblNgayThi.Name = "lblNgayThi";
-            this.lblNgayThi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNgayThi.SizeF = new System.Drawing.SizeF(280.125F, 22.99999F);
-            this.lblNgayThi.StylePriority.UseFont = false;
-            this.lblNgayThi.Text = "xrLabel10";
             // 
             // bdDanhSachThiHetMon
             // 

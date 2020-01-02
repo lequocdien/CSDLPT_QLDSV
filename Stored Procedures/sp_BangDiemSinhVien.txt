@@ -1,11 +1,11 @@
-CREATE PROC [dbo].[sp_BangDiemSinhVien]
+ALTER PROC [dbo].[sp_BangDiemSinhVien]
 @MaLop nchar(8), @MaMonHoc nchar(8), @Lan smallint
 AS
 BEGIN
 	SELECT sv.MASV, sv.HOTEN,
 			DIEM = isnull(di.DIEM, 0)
 	FROM (SELECT MASV, HOTEN = HO + ' ' + TEN FROM SINHVIEN
-			WHERE MALOP = @MaLop) sv
+			WHERE MALOP = @MaLop AND NGHIHOC = 0) sv
 			LEFT JOIN (SELECT MASV, DIEM FROM DIEM WHERE MAMH = @MaMonHoc AND LAN = @Lan) di
 			on sv.MASV = di.MASV
 END
