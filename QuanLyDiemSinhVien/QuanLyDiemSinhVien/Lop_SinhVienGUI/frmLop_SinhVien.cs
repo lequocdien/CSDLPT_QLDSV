@@ -166,6 +166,7 @@ namespace QuanLyDiemSinhVien.Lop_SinhVienGUI
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            dgvLop.DataSource = BUL.LopBUL.LoadLop();
             dgvSinhVien.DataSource = BUL.SinhVienBUL.LoadSinhVien(malop);
             MessageBox.Show("Tải lại dữ liệu thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

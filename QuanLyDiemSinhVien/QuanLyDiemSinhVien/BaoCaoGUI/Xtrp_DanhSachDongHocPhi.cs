@@ -12,6 +12,7 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
         {
             InitializeComponent();
             csdlpT_QLDSVDataSet_PKeToan1.EnforceConstraints = false;
+            this.sP_InDanhSachDongHocPhiTableAdapter1.Connection.ConnectionString = Common.Data.connstr;
             this.sP_InDanhSachDongHocPhiTableAdapter1.Fill(csdlpT_QLDSVDataSet_PKeToan1.SP_InDanhSachDongHocPhi, MaLop, NienKhoa, HocKy);
         }
 

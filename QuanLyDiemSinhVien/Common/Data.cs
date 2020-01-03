@@ -24,6 +24,7 @@ namespace Common
         public static String m_strHoten = ""; // họ tên
 
         public static int m_nKhoa = 0; // vị trí item trong combobox
-        public static BindingSource bds_CNTT_VT = new BindingSource(); 
+        public static BindingSource bds_CNTT_VT = new BindingSource();
+        public static string connstr;
     }
 }

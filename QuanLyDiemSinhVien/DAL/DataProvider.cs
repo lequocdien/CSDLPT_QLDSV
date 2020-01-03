@@ -28,6 +28,7 @@ namespace DAL
             {
                 string strConnectionString = "Data Source=" + Data.m_strServerName + ";Initial Catalog=" +
                        Constant.DATABASE_NAME + ";User ID=" + Data.m_strLogin + ";password=" + Data.m_strPassword;
+                Data.connstr = strConnectionString;
                 Data.m_objConnection.ConnectionString = strConnectionString;
                 Data.m_objConnection.Open();
                 return true;

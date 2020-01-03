@@ -69,7 +69,7 @@ namespace DAL
         {
             if (DataProvider.ConnectDatabase())
             {
-                string str = "select MASV from LINK2.QLDSV.DBO.HOCPHI where MASV = '" + masv + "'";
+                string str = "select MASV from LINK2.CSDLPT_QLDSV.DBO.HOCPHI where MASV = '" + masv + "'";
                 return DataProvider.ExecSQLQueryDataTable(str);
             }
             return null;
