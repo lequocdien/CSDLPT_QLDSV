@@ -99,6 +99,11 @@
     <Compile Include="BaoCaoGUI\Xtrp_DanhSachSinhVien.Designer.cs">
       <DependentUpon>Xtrp_DanhSachSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="CSDLPT_QLDSVDataSet_PKeToan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSDLPT_QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DangNhapGUI\frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,11 +134,11 @@
     <Compile Include="InputGUI\frmInputDanhSachThiHetMon.Designer.cs">
       <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputGUI\frmInputPhieuDiem.cs">
+    <Compile Include="InputGUI\frmInputBangDiemSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputGUI\frmInputPhieuDiem.Designer.cs">
-      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
+    <Compile Include="InputGUI\frmInputBangDiemSinhVien.Designer.cs">
+      <DependentUpon>frmInputBangDiemSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="LopGUI\frmLop.cs">
       <SubType>Form</SubType>
@@ -189,11 +194,11 @@
     <Compile Include="ReportGUI\rptDanhSachThiHetMon.Designer.cs">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportGUI\rptPhieuDiem.cs">
+    <Compile Include="ReportGUI\rptBangDiemSinhVien.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportGUI\rptPhieuDiem.Designer.cs">
-      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
+    <Compile Include="ReportGUI\rptBangDiemSinhVien.Designer.cs">
+      <DependentUpon>rptBangDiemSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="TaoTaiKhoanGUI\frmGiangVien.cs">
       <SubType>Form</SubType>
@@ -234,8 +239,8 @@
     <EmbeddedResource Include="InputGUI\frmInputDanhSachThiHetMon.resx">
       <DependentUpon>frmInputDanhSachThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputGUI\frmInputPhieuDiem.resx">
-      <DependentUpon>frmInputPhieuDiem.cs</DependentUpon>
+    <EmbeddedResource Include="InputGUI\frmInputBangDiemSinhVien.resx">
+      <DependentUpon>frmInputBangDiemSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LopGUI\frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
@@ -268,8 +273,8 @@
     <EmbeddedResource Include="ReportGUI\rptDanhSachThiHetMon.resx">
       <DependentUpon>rptDanhSachThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportGUI\rptPhieuDiem.resx">
-      <DependentUpon>rptPhieuDiem.cs</DependentUpon>
+    <EmbeddedResource Include="ReportGUI\rptBangDiemSinhVien.resx">
+      <DependentUpon>rptBangDiemSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoTaiKhoanGUI\frmGiangVien.resx">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
@@ -277,6 +282,17 @@
     <EmbeddedResource Include="TaoTaiKhoanGUI\frmTaoTaiKhoan.resx">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CSDLPT_QLDSVDataSet_PKeToan.xsc">
+      <DependentUpon>CSDLPT_QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </None>
+    <None Include="CSDLPT_QLDSVDataSet_PKeToan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CSDLPT_QLDSVDataSet_PKeToan.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CSDLPT_QLDSVDataSet_PKeToan.xss">
+      <DependentUpon>CSDLPT_QLDSVDataSet_PKeToan.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

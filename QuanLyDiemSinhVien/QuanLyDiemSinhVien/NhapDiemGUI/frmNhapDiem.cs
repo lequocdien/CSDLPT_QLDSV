@@ -13,14 +13,11 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
     public partial class frmNhapDiem : DevExpress.XtraEditors.XtraForm
     {
         #region Fields
-        private List<PhanManhDTO> m_lstPhanManh;
-        private List<LopDTO> m_lstLop;
-        private List<MonHocDTO> m_lstMonHoc;
         private List<BangDiemSinhVienDTO> m_lstBangDiem;
-        private string m_strMaKhoa;
         private string m_strMaLop;
         private string m_strMaMonHoc;
         private int m_nLanThi;
+        private Action m_objAction;
         BindingSource m_bdBangDiem = new BindingSource();
         #endregion
 
@@ -34,99 +31,62 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         #region UI Event
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
-            ToggleComponent(true);
-            InitializeListPhanManh();
-            InitializeListMonHoc();
-            InitializeListLop();
-            InitializeCombox();
-            cbxKhoa.SelectedItem = Data.m_nKhoa;
+            cbxKhoa.DataSource = NhapDiemBUL.LoadPhanManh();
+            cbxKhoa.DisplayMember = "TenKhoa";
+            cbxKhoa.ValueMember = "TenServer";
+            cbxKhoa.SelectedIndex = Data.m_nKhoa;
+
+            if (Data.m_strGroup.ToUpper().Equals("PKETOAN") || Data.m_strGroup.ToUpper().Equals("KHOA"))
+            {
+                cbxKhoa.Enabled = false;
+            }
+            else if (Data.m_strGroup.Equals("PGV"))
+            {
+                cbxKhoa.Enabled = true;
+            }
+
+            ToggleButtonBatDau(true);
+            btnNhapDiem.Enabled = false;
+            btnSuaDiem.Enabled = false;
+            btnChonLai.Enabled = false;
         }
 
         private void cbxKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (((PhanManhDTO)cbxKhoa.SelectedItem).TenPhanManh.Equals(Constant.PUBLICATION_NAME_CNTT))
+            Data.m_strServerName = ((PhanManhDTO)cbxKhoa.SelectedItem).TenServer;
+            if (cbxKhoa.SelectedIndex == Data.m_nKhoa)
             {
-                m_strMaKhoa = "CNTT";
-                Data.m_strServerName = ((PhanManhDTO)cbxKhoa.SelectedItem).TenServer;
-                if (cbxKhoa.SelectedIndex == Data.m_nKhoa)
-                {
-                    Data.m_strLogin = Data.m_strLoginDN;
-                    Data.m_strPassword = Data.m_strPasswordDN;
-                }
-                else
-                {
-                    Data.m_strLogin = Constant.REMOTE_LOGIN;
-                    Data.m_strPassword = Constant.REMOTE_PASSWORD;
-                }
+                Data.m_strLogin = Data.m_strLoginDN;
+                Data.m_strPassword = Data.m_strPasswordDN;
             }
-            else if (((PhanManhDTO)cbxKhoa.SelectedItem).TenPhanManh.Equals(Constant.PUBLICATION_NAME_VT))
+            else
             {
-                m_strMaKhoa = "VT";
-                Data.m_strServerName = ((PhanManhDTO)cbxKhoa.SelectedItem).TenServer;
-                if (cbxKhoa.SelectedIndex == Data.m_nKhoa)
-                {
-                    Data.m_strLogin = Data.m_strLoginDN;
-                    Data.m_strPassword = Data.m_strPasswordDN;
-                }
-                else
-                {
-                    Data.m_strLogin = Constant.REMOTE_LOGIN;
-                    Data.m_strPassword = Constant.REMOTE_PASSWORD;
-                }
+                Data.m_strLogin = Constant.REMOTE_LOGIN;
+                Data.m_strPassword = Constant.REMOTE_PASSWORD;
             }
 
-            if (NhapDiemBUL.ChangeSever() == false)
+            if (NhapDiemBUL.ChangeServer() == false)
             {
-                MessageBox.Show("Kết nối Server mới không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Kết nối khoa mới thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbxKhoa.SelectedIndex = Data.m_nKhoa;
                 return;
             }
 
-            InitializeListMonHoc();
-            InitializeListLop();
-            InitializeCombox();
+            InitalizeComboBoxLop();
+            InitalizeComboBoxMonHoc();
+            InitalizeComboBoxLanThi();
         }
 
-        private void cbxLopAndcbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbxLop.Items.Count == 0 || cbxMonHoc.Items.Count == 0)
-            {
-                return;
-            }
-            m_strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.ToString();
-            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.ToString();
+            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.Trim();
+            InitalizeComboBoxLanThi();
+        }
 
-            int nSoLanThi = NhapDiemBUL.CountSoLanThi(m_strMaMonHoc, m_strMaLop);
-            if(nSoLanThi == -1)
-            {
-                return;
-            }
-
-            if(nSoLanThi == 0)
-            {
-                //Initialize ComboBox LAN THI THU
-                cbxLanThu.Items.Clear();
-                cbxLanThu.Items.Add("Lần 1");
-                cbxLanThu.SelectedIndex = 0;
-            }
-
-            if (nSoLanThi == 1)
-            {
-                //Initialize ComboBox LAN THI THU
-                cbxLanThu.Items.Clear();
-                cbxLanThu.Items.Add("Lần 1");
-                cbxLanThu.Items.Add("Lần 2");
-                cbxLanThu.SelectedIndex = 0;
-            }
-
-            if (nSoLanThi == 2)
-            {
-                //Initialize ComboBox LAN THI THU
-                cbxLanThu.Items.Clear();
-                cbxLanThu.Items.Add("Lần 1");
-                cbxLanThu.Items.Add("Lần 2");
-                cbxLanThu.SelectedIndex = 0;
-            }
+        private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.Trim();
+            InitalizeComboBoxLanThi();
         }
 
         private void cbxLanThu_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,25 +98,25 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
         {
             ToggleButtonBatDau(false);
 
-            InitializeListBangDiem();
+            m_objAction = CanInsertOrUpdateBangDiem();
 
-            int nUpdateOrInsert = CanInsertOrUpdateBangDiem();
-            if (nUpdateOrInsert == -1)
+            if (m_objAction == Action.Unknown)
             {
+                //TODO:
                 return;
             }
-            
-            if(nUpdateOrInsert == 0)
+
+            if (m_objAction == Action.Insert)
             {
                 btnNhapDiem.Enabled = true;
                 btnSuaDiem.Enabled = false;
             }
-            else if(nUpdateOrInsert == 1)
+            else if (m_objAction == Action.Update)
             {
                 btnNhapDiem.Enabled = false;
                 btnSuaDiem.Enabled = true;
             }
-            else if(nUpdateOrInsert == 2)
+            else if (m_objAction == Action.NotAllow)
             {
                 btnNhapDiem.Enabled = false;
                 btnSuaDiem.Enabled = false;
@@ -170,7 +130,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             try
             {
                 float fValue;
-                if(x_objEventArgs.ColumnIndex == 2)
+                if (x_objEventArgs.ColumnIndex == 2)
                 {
                     if (!float.TryParse(x_objEventArgs.FormattedValue.ToString(), out fValue) || fValue < 0 || fValue > 10)
                     {
@@ -186,10 +146,10 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
 
             }
         }
-        
+
         private void btnChonLai_Click(object sender, EventArgs e)
         {
-            ToggleComponent(true);
+            SetGUI(true);
         }
 
         private void btnNhapDiem_Click(object sender, EventArgs e)
@@ -202,7 +162,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 return;
             }
             MessageBox.Show("Nhập điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ToggleComponent(true);
+            SetGUI(true);
         }
 
         private void btnSuaDiem_Click(object sender, EventArgs e)
@@ -215,149 +175,114 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
                 return;
             }
             MessageBox.Show("Cập nhật điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ToggleComponent(true);
+            SetGUI(true);
+        }
+
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+            ToggleButtonBatDau(false);
+            InitializeDataGridView();
+            MessageBox.Show("Tải lại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
         #region Utilities
-        private void InitializeListPhanManh()
+        private void InitalizeComboBoxLop()
         {
-            m_lstPhanManh = new List<PhanManhDTO>();
-            DataTable dtPhanManh = DangNhapBUL.LoadPhanManh();
-            if (dtPhanManh == null || dtPhanManh.Rows.Count == 0)
+            cbxLop.DataSource = NhapDiemBUL.LoadLop();
+            cbxLop.DisplayMember = "TENLOP";
+            cbxLop.ValueMember = "MALOP";
+            cbxLop.SelectedIndex = 0;
+        }
+
+        private void InitalizeComboBoxMonHoc()
+        {
+            cbxMonHoc.DataSource = NhapDiemBUL.LoadMonHoc();
+            cbxMonHoc.DisplayMember = "TenMH";
+            cbxMonHoc.ValueMember = "MaMH";
+            cbxMonHoc.SelectedIndex = 0;
+        }
+
+        private void InitalizeComboBoxLanThi()
+        {
+            int nSoLanThi = NhapDiemBUL.LoadLanThi(m_strMaMonHoc, m_strMaLop).Count;
+
+            if (nSoLanThi == 0)
             {
-                return;
+                //Không có lần thi nào
+                cbxLanThu.Items.Clear();
+                cbxLanThu.Items.Add("Lần 1");
+                cbxLanThu.SelectedIndex = 0;
             }
-            for (int i = 0; i < dtPhanManh.Rows.Count; i++)
+
+            if (nSoLanThi == 1 || nSoLanThi == 2)
             {
-                if (dtPhanManh.Rows[i][0].ToString().Equals(Constant.PUBLICATION_NAME_KT))
-                {
-                    continue;
-                }
-                PhanManhDTO objPhanManh = new PhanManhDTO();
-                objPhanManh.TenPhanManh = dtPhanManh.Rows[i][0].ToString();
-                objPhanManh.TenServer = dtPhanManh.Rows[i][1].ToString();
-                m_lstPhanManh.Add(objPhanManh);
+                // Có 1 lần thi hoặc 2 lần thi
+                cbxLanThu.Items.Clear();
+                cbxLanThu.Items.Add("Lần 1");
+                cbxLanThu.Items.Add("Lần 2");
+                cbxLanThu.SelectedIndex = 0;
             }
         }
 
-        private void InitializeListLop()
-        {
-            m_lstLop = LopBUL.LoadLop();
-        }
-
-        private void InitializeListMonHoc()
-        {
-            m_lstMonHoc = MonHocBUL.LoadMonHoc();
-        }
-
-        private void InitializeListBangDiem()
+        private void InitializeDataGridView()
         {
             string strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.Trim();
             string strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.Trim();
             int nLanThi = cbxLanThu.SelectedIndex + 1;
 
-            //TODO: Nên để hàm LoadBangDiemSinhVien() vào try catch
-            SqlDataReader objReader = NhapDiemBUL.LoadBangDiemSinhVien(strMaLop, strMaMonHoc, nLanThi);
-            if (objReader == null)
-            {
-                MessageBox.Show("Không thể load bảng điểm");
-                return;
-            }
-
-            m_lstBangDiem = new List<BangDiemSinhVienDTO>();
-            while (objReader.Read())
-            {
-                BangDiemSinhVienDTO objDiemSV = new BangDiemSinhVienDTO();
-                objDiemSV.MaSinhVien = objReader[0].ToString();
-                objDiemSV.HoTen = objReader[1].ToString();
-                objDiemSV.Diem = Convert.ToSingle(objReader[2]);
-                m_lstBangDiem.Add(objDiemSV);
-            }
-        }
-
-        private void InitializeCombox()
-        {
-            //Initialize ComboBox KHOA
-            cbxKhoa.DataSource = m_lstPhanManh;
-            cbxKhoa.DisplayMember = "TenPhanManh";
-            cbxKhoa.ValueMember = "TenServer";
-
-            if (Data.m_strGroup.ToUpper().Equals("PKETOAN") || Data.m_strGroup.ToUpper().Equals("KHOA"))
-            {
-                cbxKhoa.Enabled = false;
-            }
-            else if (Data.m_strGroup.Equals("PGV"))
-            {
-                cbxKhoa.Enabled = true;
-            }
-
-            //Initialize ComboBox MON HOC
-            cbxMonHoc.DataSource = m_lstMonHoc;
-            cbxMonHoc.DisplayMember = "TENMH";
-            cbxMonHoc.ValueMember = "MAMH";
-
-            //Initialize ComboBox LOP
-            cbxLop.DataSource = m_lstLop;
-            cbxLop.DisplayMember = "TENLOP";
-            cbxLop.ValueMember = "MALOP";
-
-            cbxLop.SelectedIndex = 0;
-            cbxMonHoc.SelectedIndex = 0;
-            cbxLanThu.SelectedIndex = 0;
-        }
-
-        private void InitializeDataGridView()
-        {
+            m_lstBangDiem = NhapDiemBUL.LoadBangDiemSinhVien(strMaLop, strMaMonHoc, nLanThi);
             m_bdBangDiem.DataSource = m_lstBangDiem;
             dgvNhapDiem.DataSource = m_bdBangDiem;
+
+            if (m_objAction == Action.NotAllow)
+            {
+                dgvNhapDiem.Columns["colDiem"].ReadOnly = true;
+            }
+            else
+            {
+                dgvNhapDiem.Columns["colDiem"].ReadOnly = false;
+            }
         }
-         
-        private int CanInsertOrUpdateBangDiem()
+
+        private Action CanInsertOrUpdateBangDiem()
         {
-            if (cbxLop.Items.Count == 0 || cbxMonHoc.Items.Count == 0)
+            List<string> lstLanThi = NhapDiemBUL.LoadLanThi(m_strMaMonHoc, m_strMaLop);
+            if (lstLanThi == null)
             {
-                return -1;
+                //TODO:
+                return Action.Unknown;
             }
 
-            m_strMaMonHoc = ((MonHocDTO)cbxMonHoc.SelectedItem).MaMH.ToString();
-            m_strMaLop = ((LopDTO)cbxLop.SelectedItem).MALOP.ToString();
-            int nIndexCBXLanThu = cbxLanThu.SelectedIndex + 1;
-
-            int nSoLanThi = NhapDiemBUL.CountSoLanThi(m_strMaMonHoc, m_strMaLop);
-            if (nSoLanThi == -1)
+            int nSoLanThi = lstLanThi.Count;
+            if (m_nLanThi == 1 && nSoLanThi == 0)
             {
-                return -1;
+                return Action.Insert;
             }
 
-            if (nIndexCBXLanThu == 1 && nSoLanThi == 0)
+            if (m_nLanThi == 1 && nSoLanThi == 1)
             {
-                return 0;
+                return Action.Update;
             }
 
-            if (nIndexCBXLanThu == 1 && nSoLanThi == 1)
+            if (m_nLanThi == 1 && nSoLanThi == 2)
             {
-                return 1;
+                return Action.NotAllow;
             }
 
-            if (nIndexCBXLanThu == 1 && nSoLanThi == 2)
+            if (m_nLanThi == 2 && nSoLanThi == 1)
             {
-                return 2;
-            }
-             
-            if (nIndexCBXLanThu == 2 && nSoLanThi == 1)
-            {
-                return 0;
+                return Action.Insert;
             }
 
-            if (nIndexCBXLanThu == 2 && nSoLanThi == 2)
+            if (m_nLanThi == 2 && nSoLanThi == 2)
             {
-                return 1;
+                return Action.Update;
             }
-            return -1;
+            return Action.Unknown;
         }
 
-        private void ToggleComponent(bool x_bIsEnableBatDau)
+        private void SetGUI(bool x_bIsEnableBatDau)
         {
             ToggleButtonBatDau(x_bIsEnableBatDau);
             btnNhapDiem.Enabled = !x_bIsEnableBatDau;
@@ -380,6 +305,7 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             cbxMonHoc.Enabled = x_bIsEnable;
             cbxLanThu.Enabled = x_bIsEnable;
             btnBatDau.Enabled = x_bIsEnable;
+            btnChonLai.Enabled = !x_bIsEnable;
 
             //pnlPrepareNhapDiem.ForeColor = x_bIsEnable ? Color.White : Color.Silver;
             lblKhoa.ForeColor = x_bIsEnable ? Color.White : Color.Silver;
@@ -391,12 +317,14 @@ namespace QuanLyDiemSinhVien.NhapDiemGUI
             lblLanThi.ForeColor = x_bIsEnable ? Color.White : Color.Silver;
             btnBatDau.ForeColor = x_bIsEnable ? Color.Black : Color.Silver;
         }
-
-        private void ToggleButtonPhucHoi(bool x_bIsEnable)
-        {
-            
-        }
-
         #endregion
+    }
+
+    public enum Action
+    {
+        Insert,
+        Update,
+        NotAllow,
+        Unknown
     }
 }

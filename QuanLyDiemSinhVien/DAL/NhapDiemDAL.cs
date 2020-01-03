@@ -9,9 +9,57 @@ namespace DAL
 {
     public static class NhapDiemDAL
     {
+        public static SqlDataReader LoadPhanManh()
+        {
+            try
+            {
+                Data.m_objConnection.Close();
+                string strConnectionString = "Data Source=" + Constant.SERVER_NAME + ";Initial Catalog=" + Constant.DATABASE_NAME + ";Integrated Security=True";
+                Data.m_objConnection.ConnectionString = strConnectionString;
+                Data.m_objConnection.Open();
+
+                return DataProvider.ExecSQLDataReader("SELECT * FROM V_DS_PHANMANH");
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static bool ChangeServer()
         {
-            return DataProvider.ConnectDatabase();
+            if (DataProvider.ConnectDatabase())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static SqlDataReader LoadLop()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MALOP, TENLOP FROM LOP"));
+            }
+            return null;
+        }
+
+        public static SqlDataReader LoadMonHoc()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MAMH, TENMH FROM MONHOC"));
+            }
+            return null;
+        }
+
+        public static SqlDataReader LoadLanThi(string x_strMaMonHoc, string x_strMaLop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_SoLanThi '{0}', '{1}'", x_strMaMonHoc, x_strMaLop));
+            }
+            return null;
         }
 
         public static SqlDataReader LoadBangDiemSinhVien(string x_strMaLop, string x_strMaMonHoc, int x_nLanThi)
@@ -27,13 +75,13 @@ namespace DAL
         {
             if (DataProvider.ConnectDatabase())
             {
-                SqlTransaction objTrans = Data.Con.BeginTransaction();
+                SqlTransaction objTrans = Data.m_objConnection.BeginTransaction();
                 try
                 {
                     SqlCommand objCmd;
                     for (int i = 0; i < x_lstBangDiem.Count; i++)
                     {
-                        objCmd = new SqlCommand(string.Format("INSERT INTO DIEM(MASV, MAMH, LAN, DIEM) VALUES('{0}', '{1}', {2}, {3})", x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan, x_lstBangDiem[i].Diem), Data.Con, objTrans);
+                        objCmd = new SqlCommand(string.Format("INSERT INTO DIEM(MASV, MAMH, LAN, DIEM) VALUES('{0}', '{1}', {2}, {3})", x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan, x_lstBangDiem[i].Diem), Data.m_objConnection, objTrans);
                         objCmd.ExecuteNonQuery();
                     }
                     objTrans.Commit();
@@ -52,13 +100,13 @@ namespace DAL
         {
             if (DataProvider.ConnectDatabase())
             {
-                SqlTransaction objTrans = Data.Con.BeginTransaction();
+                SqlTransaction objTrans = Data.m_objConnection.BeginTransaction();
                 try
                 {
                     SqlCommand objCmd;
                     for (int i = 0; i < x_lstBangDiem.Count; i++)
                     {
-                        objCmd = new SqlCommand(string.Format("UPDATE DIEM SET DIEM = {0} WHERE MASV = '{1}' AND MAMH = '{2}' AND LAN = {3}", x_lstBangDiem[i].Diem, x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan), Data.Con, objTrans);
+                        objCmd = new SqlCommand(string.Format("UPDATE DIEM SET DIEM = {0} WHERE MASV = '{1}' AND MAMH = '{2}' AND LAN = {3}", x_lstBangDiem[i].Diem, x_lstBangDiem[i].MaSinhVien, x_strMaMonHoc, x_nLan), Data.m_objConnection, objTrans);
                         objCmd.ExecuteNonQuery();
                     }
                     objTrans.Commit();
@@ -71,15 +119,6 @@ namespace DAL
                 }
             }
             return false;
-        }
-
-        public static SqlDataReader CountSoLanThi(string x_strMaMonHoc, string x_strMaLop)
-        {
-            if (DataProvider.ConnectDatabase())
-            {
-                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_SoLanThi '{0}', '{1}'", x_strMaMonHoc, x_strMaLop));
-            }
-            return null;
         }
     }
 }

@@ -20,16 +20,16 @@ namespace DAL
         //sv chạy tới đâu gán tới đó luôn..rồi gọi hàm connect thôi..do khai báo biến tổng rồi khỏi truyền..OK ko? 
         public static bool ConnectDatabase()
         {
-            if (Data.Con != null && Data.Con.State == ConnectionState.Open)
+            if (Data.m_objConnection != null && Data.m_objConnection.State == ConnectionState.Open)
             {
-                Data.Con.Close();
+                Data.m_objConnection.Close();
             }
             try
             {
                 string strConnectionString = "Data Source=" + Data.m_strServerName + ";Initial Catalog=" +
                        Constant.DATABASE_NAME + ";User ID=" + Data.m_strLogin + ";password=" + Data.m_strPassword;
-                Data.Con.ConnectionString = strConnectionString;
-                Data.Con.Open();
+                Data.m_objConnection.ConnectionString = strConnectionString;
+                Data.m_objConnection.Open();
                 return true;
             }
             catch (Exception ex)
@@ -46,10 +46,10 @@ namespace DAL
         /// <returns></returns>
         public static DataTable ExecSQLQueryDataTable(string x_strQueryString)
         {
-            if(Data.Con.State == ConnectionState.Open)
+            if(Data.m_objConnection.State == ConnectionState.Open)
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter objDap = new SqlDataAdapter(x_strQueryString, Data.Con);
+                SqlDataAdapter objDap = new SqlDataAdapter(x_strQueryString, Data.m_objConnection);
                 objDap.Fill(dt);
                 return dt;
             }
@@ -63,12 +63,12 @@ namespace DAL
         /// <returns></returns>
         public static bool ExecSQLQuery(string x_strQueryString)
         {
-            if (Data.Con.State == ConnectionState.Open)
+            if (Data.m_objConnection.State == ConnectionState.Open)
             {
                 SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandText = x_strQueryString;
                 objCommand.CommandType = CommandType.Text;
-                objCommand.Connection = Data.Con;
+                objCommand.Connection = Data.m_objConnection;
                 try
                 {
                     int nRes = objCommand.ExecuteNonQuery();
@@ -94,11 +94,11 @@ namespace DAL
         public static SqlDataReader ExecSQLDataReader(string x_strQueryString)
         {
             SqlDataReader objDataReader;
-            SqlCommand objSQLCommand = new SqlCommand(x_strQueryString, Data.Con);
+            SqlCommand objSQLCommand = new SqlCommand(x_strQueryString, Data.m_objConnection);
             objSQLCommand.CommandType = CommandType.Text;
-            if (Data.Con.State == ConnectionState.Closed)
+            if (Data.m_objConnection.State == ConnectionState.Closed)
             {
-                Data.Con.Open();
+                Data.m_objConnection.Open();
             }
             try
             {
@@ -107,7 +107,7 @@ namespace DAL
             }
             catch
             {
-                Data.Con.Close();
+                Data.m_objConnection.Close();
             }
             return null;
         }

@@ -81,6 +81,7 @@
             this.btnTaiLai.Size = new System.Drawing.Size(188, 61);
             this.btnTaiLai.TabIndex = 0;
             this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnPhucHoi
             // 
@@ -176,7 +177,7 @@
             this.cbxMonHoc.Name = "cbxMonHoc";
             this.cbxMonHoc.Size = new System.Drawing.Size(320, 36);
             this.cbxMonHoc.TabIndex = 4;
-            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxLopAndcbxMonHoc_SelectedIndexChanged);
+            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
             // 
             // cbxLanThu
             // 
@@ -216,7 +217,7 @@
             this.cbxLop.Name = "cbxLop";
             this.cbxLop.Size = new System.Drawing.Size(320, 36);
             this.cbxLop.TabIndex = 4;
-            this.cbxLop.SelectedIndexChanged += new System.EventHandler(this.cbxLopAndcbxMonHoc_SelectedIndexChanged);
+            this.cbxLop.SelectedIndexChanged += new System.EventHandler(this.cbxLop_SelectedIndexChanged);
             // 
             // lblMonHoc
             // 

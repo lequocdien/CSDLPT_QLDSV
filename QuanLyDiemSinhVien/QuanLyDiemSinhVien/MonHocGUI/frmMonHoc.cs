@@ -18,7 +18,7 @@ namespace QuanLyDiemSinhVien.MonHocGUI
     {
         #region Fields
         private List<MonHocDTO> m_lstMonHoc;
-        private BindingSource m_bdsMonHoc;
+        private BindingSource m_bdsMonHoc = new BindingSource();
         #endregion
 
         #region Constructor
@@ -40,7 +40,6 @@ namespace QuanLyDiemSinhVien.MonHocGUI
                 btnXoaBoMonHoc.Enabled = false;
                 dgvMonHoc.AllowUserToAddRows = false;
             }
-            m_bdsMonHoc = new BindingSource();
             ReloadGUI();
         }
 

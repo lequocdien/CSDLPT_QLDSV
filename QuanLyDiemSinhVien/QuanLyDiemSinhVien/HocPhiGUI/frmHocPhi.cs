@@ -19,6 +19,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         #region Fields
         private List<HocPhiDTO> m_lstHocPhi;
         private BindingSource m_bdHocPhi;
+        private AutoCompleteStringCollection m_lstMaSinhVien;
         #endregion
 
         #region Constructor
@@ -31,12 +32,24 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         #region UI Events
         private void frmHocPhi_Load(object sender, EventArgs e)
         {
+            m_lstMaSinhVien = new AutoCompleteStringCollection();
+            List<SinhVienDTO> lst = HocPhiBUL.LoadSinhVien();
 
+            if(lst == null)
+            {
+                return;
+            }
+
+            for(int i = 0; i<lst.Count; i++)
+            {
+                m_lstMaSinhVien.Add(lst[i].MASV.Trim());
+            }
+            txtMaSV.AutoCompleteCustomSource = m_lstMaSinhVien;
         }
 
         private void btnBatDau_Click(object sender, EventArgs e)
         {
-            string strMaSinhVien = cbxMaSinhVien.Text.Trim();
+            string strMaSinhVien = txtMaSV.Text.Trim();
             SqlDataReader objReader = HocPhiBUL.LoadInfoSinhVien(strMaSinhVien);
             if (objReader == null)
             {
@@ -61,7 +74,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
 
         private void btnGhi_Click(object sender, EventArgs e)
         {
-            string strMaSinhVien = cbxMaSinhVien.Text.Trim();
+            string strMaSinhVien = txtMaSV.Text.Trim();
             if (HocPhiBUL.InsertHocPhi(strMaSinhVien, m_lstHocPhi) == false)
             {
                 MessageBox.Show("Ghi vào database thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -130,7 +143,15 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
 
         private void btnTaiLai_Click(object sender, EventArgs e)
         {
-
+            string strMaSinhVien = txtMaSV.Text.Trim();
+            m_lstHocPhi = HocPhiBUL.LoadHocPhi(strMaSinhVien);
+            if (m_lstHocPhi == null)
+            {
+                return;
+            }
+            m_bdHocPhi = new BindingSource();
+            m_bdHocPhi.DataSource = m_lstHocPhi;
+            InitializeDataGridView();
         }
         #endregion
 
@@ -138,12 +159,6 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
         private void InitializeDataGridView()
         {
             dgvHocPhi.DataSource = m_bdHocPhi;
-
-            dgvHocPhi.Columns["colNienKhoa"].HeaderText = "Niên khóa";
-            dgvHocPhi.Columns["colHocKy"].HeaderText = "Học kỳ";
-            dgvHocPhi.Columns["colHocPhi"].HeaderText = "Học phí";
-            dgvHocPhi.Columns["colSoTienDaDong"].HeaderText = "Số tiền đã đóng";
-
             for (int i = 0; i < dgvHocPhi.RowCount; i++)
             {
                 if (i == dgvHocPhi.RowCount - 1)

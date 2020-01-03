@@ -13,10 +13,10 @@ namespace DAL
     {
         public static DataTable LoadPhanManh()
         {
-            Data.Con.Close();
+            Data.m_objConnection.Close();
             string chuoiketnoi = "Data Source="+Constant.SERVER_NAME+";Initial Catalog="+Constant.DATABASE_NAME+";Integrated Security=True";
-            Data.Con.ConnectionString = chuoiketnoi;
-            Data.Con.Open();
+            Data.m_objConnection.ConnectionString = chuoiketnoi;
+            Data.m_objConnection.Open();
             return DataProvider.ExecSQLQueryDataTable("SELECT * FROM V_DS_PHANMANH");
         }
 
@@ -47,7 +47,7 @@ namespace DAL
             {
                 Data.m_strHoten = myReader.GetString(1);
                 Data.m_strGroup = myReader.GetString(2);
-                Data.Con.Close();
+                Data.m_objConnection.Close();
                 return 2;//Đăng nhập thành công
             }
         }

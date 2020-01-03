@@ -42,7 +42,6 @@
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.cbxMaSinhVien = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblKhoa = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoTienDaDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMaSV = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnlPrepareNhapDiem.SuspendLayout();
             this.gbxNhapDiemCho.SuspendLayout();
@@ -119,10 +119,10 @@
             // gbxNhapDiemCho
             // 
             this.gbxNhapDiemCho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.gbxNhapDiemCho.Controls.Add(this.txtMaSV);
             this.gbxNhapDiemCho.Controls.Add(this.btnBatDau);
             this.gbxNhapDiemCho.Controls.Add(this.txtMaLop);
             this.gbxNhapDiemCho.Controls.Add(this.txtHoTen);
-            this.gbxNhapDiemCho.Controls.Add(this.cbxMaSinhVien);
             this.gbxNhapDiemCho.Controls.Add(this.label2);
             this.gbxNhapDiemCho.Controls.Add(this.label1);
             this.gbxNhapDiemCho.Controls.Add(this.lblKhoa);
@@ -171,18 +171,6 @@
             this.txtHoTen.ReadOnly = true;
             this.txtHoTen.Size = new System.Drawing.Size(320, 36);
             this.txtHoTen.TabIndex = 5;
-            // 
-            // cbxMaSinhVien
-            // 
-            this.cbxMaSinhVien.BackColor = System.Drawing.Color.White;
-            this.cbxMaSinhVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbxMaSinhVien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMaSinhVien.FormattingEnabled = true;
-            this.cbxMaSinhVien.IntegralHeight = false;
-            this.cbxMaSinhVien.Location = new System.Drawing.Point(168, 95);
-            this.cbxMaSinhVien.Name = "cbxMaSinhVien";
-            this.cbxMaSinhVien.Size = new System.Drawing.Size(320, 36);
-            this.cbxMaSinhVien.TabIndex = 4;
             // 
             // label2
             // 
@@ -291,6 +279,15 @@
             this.colSoTienDaDong.MinimumWidth = 8;
             this.colSoTienDaDong.Name = "colSoTienDaDong";
             // 
+            // txtMaSV
+            // 
+            this.txtMaSV.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtMaSV.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMaSV.Location = new System.Drawing.Point(168, 94);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(320, 39);
+            this.txtMaSV.TabIndex = 7;
+            // 
             // frmHocPhi
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -321,7 +318,6 @@
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private System.Windows.Forms.Panel pnlPrepareNhapDiem;
         private System.Windows.Forms.GroupBox gbxNhapDiemCho;
-        private System.Windows.Forms.ComboBox cbxMaSinhVien;
         private System.Windows.Forms.Label lblKhoa;
         private System.Windows.Forms.DataGridView dgvHocPhi;
         private System.Windows.Forms.TextBox txtMaLop;
@@ -333,5 +329,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colHocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHocPhi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoTienDaDong;
+        private System.Windows.Forms.TextBox txtMaSV;
     }
 }

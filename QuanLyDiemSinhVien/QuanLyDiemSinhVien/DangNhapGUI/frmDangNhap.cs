@@ -77,7 +77,7 @@ namespace QuanLyDiemSinhVien.DangNhapGUI
                 Common.Data.bds_CNTT_VT.DataSource = Load_2_PhanManh();
             }
             this.Close();
-            Common.Data.Con.Close();
+            Common.Data.m_objConnection.Close();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

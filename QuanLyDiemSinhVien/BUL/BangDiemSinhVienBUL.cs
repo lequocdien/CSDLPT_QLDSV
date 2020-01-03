@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace BUL
 {
-    public class DanhSachThiHetMonBUL
+    public class BangDiemSinhVienBUL
     {
         public static List<PhanManhDTO> LoadPhanManh()
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.LoadPhanManh();
-            if(objReader == null)
+            SqlDataReader objReader = BangDiemSinhVienDAL.LoadPhanManh();
+            if (objReader == null)
             {
                 return null;
             }
@@ -47,7 +47,7 @@ namespace BUL
 
         public static List<LopDTO> LoadLop()
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.LoadLop();
+            SqlDataReader objReader = BangDiemSinhVienDAL.LoadLop();
             if (objReader == null)
             {
                 return null;
@@ -65,71 +65,50 @@ namespace BUL
             return lstLop;
         }
 
-        public static List<MonHocDTO> LoadMonHoc()
+        public static List<SinhVienDTO> LoadSinhVien()
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.LoadMonHoc();
+            SqlDataReader objReader = BangDiemSinhVienDAL.LoadSinhVien();
             if (objReader == null)
             {
                 return null;
             }
 
-            List<MonHocDTO> lstMonHoc = new List<MonHocDTO>();
-            MonHocDTO objMonHoc;
+            List<SinhVienDTO> lstSinhVien = new List<SinhVienDTO>();
+            SinhVienDTO objSinhVien;
             while (objReader.Read())
             {
-                objMonHoc = new MonHocDTO();
-                objMonHoc.MaMH = objReader[0].ToString();
-                objMonHoc.TenMH = objReader[1].ToString();
-                lstMonHoc.Add(objMonHoc);
+                objSinhVien = new SinhVienDTO();
+                objSinhVien.MASV = objReader[0].ToString();
+                lstSinhVien.Add(objSinhVien);
             }
-            return lstMonHoc;
+            return lstSinhVien;
         }
 
-        public static List<string> LoadLanThi(string x_strMaMonHoc, string x_strMaLop)
+        public static List<PhieuDiemDTO> LoadPhieuDiem(string x_strMaSV)
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.LoadLanThi(x_strMaMonHoc, x_strMaLop);
+            SqlDataReader objReader = BangDiemSinhVienDAL.LoadPhieuDiem(x_strMaSV);
             if (objReader == null)
             {
                 return null;
             }
-
-            List<string> lstLanThi = new List<string>();
-            while (objReader.Read())
-            {
-                
-                lstLanThi.Add(objReader[0].ToString());
-            }
-            return lstLanThi;
-        }
-
-        public static List<DanhSachThiHetMonDTO> LoadDanhSachThiHetMon(string x_strMaLop, string x_strMaMonHoc, int x_nLanThi)
-        {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.LoadDanhSachThiHetMon(x_strMaLop, x_strMaMonHoc, x_nLanThi);
-            if (objReader == null)
-            {
-                return null;
-            }
-            List<DanhSachThiHetMonDTO> lstThiHetMon = new List<DanhSachThiHetMonDTO>();
-            DanhSachThiHetMonDTO objDSTHM;
+            List<PhieuDiemDTO> lstPhieuDiem = new List<PhieuDiemDTO>();
+            PhieuDiemDTO objPD;
             int nSTT = 1;
             while (objReader.Read())
             {
-                objDSTHM = new DanhSachThiHetMonDTO();
-                objDSTHM.STT = nSTT;
-                objDSTHM.MaSinhVien = objReader[0].ToString();
-                objDSTHM.HoTen = objReader[1].ToString();
-                objDSTHM.SoTo = int.Parse(objReader[2].ToString());
-                objDSTHM.Diem = float.Parse(objReader[3].ToString());
-                objDSTHM.Chuky = objReader[4].ToString();
-                lstThiHetMon.Add(objDSTHM);
+                objPD = new PhieuDiemDTO();
+                objPD.STT = nSTT;
+                objPD.TenMonHoc = objReader[1].ToString();
+                objPD.Diem = float.Parse(objReader[2].ToString());
+                lstPhieuDiem.Add(objPD);
                 nSTT++;
             }
-            return lstThiHetMon;
+            return lstPhieuDiem;
         }
 
-        public static string GetTenLop(string x_strMaLop)
+        public static string GetHoTen(string x_strMaSV)
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.GetTenLop(x_strMaLop);
+            SqlDataReader objReader = BangDiemSinhVienDAL.GetHoTen(x_strMaSV);
             if (objReader == null)
             {
                 return null;
@@ -142,9 +121,9 @@ namespace BUL
             return null;
         }
 
-        public static string GetTenMonHoc(string x_strMaMonHoc)
+        public static string GetMaLop(string x_strMaSV)
         {
-            SqlDataReader objReader = DanhSachThiHetMonDAL.GetTenMonHoc(x_strMaMonHoc);
+            SqlDataReader objReader = BangDiemSinhVienDAL.GetMaLop(x_strMaSV);
             if (objReader == null)
             {
                 return null;

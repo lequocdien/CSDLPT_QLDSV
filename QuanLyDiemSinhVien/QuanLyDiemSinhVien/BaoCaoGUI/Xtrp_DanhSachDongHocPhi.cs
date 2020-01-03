@@ -11,8 +11,8 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
         public Xtrp_DanhSachDongHocPhi(string MaLop, string NienKhoa, int HocKy)
         {
             InitializeComponent();
-            qldsvDataSet_PKeToan1.EnforceConstraints = false;
-            this.sP_InDanhSachDongHocPhiTableAdapter.Fill(qldsvDataSet_PKeToan1.SP_InDanhSachDongHocPhi, MaLop, NienKhoa, HocKy);
+            csdlpT_QLDSVDataSet_PKeToan1.EnforceConstraints = false;
+            this.sP_InDanhSachDongHocPhiTableAdapter1.Fill(csdlpT_QLDSVDataSet_PKeToan1.SP_InDanhSachDongHocPhi, MaLop, NienKhoa, HocKy);
         }
 
     }

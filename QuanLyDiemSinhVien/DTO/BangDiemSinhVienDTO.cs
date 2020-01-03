@@ -7,7 +7,6 @@ namespace DTO
         #region Properties
         public string MaSinhVien { get; set; }
         public string HoTen { get; set; }
-
         public float Diem { get; set; }
         #endregion
     }

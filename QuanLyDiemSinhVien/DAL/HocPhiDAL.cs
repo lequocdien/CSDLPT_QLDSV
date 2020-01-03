@@ -12,6 +12,15 @@ namespace DAL
 {
     public class HocPhiDAL
     {
+        public static SqlDataReader LoadSinhVien()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MASV FROM SINHVIEN"));
+            }
+            return null;
+        }
+
         public static SqlDataReader LoadInfoSinhVien(string x_strMaSinhVien)
         {
             if (DataProvider.ConnectDatabase())
@@ -34,13 +43,13 @@ namespace DAL
         {
             if (DataProvider.ConnectDatabase())
             {
-                SqlTransaction objTrans = Data.Con.BeginTransaction();
+                SqlTransaction objTrans = Data.m_objConnection.BeginTransaction();
                 try
                 {
                     SqlCommand objCmd;
                     for (int i = 0; i < x_lstHocPhi.Count; i++)
                     {
-                        objCmd = new SqlCommand(string.Format("exec sp_InsertHocPhi '{0}', '{1}', {2}, {3}, {4}", x_strMaSinhVien, x_lstHocPhi[i].NienKhoa, x_lstHocPhi[i].HocKy, x_lstHocPhi[i].HocPhi, x_lstHocPhi[i].SoTienDaDong), Data.Con, objTrans);
+                        objCmd = new SqlCommand(string.Format("exec sp_InsertHocPhi '{0}', '{1}', {2}, {3}, {4}", x_strMaSinhVien, x_lstHocPhi[i].NienKhoa, x_lstHocPhi[i].HocKy, x_lstHocPhi[i].HocPhi, x_lstHocPhi[i].SoTienDaDong), Data.m_objConnection, objTrans);
                         objCmd.ExecuteNonQuery();
                     }
                     objTrans.Commit();

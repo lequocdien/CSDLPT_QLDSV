@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DanhSachThiHetMonDAL
+    public class BangDiemSinhVienDAL
     {
         public static SqlDataReader LoadPhanManh()
         {
@@ -45,47 +45,38 @@ namespace DAL
             return null;
         }
 
-        public static SqlDataReader LoadMonHoc()
+        public static SqlDataReader LoadSinhVien()
         {
             if (DataProvider.ConnectDatabase())
             {
-                return DataProvider.ExecSQLDataReader(string.Format("SELECT MAMH, TENMH FROM MONHOC"));
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MASV FROM SINHVIEN"));
             }
             return null;
         }
 
-        public static SqlDataReader LoadLanThi(string x_strMaMonHoc, string x_strMaLop)
+        public static SqlDataReader LoadPhieuDiem(string x_strMaSV)
         {
             if (DataProvider.ConnectDatabase())
             {
-                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_SoLanThi '{0}', '{1}'",x_strMaMonHoc, x_strMaLop));
+                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_PhieuDiem '{0}'", x_strMaSV));
             }
             return null;
         }
 
-        public static SqlDataReader LoadDanhSachThiHetMon(string x_strMaLop, string x_strMaMonHoc, int x_nLanThi)
+        public static SqlDataReader GetHoTen(string x_strMaSV)
         {
             if (DataProvider.ConnectDatabase())
             {
-                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_DanhSachThiHetMon '{0}', '{1}', {2}", x_strMaLop, x_strMaMonHoc, x_nLanThi));
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT HOTEN = HO + ' ' + TEN FROM SINHVIEN WHERE MASV = '{0}'", x_strMaSV));
             }
             return null;
         }
 
-        public static SqlDataReader GetTenLop(string x_strMaLop)
+        public static SqlDataReader GetMaLop(string x_strMaSV)
         {
             if (DataProvider.ConnectDatabase())
             {
-                return DataProvider.ExecSQLDataReader(string.Format("SELECT TENLOP FROM LOP WHERE MALOP = '{0}'", x_strMaLop));
-            }
-            return null;
-        }
-
-        public static SqlDataReader GetTenMonHoc(string x_strMaMonHoc)
-        {
-            if (DataProvider.ConnectDatabase())
-            {
-                return DataProvider.ExecSQLDataReader(string.Format("SELECT TENMH FROM MONHOC WHERE MAMH = '{0}'", x_strMaMonHoc));
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MALOP FROM SINHVIEN WHERE MASV = '{0}'", x_strMaSV));
             }
             return null;
         }

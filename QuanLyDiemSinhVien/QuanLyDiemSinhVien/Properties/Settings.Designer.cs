@@ -26,8 +26,19 @@ namespace QuanLyDiemSinhVien.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EI49O32\\TRANQUANGCHAU_1;Initial Catalog=QLDSV;User ID=sa;Pass" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EI49O32\\TRANQUANGCHAU_3;Initial Catalog=QLDSV;User ID=sa;Pass" +
             "word=12345")]
+        public string QLDSVConnectionString1 {
+            get {
+                return ((string)(this["QLDSVConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DIEN-PC\\SERVER1;Initial Catalog=CSDLPT_QLDSV;User ID=sa;Password=0000" +
+            "")]
         public string QLDSVConnectionString {
             get {
                 return ((string)(this["QLDSVConnectionString"]));
@@ -37,11 +48,11 @@ namespace QuanLyDiemSinhVien.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EI49O32\\TRANQUANGCHAU_3;Initial Catalog=QLDSV;User ID=sa;Pass" +
-            "word=12345")]
-        public string QLDSVConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DIEN-PC\\SERVER3;Initial Catalog=CSDLPT_QLDSV;User ID=sa;Password=0000" +
+            "")]
+        public string CSDLPT_QLDSVConnectionString {
             get {
-                return ((string)(this["QLDSVConnectionString1"]));
+                return ((string)(this["CSDLPT_QLDSVConnectionString"]));
             }
         }
     }

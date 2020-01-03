@@ -153,11 +153,11 @@ namespace QuanLyDiemSinhVien
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(frmInputPhieuDiem));
+            Form frm = this.CheckExists(typeof(frmInputBangDiemSinhVien));
             if (frm != null) frm.Activate();
             else
             {
-                frmInputPhieuDiem f = new frmInputPhieuDiem();
+                frmInputBangDiemSinhVien f = new frmInputBangDiemSinhVien();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -250,9 +250,9 @@ namespace QuanLyDiemSinhVien
         {
             try
             {
-                if (Data.Con != null && Data.Con.State == ConnectionState.Open)
+                if (Data.m_objConnection != null && Data.m_objConnection.State == ConnectionState.Open)
                 {
-                    Data.Con.Close();
+                    Data.m_objConnection.Close();
                 }
                 ShowStatusBar("", "", "");
                 Common.Data.m_strServerName = "";

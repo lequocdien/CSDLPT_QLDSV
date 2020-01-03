@@ -11,7 +11,7 @@ namespace Common
     public class Data
     {
         // lúc load phân mảnh truyền chuỗi luôn khỏi khai báo biến. Do chỉ cần dùng 1 lần để lấy các svname ra thôi..sửa thì vào DangNhapDAL là được.ok ko?
-        public static SqlConnection Con = new SqlConnection();
+        public static SqlConnection m_objConnection = new SqlConnection();
         public static String m_strServerName = ""; //server DN
         public static String m_strLogin = ""; //login DN
         public static String m_strPassword = ""; //pass DN

@@ -9,7 +9,7 @@ namespace DTO
     public class PhanManhDTO
     {
         #region Properies
-        public string TenPhanManh { get; set; }
+        public string TenKhoa { get; set; }
         public string TenServer { get; set; }
         #endregion
     }

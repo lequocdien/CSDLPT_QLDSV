@@ -49,7 +49,7 @@
     <Compile Include="LopBUL.cs" />
     <Compile Include="MonHocBUL.cs" />
     <Compile Include="NhapDiemBUL.cs" />
-    <Compile Include="PhieuDiemBUL.cs" />
+    <Compile Include="BangDiemSinhVienBUL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVienBUL.cs" />
     <Compile Include="TaoTaiKhoanBUL.cs" />

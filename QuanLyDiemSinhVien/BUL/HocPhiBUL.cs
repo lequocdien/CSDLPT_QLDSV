@@ -12,6 +12,25 @@ namespace BUL
 {
     public class HocPhiBUL
     {
+        public static List<SinhVienDTO> LoadSinhVien()
+        {
+            SqlDataReader objReader = BangDiemSinhVienDAL.LoadSinhVien();
+            if (objReader == null)
+            {
+                return null;
+            }
+
+            List<SinhVienDTO> lstSinhVien = new List<SinhVienDTO>();
+            SinhVienDTO objSinhVien;
+            while (objReader.Read())
+            {
+                objSinhVien = new SinhVienDTO();
+                objSinhVien.MASV = objReader[0].ToString();
+                lstSinhVien.Add(objSinhVien);
+            }
+            return lstSinhVien;
+        }
+
         public static SqlDataReader LoadInfoSinhVien(string x_strMaSinhVien)
         {
             return HocPhiDAL.LoadInfoSinhVien(x_strMaSinhVien);

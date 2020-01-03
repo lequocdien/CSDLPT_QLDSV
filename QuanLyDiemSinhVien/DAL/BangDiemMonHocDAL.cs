@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using Common;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,6 +11,59 @@ namespace DAL
 {
     public class BangDiemMonHocDAL
     {
+        public static SqlDataReader LoadPhanManh()
+        {
+            try
+            {
+                Data.m_objConnection.Close();
+                string strConnectionString = "Data Source=" + Constant.SERVER_NAME + ";Initial Catalog=" + Constant.DATABASE_NAME + ";Integrated Security=True";
+                Data.m_objConnection.ConnectionString = strConnectionString;
+                Data.m_objConnection.Open();
+
+                return DataProvider.ExecSQLDataReader("SELECT * FROM V_DS_PHANMANH");
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static bool ChangeServer()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static SqlDataReader LoadLop()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MALOP, TENLOP FROM LOP"));
+            }
+            return null;
+        }
+
+        public static SqlDataReader LoadMonHoc()
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("SELECT MAMH, TENMH FROM MONHOC"));
+            }
+            return null;
+        }
+
+        public static SqlDataReader LoadLanThi(string x_strMaMonHoc, string x_strMaLop)
+        {
+            if (DataProvider.ConnectDatabase())
+            {
+                return DataProvider.ExecSQLDataReader(string.Format("EXEC sp_SoLanThi '{0}', '{1}'", x_strMaMonHoc, x_strMaLop));
+            }
+            return null;
+        }
+
         public static SqlDataReader LoadBangDiemMonHoc(string x_strMaLop, string x_strMaMH, int x_nLanThi)
         {
             if (DataProvider.ConnectDatabase())

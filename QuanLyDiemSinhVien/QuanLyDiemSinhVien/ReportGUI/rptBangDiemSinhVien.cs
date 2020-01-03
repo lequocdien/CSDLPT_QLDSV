@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace QuanLyDiemSinhVien.ReportGUI
 {
-    public partial class rptPhieuDiem : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptBangDiemSinhVien : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptPhieuDiem()
+        public rptBangDiemSinhVien()
         {
             InitializeComponent();
         }

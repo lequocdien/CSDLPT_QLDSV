@@ -78,11 +78,14 @@
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.csdlpT_QLDSVDataSet_PKeToan1 = new QuanLyDiemSinhVien.CSDLPT_QLDSVDataSet_PKeToan();
+            this.sP_InDanhSachDongHocPhiTableAdapter1 = new QuanLyDiemSinhVien.CSDLPT_QLDSVDataSet_PKeToanTableAdapters.SP_InDanhSachDongHocPhiTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvDataSet_PKeToan1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.csdlpT_QLDSVDataSet_PKeToan1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // sqlDataSource1
@@ -514,6 +517,15 @@
             this.xrTableCell1.TextFormatString = "{0:#,#0} VND";
             this.xrTableCell1.Weight = 1D;
             // 
+            // csdlpT_QLDSVDataSet_PKeToan1
+            // 
+            this.csdlpT_QLDSVDataSet_PKeToan1.DataSetName = "CSDLPT_QLDSVDataSet_PKeToan";
+            this.csdlpT_QLDSVDataSet_PKeToan1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sP_InDanhSachDongHocPhiTableAdapter1
+            // 
+            this.sP_InDanhSachDongHocPhiTableAdapter1.ClearBeforeFill = true;
+            // 
             // Xtrp_DanhSachDongHocPhi
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -525,10 +537,11 @@
             this.ReportFooter});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1,
-            this.qldsvDataSet_PKeToan1});
-            this.DataAdapter = this.sP_InDanhSachDongHocPhiTableAdapter;
+            this.qldsvDataSet_PKeToan1,
+            this.csdlpT_QLDSVDataSet_PKeToan1});
+            this.DataAdapter = this.sP_InDanhSachDongHocPhiTableAdapter1;
             this.DataMember = "SP_InDanhSachDongHocPhi";
-            this.DataSource = this.qldsvDataSet_PKeToan1;
+            this.DataSource = this.csdlpT_QLDSVDataSet_PKeToan1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(31, 32, 100, 100);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
@@ -543,6 +556,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.qldsvDataSet_PKeToan1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.csdlpT_QLDSVDataSet_PKeToan1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -591,5 +605,7 @@
         public DevExpress.XtraReports.UI.XRLabel xrLabel_HocKy;
         public DevExpress.XtraReports.UI.XRLabel xrLabel_NienKhoa;
         public DevExpress.XtraReports.UI.XRLabel xrLabel_MaLop;
+        private CSDLPT_QLDSVDataSet_PKeToan csdlpT_QLDSVDataSet_PKeToan1;
+        private CSDLPT_QLDSVDataSet_PKeToanTableAdapters.SP_InDanhSachDongHocPhiTableAdapter sP_InDanhSachDongHocPhiTableAdapter1;
     }
 }
