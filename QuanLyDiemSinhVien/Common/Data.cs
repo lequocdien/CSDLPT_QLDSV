@@ -25,5 +25,6 @@ namespace Common
 
         public static int m_nKhoa = 0; // vị trí item trong combobox
         public static BindingSource bds_CNTT_VT = new BindingSource(); 
+        public static string connstr;//sử dụng làm report
     }
 }

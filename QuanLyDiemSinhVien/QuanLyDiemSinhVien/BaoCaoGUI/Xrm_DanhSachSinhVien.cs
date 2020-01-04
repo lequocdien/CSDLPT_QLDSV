@@ -73,6 +73,7 @@ namespace QuanLyDiemSinhVien.BaoCaoGUI
         private void btnPreview_Click(object sender, EventArgs e)
         {
             string strMaLop = txtMaLop.Text;
+         //   MessageBox.Show(""+ Common.Data.m_strLogin, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Xtrp_DanhSachSinhVien rpt = new Xtrp_DanhSachSinhVien(strMaLop);
             rpt.xrLabel_Lop.Text = "Lớp: "+cmbTenLop.Text;
             ReportPrintTool print = new ReportPrintTool(rpt);
