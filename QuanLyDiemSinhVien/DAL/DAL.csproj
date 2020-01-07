@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="SinhVienDAL.cs" />
     <Compile Include="TaoTaiKhoanDAL.cs" />
+    <Compile Include="TestDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

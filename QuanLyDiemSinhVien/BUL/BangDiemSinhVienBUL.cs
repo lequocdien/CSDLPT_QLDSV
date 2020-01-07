@@ -98,8 +98,8 @@ namespace BUL
             {
                 objPD = new PhieuDiemDTO();
                 objPD.STT = nSTT;
-                objPD.TenMonHoc = objReader[1].ToString();
-                objPD.Diem = float.Parse(objReader[2].ToString());
+                objPD.TenMonHoc = objReader[0].ToString();
+                objPD.Diem = float.Parse(objReader[1].ToString());
                 lstPhieuDiem.Add(objPD);
                 nSTT++;
             }

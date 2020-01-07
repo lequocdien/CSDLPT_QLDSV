@@ -14,7 +14,7 @@ namespace BUL
     {
         public static List<SinhVienDTO> LoadSinhVien()
         {
-            SqlDataReader objReader = BangDiemSinhVienDAL.LoadSinhVien();
+            SqlDataReader objReader = HocPhiDAL.LoadSinhVien();
             if (objReader == null)
             {
                 return null;

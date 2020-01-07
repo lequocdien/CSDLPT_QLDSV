@@ -70,7 +70,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
             m_bdHocPhi = new BindingSource();
             m_bdHocPhi.DataSource = m_lstHocPhi;
             InitializeDataGridView();
-        }
+        } 
 
         private void btnGhi_Click(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
                     {
                         MessageBox.Show("Dữ liệu không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dgvHocPhi.CancelEdit();
-                        dgv.CurrentCell.Value = 1;
+                        //dgv.CurrentCell.Value = 1;
                         return;
                     }
 
@@ -103,7 +103,7 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
                     {
                         MessageBox.Show("Chỉ có học kỳ 1; 2; 3!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dgvHocPhi.CancelEdit();
-                        dgv.CurrentCell.Value = 1;
+                        //dgv.CurrentCell.Value = 1;
                         return;
                     }
                 }
@@ -127,9 +127,9 @@ namespace QuanLyDiemSinhVien.HocPhiGUI
                         return;
                     }
 
-                    if (nSoTienDaDong < (int)((DataGridView)x_objSender).CurrentRow.Cells["colHocPhi"].Value)
+                    if (nSoTienDaDong < (int)((DataGridView)x_objSender).CurrentRow.Cells["colHocPhi"].Value || nSoTienDaDong > (int)((DataGridView)x_objSender).CurrentRow.Cells["colHocPhi"].Value)
                     {
-                        MessageBox.Show("Số tiền đã đóng phải lớn hơn HỌC PHÍ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Số tiền đã đóng phải bằng HỌC PHÍ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dgvHocPhi.CancelEdit();
                         return;
                     }

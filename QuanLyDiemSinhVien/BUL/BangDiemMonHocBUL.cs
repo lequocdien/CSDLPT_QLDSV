@@ -116,8 +116,8 @@ namespace BUL
             {
                 objBDMH = new BangDiemMonHocDTO();
                 objBDMH.STT = nSTT;
-                objBDMH.HoVaTen = objReader[1].ToString();
-                objBDMH.Diem = float.Parse(objReader[2].ToString());
+                objBDMH.HoVaTen = objReader[0].ToString();
+                objBDMH.Diem = float.Parse(objReader[1].ToString());
                 lstBDMH.Add(objBDMH);
                 nSTT++;
             }

@@ -37,11 +37,11 @@ namespace QuanLyDiemSinhVien.TaoTaiKhoanGUI
             {
                 rdbPKeToan.Enabled = false;
             }
-            if (Common.Data.m_strGroup == "Khoa")
+            if (Common.Data.m_strGroup == "KHOA")
             {
                 rdbPGV.Enabled = rdbPKeToan.Enabled = false;
             }
-            if (Common.Data.m_strGroup == "PKeToan")
+            if (Common.Data.m_strGroup == "PKETOAN")
             {
                 rdbKhoa.Enabled = rdbPGV.Enabled = false;
             }
